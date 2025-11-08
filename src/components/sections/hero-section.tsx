@@ -66,7 +66,7 @@ export default function HeroSection({ hero, badges, dailyOffer, offerDate, galle
 
 type HeroGalleryProps = {
   images: HeroGalleryImage[];
-  supportingNote: string;
+  supportingNote?: string;
 };
 
 function HeroGallery({ images, supportingNote }: HeroGalleryProps) {
@@ -74,6 +74,7 @@ function HeroGallery({ images, supportingNote }: HeroGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const derivedIndex = slides.length ? activeIndex % slides.length : 0;
+  const note = supportingNote ?? "Erlebe die Handwerkskunst – vom Teig bis zum knusprigen Endprodukt.";
 
   useEffect(() => {
     if (slides.length <= 1 || isPaused) return undefined;
@@ -134,7 +135,7 @@ function HeroGallery({ images, supportingNote }: HeroGalleryProps) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/45 via-stone-950/0" />
           <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 text-white">
             <span className="text-[10px] uppercase tracking-[0.45em] text-white/80">BrotArt Galerie</span>
-            <p className="text-base font-medium leading-tight">{supportingNote}</p>
+            <p className="text-base font-medium leading-tight">{note}</p>
           </div>
 
           {slides.length > 1 && (

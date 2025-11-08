@@ -8,6 +8,13 @@ export type HeroGalleryImage = {
 
 const HERO_GALLERY_DIR = path.join(process.cwd(), "public", "hero-gallery");
 const SUPPORTED_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/+$/, "");
+
+const withBasePath = (value: string) => {
+  if (!value.startsWith("/")) return value;
+  if (!basePath) return value;
+  return value.startsWith(`${basePath}/`) ? value : `${basePath}${value}`;
+};
 
 const FALLBACK_GALLERY: HeroGalleryImage[] = [
   {
@@ -41,7 +48,7 @@ const loadHeroGalleryImages = (): HeroGalleryImage[] => {
       .filter((name) => SUPPORTED_EXTENSIONS.has(path.extname(name).toLowerCase()))
       .sort()
       .map((fileName) => ({
-        src: `/hero-gallery/${fileName}`,
+        src: withBasePath(`/hero-gallery/${fileName}`),
         alt: `BrotArt ${toAltText(fileName)}`,
       }));
   } catch {
