@@ -10,6 +10,7 @@ export default function SiteHeader() {
 
   const sectionIds = useMemo(() => NAV_LINKS.map((link) => link.href).filter((href) => href.startsWith("#")), []);
   const sectionElementsRef = useRef<HTMLElement[]>([]);
+  const showBrandBarRef = useRef(true);
 
   useEffect(() => {
     const recomputeSections = () => {
@@ -39,8 +40,16 @@ export default function SiteHeader() {
       });
     };
 
+    const updateBrandBarVisibility = () => {
+      const shouldShow = window.scrollY <= 100;
+      if (shouldShow !== showBrandBarRef.current) {
+        showBrandBarRef.current = shouldShow;
+        setShowBrandBar(shouldShow);
+      }
+    };
+
     const handleScroll = () => {
-      setShowBrandBar(window.scrollY < 40);
+      updateBrandBarVisibility();
       determineActiveSection();
     };
 
@@ -76,33 +85,38 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-20 border-b border-white/40 bg-white/85 backdrop-blur-xl">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
         <div
-          className={`flex items-center gap-4 overflow-hidden transition-all duration-300 ${
-            showBrandBar
-              ? "max-h-24 opacity-100 translate-y-0 py-4"
-              : "pointer-events-none -translate-y-2 max-h-0 opacity-0"
-          }`}
+          className="overflow-hidden transition-[max-height] duration-300"
+          style={{ maxHeight: showBrandBar ? "80px" : "0px" }}
         >
-          <Link
-            href="#start"
-            className="flex min-w-max items-center gap-3 rounded-full border border-white/70 bg-white/95 px-3 py-2 shadow-sm shadow-white/60 transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500"
-            aria-label="Zur Startsektion scrollen"
+          <div
+            className={`flex items-center gap-4 py-3 transition duration-300 ${
+              showBrandBar
+                ? "translate-y-0 opacity-100 pointer-events-auto"
+                : "-translate-y-3 opacity-0 pointer-events-none"
+            }`}
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brotart-600 to-brotart-400 text-sm font-semibold text-white shadow-md shadow-brotart-300">
-              BA
-            </div>
-            <div className="leading-tight">
-              <p className="text-[11px] uppercase tracking-[0.45em] text-stone-400">BrotArt</p>
-              <p className="text-sm font-semibold text-stone-900">Bäckerei & Grill</p>
-              <p className="text-[11px] text-stone-500">Handwerk & Balkan-Flair</p>
-            </div>
-          </Link>
+            <Link
+              href="#start"
+              className="flex min-w-max items-center gap-3 rounded-full border border-white/70 bg-white/95 px-3 py-2 shadow-sm shadow-white/60 transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500"
+              aria-label="Zur Startsektion scrollen"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brotart-600 to-brotart-400 text-sm font-semibold text-white shadow-md shadow-brotart-300">
+                BA
+              </div>
+              <div className="leading-tight">
+                <p className="text-[11px] uppercase tracking-[0.45em] text-stone-400">BrotArt</p>
+                <p className="text-sm font-semibold text-stone-900">Bäckerei & Grill</p>
+                <p className="text-[11px] text-stone-500">Handwerk & Balkan-Flair</p>
+              </div>
+            </Link>
 
-          <a
-            href={`tel:${CONTACT_INFO.phone}`}
-            className="ml-auto inline-flex items-center rounded-full bg-brotart-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-brotart-400 transition hover:bg-brotart-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
-          >
-            {CONTACT_INFO.displayPhone}
-          </a>
+            <a
+              href={`tel:${CONTACT_INFO.phone}`}
+              className="ml-auto inline-flex items-center rounded-full bg-brotart-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-brotart-400 transition hover:bg-brotart-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
+            >
+              {CONTACT_INFO.displayPhone}
+            </a>
+          </div>
         </div>
 
         <nav
