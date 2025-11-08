@@ -55,8 +55,8 @@ export default function ImpressumPage() {
           <a href="https://ec.europa.eu/consumers/odr/" className="text-brotart-600 underline" target="_blank" rel="noreferrer">
             https://ec.europa.eu/consumers/odr/
           </a>
-          . Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer
-          Verbraucherschlichtungsstelle teilzunehmen.
+          . Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+          teilzunehmen.
         </p>
       </section>
     </main>

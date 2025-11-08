@@ -22,13 +22,7 @@ export const metadata: Metadata = {
   },
   description:
     "BrotArt vereint schwäbische Backkunst mit Balkan-Spezialitäten – täglich frisch, lange Öffnungszeiten und herzlicher Service in Riedlingen.",
-  keywords: [
-    "BrotArt",
-    "Bäckerei Riedlingen",
-    "Balkan Spezialitäten",
-    "Burek",
-    "Holzofenpizza",
-  ],
+  keywords: ["BrotArt", "Bäckerei Riedlingen", "Balkan Spezialitäten", "Burek", "Holzofenpizza"],
   openGraph: {
     title: "BrotArt – Bäckerei & Grill in Riedlingen",
     description:

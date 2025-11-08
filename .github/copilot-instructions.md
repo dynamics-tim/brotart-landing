@@ -1,7 +1,7 @@
 # BrotArt Landing Page - AI Coding Instructions
 
 ## Architecture & Tech Stack
-- **Static Next.js 16** with `output: "export"` for simple hosting (United Domains webspace)
+- **Static Next.js 16** with `output: "export"` fuer GitHub Pages oder einfaches Static Hosting
 - **Tailwind CSS 4** with custom theme tokens (see `globals.css`)
 - **TypeScript** with strict configuration
 - **One-page design** with smooth scroll navigation to sections via anchor links
@@ -29,9 +29,9 @@ export const DAILY_OFFER: DailyOffer = dailyOffer;
 - **Accessibility**: Skip links, focus-visible styling, semantic HTML
 
 ## Component Architecture
-- **Minimal components**: Only `SiteHeader` extracted, rest inline in `page.tsx`
-- **Client components**: Only when needed (header uses intersection observer)
-- **Header pattern**: Sticky navigation with scroll-based brand bar toggle and smooth scroll
+- **Sections**: Hero, Angebot, Story, Oeffnungszeiten und Kontakt leben als einzelne Server Components unter `src/components/sections/*`
+- **Shared chrome**: `SiteHeader` (Client Component wegen Scroll-Tracking) + `SiteFooter`
+- **Page orchestration**: `src/app/page.tsx` importiert Content-Objekte und reicht sie als Props weiter
 
 ## SEO & Schema
 - **Metadata**: Comprehensive Open Graph, canonical URLs in `layout.tsx`
@@ -48,7 +48,7 @@ Essential commands (see `package.json`):
 ## Content Update Workflow
 1. **Daily offers**: Edit `src/content/daily-offer.json` with `lastUpdated` field
 2. **Static content**: Edit typed constants in `src/content/site.ts`
-3. **Auto-deploy**: GitHub Actions builds and FTPs to hosting on main branch push
+3. **Auto-deploy**: GitHub Actions baut & deployed automatisch auf GitHub Pages bei jedem Push auf `main`
 
 ## German Language Specifics
 - **Content language**: All text in German with proper umlauts and formatting
@@ -56,11 +56,12 @@ Essential commands (see `package.json`):
 - **Typography**: Semantic HTML with German-specific heading hierarchy
 
 ## Key Files to Understand
-- `src/app/page.tsx` - Single-page application with all sections
+- `src/app/page.tsx` - Orchestrates all sections + schema injection
+- `src/components/sections/*` - Section-level building blocks
+- `src/components/site-header.tsx` / `site-footer.tsx` - Shared layout elements
 - `src/content/site.ts` - All content constants and type definitions
-- `src/components/site-header.tsx` - Navigation with intersection observer
 - `next.config.ts` - Static export configuration
-- `.github/workflows/deploy.yml` - CI/CD to United Domains hosting
+- `.github/workflows/deploy.yml` - Build & deploy to GitHub Pages
 
 ## Future-Proofing Notes
 - Content structure ready for i18n (separate language files)

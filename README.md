@@ -3,8 +3,9 @@
 Next.js 16 plus Tailwind CSS 4 liefern eine statische One-Page-Landing, die sich auf einfachem Storage (z. B. United Domains Webspace) hosten laesst. Impressum und Datenschutz liegen als eigene Routen.
 
 ## Architektur und Inhalte
-- `src/app/page.tsx` enthaelt alle Abschnitte: Header/Navi, Hero mit Tagesangebot, Spezialitaeten, Ueber-uns, Oeffnungszeiten & Standort (inkl. Google-Maps-Embed), Kontaktbereich mit Formular-Dummy sowie Footer mit Social- und Rechtsverweisen.
-- Statische Texte und Metadaten liegen zentral in `src/content/site.ts`, wodurch spaetere Sprachversionen oder externe Datenquellen leichter eingebunden werden koennen.
+- `src/app/page.tsx` orchestriert die Landingpage und reicht die Content-Daten an klar getrennte Abschnittskomponenten weiter.
+- Die eigentlichen Sektionen leben unter `src/components/sections/*` (Hero, Angebot, Story, Oeffnungszeiten, Kontakt) plus `src/components/site-header.tsx` und `src/components/site-footer.tsx`.
+- Statische Texte, Listen und Kontakt-Hervorhebungen liegen zentral in `src/content/site.ts`; dadurch lassen sich Spaeter Sprachversionen oder externe Datenquellen einfacher anbinden.
 - Das Tagesangebot sitzt separat in `src/content/daily-offer.json`. Die UI liest die Angaben inklusive `lastUpdated` und zeigt automatisch ein lokalisiertes Datum an.
 - SEO-Elemente: `src/app/layout.tsx` definiert Title, Description und Open Graph, `src/app/sitemap.ts` und `src/app/robots.ts` liefern die Crawler-Dateien, `page.tsx` injiziert ein LocalBusiness JSON-LD Snippet.
 - `src/app/impressum/page.tsx` und `src/app/datenschutz/page.tsx` decken die Pflichtseiten ab.
@@ -28,7 +29,7 @@ Next.js 16 plus Tailwind CSS 4 liefern eine statische One-Page-Landing, die sich
 | Produktionsbuild + statischer Export (`out/`) | `npm run build` |
 | Statisches Preview aus `out/` | `npm run preview` |
 
-## CI/CD zu United Domains
+## CI/CD via GitHub Pages
 Workflow: `.github/workflows/deploy.yml`
 
 1. Build-Job bei jedem Push auf `main` oder via `workflow_dispatch`:
@@ -36,17 +37,11 @@ Workflow: `.github/workflows/deploy.yml`
    - `npm ci`
    - `npm run lint`
    - `npm run typecheck`
-   - `npm run build` erzeugt `out/`
+   - `npm run build` erzeugt den statischen Export in `out/`
    - `out/` wird als Artifact hinterlegt
-2. Deploy-Job laedt das Artifact und uebertraegt es via `SamKirkland/FTP-Deploy-Action@v4` per FTPS ins United-Domains-Hosting.
+2. Deploy-Job (`actions/deploy-pages@v4`) veroeffentlicht das Artifact automatisch auf GitHub Pages.
 
-Noetige GitHub-Secrets:
-- `UD_FTP_SERVER` (z. B. `ftp.udag.de`)
-- `UD_FTP_USERNAME`
-- `UD_FTP_PASSWORD`
-- `UD_FTP_TARGET_DIR` (z. B. `/htdocs`)
-
-Die Action arbeitet differenziell; fuer einen Full-Reset kann optional `dangerous-clean-slate: true` gesetzt werden.
+Noetig sind lediglich die standardmaessigen GitHub-Pages-Permissions (`contents: read`, `pages: write`, `id-token: write`); keine zusaetzlichen Secrets.
 
 ## Testing und QA
 - `npm run lint` und `npm run typecheck` muessen gruene Ergebnisse liefern.

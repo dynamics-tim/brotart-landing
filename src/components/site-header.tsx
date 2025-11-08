@@ -1,20 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { CONTACT_INFO, NAV_LINKS } from "@/content/site";
+
+const SECTION_HASHES = NAV_LINKS.filter((link) => link.href.startsWith("#")).map((link) => link.href);
 
 export default function SiteHeader() {
   const [activeHref, setActiveHref] = useState(NAV_LINKS[0]?.href ?? "#start");
   const [showBrandBar, setShowBrandBar] = useState(true);
 
-  const sectionIds = useMemo(() => NAV_LINKS.map((link) => link.href).filter((href) => href.startsWith("#")), []);
   const sectionElementsRef = useRef<HTMLElement[]>([]);
   const showBrandBarRef = useRef(true);
 
   useEffect(() => {
     const recomputeSections = () => {
-      sectionElementsRef.current = sectionIds
+      sectionElementsRef.current = SECTION_HASHES
         .map((hash) => document.getElementById(hash.slice(1)))
         .filter((el): el is HTMLElement => Boolean(el));
     };
@@ -23,7 +24,7 @@ export default function SiteHeader() {
       const sections = sectionElementsRef.current;
       if (!sections.length) return;
 
-      const scrollPosition = window.scrollY + 140; // accounts for sticky header height
+      const scrollPosition = window.scrollY + 140;
       let currentId = sections[0].id;
 
       for (const section of sections) {
@@ -70,13 +71,12 @@ export default function SiteHeader() {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("orientationchange", handleResize);
     };
-  }, [sectionIds]);
+  }, []);
 
-  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#")) {
       event.preventDefault();
-      const target = document.querySelector<HTMLElement>(href);
-      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.querySelector<HTMLElement>(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
     setActiveHref(href);
   };
