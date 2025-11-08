@@ -17,7 +17,8 @@ export default function SiteHeader() {
     const recomputeSections = () => {
       sectionElementsRef.current = SECTION_HASHES
         .map((hash) => document.getElementById(hash.slice(1)))
-        .filter((el): el is HTMLElement => Boolean(el));
+        .filter((el): el is HTMLElement => Boolean(el))
+        .sort((a, b) => a.offsetTop - b.offsetTop);
     };
 
     const determineActiveSection = () => {
@@ -114,7 +115,7 @@ export default function SiteHeader() {
               href={`tel:${CONTACT_INFO.phone}`}
               className="ml-auto inline-flex items-center rounded-full bg-brotart-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-brotart-400 transition hover:bg-brotart-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
             >
-              {CONTACT_INFO.displayPhone}
+              📞 {CONTACT_INFO.displayPhone}
             </a>
           </div>
         </div>

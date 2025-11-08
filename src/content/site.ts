@@ -9,6 +9,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Start", href: "#start" },
   { label: "Angebot", href: "#angebot" },
   { label: "Über uns", href: "#ueber-uns" },
+  { label: "Bewertungen", href: "#bewertungen" },
   { label: "Öffnungszeiten", href: "#oeffnungszeiten" },
   { label: "Kontakt", href: "#kontakt" },
 ];
@@ -24,19 +25,19 @@ export const SPECIALTIES: Specialty[] = [
   {
     name: "Burek vom Blech",
     description: "Hausgemachter Strudelteig, täglich frisch gefüllt.",
-    details: "Varianten mit Rind, Spinat-Käse oder Kartoffel – knusprig im Steinofen gebacken.",
-    icon: "🥧",
+    details: "Rind, Spinat-Käse oder Kartoffel – knusprig im Steinofen gebacken.",
+    icon: "🥟",
   },
   {
     name: "Mantije & Pide",
     description: "Handgerollte Teigschiffchen mit würzigen Füllungen.",
-    details: "Ideal zum Teilen – serviert mit Ajvar, Joghurt oder frischen Kräutern.",
-    icon: "🥟",
+    details: "Zum Teilen gedacht – serviert mit Ajvar, Joghurt oder frischen Kräutern.",
+    icon: "🥖",
   },
   {
     name: "Holzofen-Pizza",
     description: "Dünner Boden, hohe Hitze, rauchiges Aroma.",
-    details: "Signature-Pizza »Balkan« mit hausgemachter Sudschuk, eingelegter Paprika und Kräuter-Öl.",
+    details: "Signature-Pizza „Balkan“ mit Sudschuk, eingelegter Paprika und Kräuteröl.",
     icon: "🍕",
   },
 ];
@@ -50,17 +51,15 @@ export const CORE_VALUES: ValueCard[] = [
   {
     title: "Familienbetrieb seit 2024",
     description:
-      "Gegründet von Familie Imeri – eine Kombination aus schwäbischer Bodenständigkeit und Balkan-Gastfreundschaft.",
+      "Gegründet von Familie Imeri – schwäbische Bodenständigkeit trifft Balkan-Gastfreundschaft.",
   },
   {
     title: "Transparente Produktion",
-    description:
-      "Der Blick in den Ofen ist gewollt: Gäste sehen, wie Teig ruht, gefüllt wird und im Holzofen aufgeht.",
+    description: "Der Blick in den Ofen ist gewollt: Gäste sehen jede Etappe vom Teig bis zum Ofen.",
   },
   {
     title: "Gemeinsamkeit & Genuss",
-    description:
-      "BrotArt ist Treffpunkt für Frühaufsteher, Mittagspausen und späte Snack-Liebhaber – sieben Tage pro Woche.",
+    description: "Treffpunkt für Frühaufsteher, Mittagspausen und Nachtschwärmer – sieben Tage die Woche.",
   },
 ];
 
@@ -213,3 +212,78 @@ export const HERO_CONTENT: HeroContent = {
   },
   supportingNote: "Offenherzige Küche & direkte Sicht auf den Holzofen",
 };
+
+export type GoogleReviewSummary = {
+  averageRating: number;
+  reviewCount: number;
+  dataAsOf: string;
+  source: string;
+  url: string;
+  highlights: string[];
+};
+
+export type GoogleReview = {
+  author: string;
+  role: string;
+  relativeTime: string;
+  rating: number;
+  excerpt: string;
+  highlight: string;
+  topics: string[];
+};
+
+export const GOOGLE_REVIEW_SUMMARY: GoogleReviewSummary = {
+  averageRating: 5,
+  reviewCount: 133,
+  dataAsOf: "08.11.2025",
+  source: "Google Maps",
+  url: "https://www.google.com/maps/place/Balkan+B%C3%A4ckerei-Pizza-Grill-(Brotart)+-+MANTIJE+-+BUREK/@48.1499404,9.4871048,17z/data=!4m8!3m7!1s0x479a33a082553fc3:0x9e93d68f8046cbc0!8m2!3d48.1500973!4d9.4868941!9m1!1b1!16s%2Fg%2F11lf3jk52m?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D",
+  highlights: [
+    "Preis-Leistung wird besonders oft hervorgehoben",
+    "Auswahl reicht von Börek über Wraps bis Cevapcici",
+    "Servicefenster von 05:00 bis 22:00 Uhr fällt positiv auf",
+  ],
+};
+
+export const GOOGLE_REVIEWS: GoogleReview[] = [
+  {
+    author: "Christian Kell",
+    role: "Local Guide | 42 Rezensionen | 122 Fotos",
+    relativeTime: "vor 2 Monaten",
+    rating: 5,
+    excerpt:
+      "Kann ich nur empfehlen. Super Auswahl, alles was ich bis jetzt probiert habe (Backwaren) war super. Fahre sogar immer, wenn ich morgens vom Dienst komme, einen kleinen Umweg um dort ...",
+    highlight: "Pendler holen sich hier ihr frisches Gebäck",
+    topics: ["Backwaren", "Frühstück", "Umweg-wert"],
+  },
+  {
+    author: "Julia H.",
+    role: "Local Guide | 33 Rezensionen | 5 Fotos",
+    relativeTime: "vor 2 Wochen",
+    rating: 5,
+    excerpt:
+      "Ein mit sehr viel Liebe geführter Laden. Der Inhaber war so bemüht, alle Wünsche der Kunden zu erfüllen. Extrem leckere Laugenstangen und auch alles andere war top. Es gibt sogar Wraps und Cevapcici.",
+    highlight: "Service mit Handschlaggefühl",
+    topics: ["Service", "Wraps", "Cevapcici"],
+  },
+  {
+    author: "Cornelia Lutz",
+    role: "Local Guide | 35 Rezensionen | 5 Fotos",
+    relativeTime: "vor 2 Monaten",
+    rating: 5,
+    excerpt:
+      "Mittlerweile mein Lieblingsbäcker in Riedlingen. Man wird immer freundlich bedient und Preis/Leistung einfach top! Die Qualität der Backwaren ist hervorragend ... Ob Börek, gefüllte Hörnchen oder Brötchen – alles super lecker!",
+    highlight: "Lieblingsbäcker der Stadt",
+    topics: ["Börek", "Preis-Leistung", "Gastfreundschaft"],
+  },
+  {
+    author: "Andy Kolitsch",
+    role: "Local Guide | 219 Rezensionen | 265 Fotos",
+    relativeTime: "vor 2 Wochen",
+    rating: 5,
+    excerpt:
+      "Sehr freundliches Personal. Essen frisch und sehr lecker. Super Öffnungszeiten 5-22 Uhr – perfekt für jeden. Große Auswahl.",
+    highlight: "Frische Küche rund um die Uhr",
+    topics: ["Öffnungszeiten", "Frische", "Auswahl"],
+  },
+];

@@ -2,6 +2,7 @@ import SiteHeader from "@/components/site-header";
 import HeroSection from "@/components/sections/hero-section";
 import SpecialtiesSection from "@/components/sections/specialties-section";
 import AboutSection from "@/components/sections/about-section";
+import ReviewsSection from "@/components/sections/reviews-section";
 import HoursLocationSection from "@/components/sections/hours-location-section";
 import ContactSection from "@/components/sections/contact-section";
 import SiteFooter from "@/components/site-footer";
@@ -11,6 +12,8 @@ import {
   CORE_VALUES,
   DAILY_OFFER,
   GOOGLE_MAPS_EMBED,
+  GOOGLE_REVIEW_SUMMARY,
+  GOOGLE_REVIEWS,
   HERO_BADGES,
   HERO_CONTENT,
   OPENING_HOURS,
@@ -67,6 +70,7 @@ export default function Home() {
 
         <SpecialtiesSection specialties={SPECIALTIES} />
         <AboutSection values={CORE_VALUES} />
+        <ReviewsSection summary={GOOGLE_REVIEW_SUMMARY} reviews={GOOGLE_REVIEWS} />
         <HoursLocationSection openingHours={OPENING_HOURS} mapsEmbed={GOOGLE_MAPS_EMBED} />
         <ContactSection highlights={CONTACT_HIGHLIGHTS} socialLinks={SOCIAL_LINKS} />
       </main>
