@@ -50,23 +50,6 @@ export default function HeroSection({
           ))}
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <a
-            href={`tel:${phone.raw}`}
-            className="flex items-center justify-center gap-2 rounded-2xl bg-brotart-600 px-6 py-4 text-lg font-semibold text-white transition hover:bg-brotart-500"
-          >
-            📞 {phone.display}
-          </a>
-          <a
-            href={mapsLink}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center gap-2 rounded-2xl border border-stone-200 bg-white px-6 py-4 text-lg font-semibold text-stone-800 transition hover:border-brotart-300"
-          >
-            📍 Route planen
-          </a>
-        </div>
-
         <article className="rounded-2xl border border-brotart-100 bg-brotart-50/80 p-6 shadow-inner">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brotart-500">{dailyOffer.title}</p>
           <div className="mt-2 flex flex-wrap items-baseline gap-3">
@@ -78,24 +61,6 @@ export default function HeroSection({
             {dailyOffer.tagline} – {offerDate}
           </p>
         </article>
-      </div>
-
-      <div className="relative">
-        <div className="absolute inset-0 -z-10 rounded-[2.5rem] bg-gradient-to-br from-[#f7c9a0] via-[#fdd7b4] to-[#f6c093] opacity-70 blur-2xl" />
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/60 shadow-2xl shadow-brotart-200">
-          <Image
-            src={hero.image.src}
-            alt={hero.image.alt}
-            width={900}
-            height={1100}
-            className="h-full w-full object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
-          <div className="absolute bottom-4 left-4 rounded-2xl bg-white/90 px-4 py-3 text-sm font-medium text-stone-900 shadow-lg shadow-brotart-200">
-            {hero.supportingNote}
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -62,65 +62,6 @@ export default function ContactSection({ highlights, socialLinks }: ContactSecti
               </div>
             </div>
           </div>
-
-          <div className="rounded-[2.5rem] border border-white/70 bg-white p-8 shadow-2xl shadow-brotart-200">
-            <h3 className="text-xl font-semibold text-stone-900">Schnelle Anfrage</h3>
-            <p className="mt-2 text-sm text-stone-600">
-              Schreiben Sie uns, welches Gebäck oder welche Partyplatte Sie benötigen – wir antworten innerhalb eines
-              Werktags.
-            </p>
-            <form className="mt-8 space-y-6">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className="block text-sm font-medium text-stone-700">
-                  Name
-                  <input
-                    type="text"
-                    name="name"
-                    autoComplete="name"
-                    placeholder="Vor- und Nachname"
-                    className="mt-2 w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-base focus:border-brotart-400 focus:bg-white focus:outline-none"
-                  />
-                </label>
-                <label className="block text-sm font-medium text-stone-700">
-                  Kontakt
-                  <input
-                    type="text"
-                    name="contact"
-                    autoComplete="email"
-                    placeholder="E-Mail oder Telefonnummer"
-                    className="mt-2 w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-base focus:border-brotart-400 focus:bg-white focus:outline-none"
-                  />
-                </label>
-              </div>
-              <label className="block text-sm font-medium text-stone-700">
-                Nachricht
-                <textarea
-                  name="message"
-                  rows={4}
-                  placeholder="Was dürfen wir vorbereiten?"
-                  className="mt-2 w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-base focus:border-brotart-400 focus:bg-white focus:outline-none"
-                />
-              </label>
-              <label className="block text-sm font-medium text-stone-700">
-                Wunschtermin (optional)
-                <input
-                  type="date"
-                  name="date"
-                  className="mt-2 w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-base text-stone-600 focus:border-brotart-400 focus:bg-white focus:outline-none"
-                />
-              </label>
-              <button
-                type="button"
-                className="w-full rounded-2xl bg-brotart-600 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-brotart-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
-              >
-                Anfrage senden
-              </button>
-              <p className="text-xs text-stone-500">
-                Hinweis: Formular dient als Demo. Bitte kontaktieren Sie uns per Telefon oder WhatsApp für verbindliche
-                Bestellungen.
-              </p>
-            </form>
-          </div>
         </div>
       </div>
     </section>
