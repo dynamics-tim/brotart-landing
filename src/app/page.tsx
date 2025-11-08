@@ -21,6 +21,7 @@ import {
   SOCIAL_LINKS,
   SPECIALTIES,
 } from "@/content/site";
+import { HERO_GALLERY_IMAGES } from "@/content/hero-gallery";
 
 const SECTION_BACKDROPS: SectionBackgroundConfig[] = [
   {
@@ -126,7 +127,7 @@ export default function Home() {
     },
     telephone: CONTACT_INFO.phone,
     email: CONTACT_INFO.email,
-    url: "https://brotart.de",
+    url: "https://brotart-riedlingen.de",
     openingHours: OPENING_HOURS.map(({ days, hours }) => `${days} ${hours}`),
     servesCuisine: ["Balkan", "Bakery", "Pizza"],
     sameAs: SOCIAL_LINKS.map((link) => link.href),
@@ -146,8 +147,7 @@ export default function Home() {
             badges={HERO_BADGES}
             dailyOffer={DAILY_OFFER}
             offerDate={offerDate}
-            phone={{ raw: CONTACT_INFO.phone, display: CONTACT_INFO.displayPhone }}
-            mapsLink={CONTACT_INFO.mapsLink}
+            galleryImages={HERO_GALLERY_IMAGES}
           />
         </div>
 

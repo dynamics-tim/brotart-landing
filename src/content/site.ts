@@ -210,7 +210,7 @@ export const HERO_CONTENT: HeroContent = {
     src: "https://images.unsplash.com/photo-1486887396153-fa416526c108?auto=format&fit=crop&w=1200&q=80",
     alt: "Frisch gebackenes Brot aus dem Steinofen",
   },
-  supportingNote: "Offenherzige Küche & direkte Sicht auf den Holzofen",
+  supportingNote: "Erlebe die Handwerkskunst – vom Teig bis zum knusprigen Endprodukt",
 };
 
 export type GoogleReviewSummary = {
