@@ -21,15 +21,18 @@ export default function ScrollBackground({ sections }: ScrollBackgroundProps) {
   useEffect(() => {
     if (typeof window === "undefined" || !sections.length) return undefined;
 
-    const sectionElements = sections
-      .map((section) => document.getElementById(section.id))
-      .filter((node): node is HTMLElement => Boolean(node));
-
-    if (!sectionElements.length) return undefined;
+    const getSectionElements = () =>
+      sections
+        .map((section) => document.getElementById(section.id))
+        .filter((node): node is HTMLElement => Boolean(node));
 
     let animationFrame = 0;
 
     const determineActiveSection = () => {
+      const sectionElements = getSectionElements();
+      if (!sectionElements.length) {
+        return;
+      }
       const viewportCenter = window.innerHeight / 2;
       let nextId = sectionElements[0].id;
       let minDistance = Number.POSITIVE_INFINITY;
@@ -55,18 +58,26 @@ export default function ScrollBackground({ sections }: ScrollBackgroundProps) {
       });
     };
 
+    const handleResize = () => {
+      if (animationFrame) {
+        window.cancelAnimationFrame(animationFrame);
+        animationFrame = 0;
+      }
+      determineActiveSection();
+    };
+
     determineActiveSection();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", determineActiveSection);
-    window.addEventListener("orientationchange", determineActiveSection);
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
 
     return () => {
       if (animationFrame) {
         window.cancelAnimationFrame(animationFrame);
       }
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", determineActiveSection);
-      window.removeEventListener("orientationchange", determineActiveSection);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
     };
   }, [sections]);
 
