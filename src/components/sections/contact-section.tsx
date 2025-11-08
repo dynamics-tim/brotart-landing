@@ -7,7 +7,7 @@ type ContactSectionProps = {
 
 export default function ContactSection({ highlights, socialLinks }: ContactSectionProps) {
   return (
-    <section id="kontakt" className="section-anchor mt-16 bg-gradient-to-b from-[#fff6ed] via-[#fde9d4] to-[#fbd9b8]">
+    <section id="kontakt" className="section-anchor mt-16">
       <div className="relative mx-auto max-w-6xl px-6 py-20">
         <div aria-hidden="true" className="absolute inset-0 -z-10 mx-auto max-w-5xl rounded-[3rem] bg-white/50 blur-3xl" />
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr]">

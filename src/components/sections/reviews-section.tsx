@@ -23,7 +23,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
   const formattedCount = new Intl.NumberFormat("de-DE").format(summary.reviewCount);
 
   return (
-    <section id="bewertungen" className="section-anchor bg-gradient-to-b from-[#fffdf9] via-[#fff6ee] to-[#fde8d6]">
+    <section id="bewertungen" className="section-anchor">
       <div className="mx-auto max-w-7xl px-6 py-20 sm:py-24">
         <div className="flex flex-col gap-10 lg:gap-14">
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-8">
