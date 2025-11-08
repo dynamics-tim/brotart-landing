@@ -42,7 +42,7 @@ export default function SiteHeader() {
     };
 
     const updateBrandBarVisibility = () => {
-      const shouldShow = window.scrollY <= 100;
+      const shouldShow = window.scrollY <= 1;
       if (shouldShow !== showBrandBarRef.current) {
         showBrandBarRef.current = shouldShow;
         setShowBrandBar(shouldShow);
@@ -85,11 +85,11 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-20 border-b border-white/40 bg-white/85 backdrop-blur-xl">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
         <div
-          className="overflow-hidden transition-[max-height] duration-300"
+          className="overflow-hidden transition-[max-height] duration-200"
           style={{ maxHeight: showBrandBar ? "80px" : "0px" }}
         >
           <div
-            className={`flex items-center gap-4 py-3 transition duration-300 ${
+            className={`flex items-center gap-4 py-3 transition duration-200 ${
               showBrandBar
                 ? "translate-y-0 opacity-100 pointer-events-auto"
                 : "-translate-y-3 opacity-0 pointer-events-none"
