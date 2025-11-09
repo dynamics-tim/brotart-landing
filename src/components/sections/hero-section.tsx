@@ -18,11 +18,8 @@ const MANUAL_PAUSE_DURATION = 8000;
 
 export default function HeroSection({ hero, badges, dailyOffer, offerDate, galleryImages }: HeroSectionProps) {
   return (
-    <section
-      id="start"
-      className="section-anchor mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-6 pb-16 pt-4 md:grid-cols-[1.1fr_0.9fr]"
-    >
-      <div className="flex flex-col gap-8 rounded-3xl bg-white/90 p-6 shadow-lg shadow-brotart-100 sm:p-8">
+    <section id="start" className="section-anchor w-full px-6 pb-16 pt-4">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 rounded-3xl bg-white/90 p-6 shadow-lg shadow-brotart-100 sm:p-8">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">{hero.eyebrow}</p>
         <h1 className="text-4xl font-semibold text-stone-900 sm:text-5xl lg:text-6xl">
           {hero.title.leading}{" "}
@@ -46,13 +43,15 @@ export default function HeroSection({ hero, badges, dailyOffer, offerDate, galle
           ))}
         </div>
 
-        <HeroGallery images={galleryImages} supportingNote={hero.supportingNote} />
+        <HeroGallery images={galleryImages} />
 
         <article className="rounded-2xl border border-brotart-100 bg-brotart-50/80 p-6 shadow-inner">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brotart-500">{dailyOffer.title}</p>
           <div className="mt-2 flex flex-wrap items-baseline gap-3">
             <h2 className="text-3xl font-semibold text-brotart-700">{dailyOffer.offer}</h2>
-            <span className="rounded-full bg-white px-3 py-1 text-lg font-semibold text-brotart-600">{dailyOffer.price}</span>
+            <span className="rounded-full bg-white px-3 py-1 text-lg font-semibold text-brotart-600">
+              {dailyOffer.price}
+            </span>
           </div>
           <p className="mt-3 text-sm text-stone-600">{dailyOffer.note}</p>
           <p className="mt-1 text-xs uppercase tracking-[0.3em] text-stone-400">
@@ -66,15 +65,13 @@ export default function HeroSection({ hero, badges, dailyOffer, offerDate, galle
 
 type HeroGalleryProps = {
   images: HeroGalleryImage[];
-  supportingNote?: string;
 };
 
-function HeroGallery({ images, supportingNote }: HeroGalleryProps) {
+function HeroGallery({ images }: HeroGalleryProps) {
   const slides = useMemo(() => images.filter(Boolean), [images]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const derivedIndex = slides.length ? activeIndex % slides.length : 0;
-  const note = supportingNote ?? "Erlebe die Handwerkskunst – vom Teig bis zum knusprigen Endprodukt.";
 
   useEffect(() => {
     if (slides.length <= 1 || isPaused) return undefined;
@@ -133,11 +130,6 @@ function HeroGallery({ images, supportingNote }: HeroGalleryProps) {
           )}
 
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/45 via-stone-950/0" />
-          <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 text-white">
-            <span className="text-[10px] uppercase tracking-[0.45em] text-white/80">BrotArt Galerie</span>
-            <p className="text-base font-medium leading-tight">{note}</p>
-          </div>
-
           {slides.length > 1 && (
             <>
               <div className="absolute inset-y-0 left-0 flex items-center px-1 sm:px-3">
@@ -193,44 +185,6 @@ function HeroGallery({ images, supportingNote }: HeroGalleryProps) {
           </div>
         )}
       </div>
-
-      {slides.length > 1 && (
-        <div className="flex gap-3 overflow-x-auto pb-1">
-          {slides.map((slide, index) => {
-            const isActive = index === derivedIndex;
-            return (
-              <button
-                key={`thumb-${slide.src}-${index}`}
-                type="button"
-                onClick={() => goToSlide(index)}
-                className={`group relative min-w-[120px] flex-1 rounded-2xl border bg-white/90 p-1 text-left transition hover:-translate-y-0.5 hover:shadow ${
-                  isActive ? "border-brotart-300 shadow-brotart-100" : "border-stone-200"
-                }`}
-                aria-pressed={isActive}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                  <Image
-                    src={slide.src}
-                    alt={slide.alt}
-                    fill
-                    sizes="120px"
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t from-stone-950/35 via-transparent transition ${
-                      isActive ? "opacity-70" : "opacity-0 group-hover:opacity-50"
-                    }`}
-                  />
-                </div>
-                <div className="mt-2 flex items-center justify-between text-[11px] font-medium text-stone-500">
-                  <span>{`Bild ${index + 1}`}</span>
-                  {isActive && <span className="text-brotart-600">Live</span>}
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      )}
     </div>
   );
 }

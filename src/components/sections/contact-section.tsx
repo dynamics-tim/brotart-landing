@@ -7,10 +7,10 @@ type ContactSectionProps = {
 
 export default function ContactSection({ highlights, socialLinks }: ContactSectionProps) {
   return (
-    <section id="kontakt" className="section-anchor mt-16">
-      <div className="relative mx-auto max-w-6xl px-6 py-20">
+    <section id="kontakt" className="section-anchor mt-16 w-full px-6">
+      <div className="relative mx-auto w-full max-w-6xl py-20">
         <div aria-hidden="true" className="absolute inset-0 -z-10 mx-auto max-w-5xl rounded-[3rem] bg-white/50 blur-3xl" />
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid grid-cols-1 gap-10">
           <div className="rounded-[2.5rem] border border-white/70 bg-white/95 p-8 shadow-2xl shadow-brotart-100">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Kontakt & Bestellung</p>
             <h2 className="mt-4 text-3xl font-semibold text-stone-900 sm:text-4xl">
