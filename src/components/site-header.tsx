@@ -102,12 +102,12 @@ export default function SiteHeader() {
               aria-label="Zur Startsektion scrollen"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brotart-600 to-brotart-400 text-sm font-semibold text-white shadow-md shadow-brotart-300">
-                BA
+                BB
               </div>
               <div className="leading-tight">
-                <p className="text-[11px] uppercase tracking-[0.45em] text-stone-400">BrotArt</p>
-                <p className="text-sm font-semibold text-stone-900">Bäckerei & Grill</p>
-                <p className="text-[11px] text-stone-500">Handwerk & Balkan-Flair</p>
+                <p className="text-[11px] uppercase tracking-[0.45em] text-stone-400">Balkan Bäckerei</p>
+                <p className="text-sm font-semibold text-stone-900">Pizza · Grill · Brot</p>
+                <p className="text-[11px] text-stone-500">Neue Unlinger Str. 19/1, Riedlingen</p>
               </div>
             </Link>
 

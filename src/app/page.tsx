@@ -118,6 +118,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Bakery",
     name: CONTACT_INFO.company,
+    url: "https://brotart-riedlingen.de",
+    telephone: CONTACT_INFO.phone,
     address: {
       "@type": "PostalAddress",
       streetAddress: CONTACT_INFO.street,
@@ -125,12 +127,34 @@ export default function Home() {
       addressLocality: CONTACT_INFO.city,
       addressCountry: "DE",
     },
-    telephone: CONTACT_INFO.phone,
-    email: CONTACT_INFO.email,
-    url: "https://brotart-riedlingen.de",
-    openingHours: OPENING_HOURS.map(({ days, hours }) => `${days} ${hours}`),
-    servesCuisine: ["Balkan", "Bakery", "Pizza"],
-    sameAs: SOCIAL_LINKS.map((link) => link.href),
+    openingHours: [
+      "Mo-Fr 05:00-22:00",
+      "Sa 05:00-22:00",
+      "So 07:00-22:00",
+    ],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "05:00",
+        closes: "22:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "05:00",
+        closes: "22:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Sunday",
+        opens: "07:00",
+        closes: "22:00",
+      },
+    ],
+    priceRange: "€",
+    image: HERO_CONTENT.image.src,
+    sameAs: [],
   };
 
   return (
@@ -155,7 +179,12 @@ export default function Home() {
         <AboutSection values={CORE_VALUES} />
         <ReviewsSection summary={GOOGLE_REVIEW_SUMMARY} reviews={GOOGLE_REVIEWS} />
         <HoursLocationSection openingHours={OPENING_HOURS} mapsEmbed={GOOGLE_MAPS_EMBED} />
-        <ContactSection highlights={CONTACT_HIGHLIGHTS} socialLinks={SOCIAL_LINKS} />
+        <ContactSection
+          highlights={CONTACT_HIGHLIGHTS}
+          socialLinks={SOCIAL_LINKS}
+          contactInfo={CONTACT_INFO}
+          openingHours={OPENING_HOURS}
+        />
       </main>
 
       <SiteFooter contactInfo={CONTACT_INFO} />

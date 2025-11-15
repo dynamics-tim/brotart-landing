@@ -1,11 +1,13 @@
-import type { ContactHighlight, SocialLink } from "@/content/site";
+import type { ContactHighlight, ContactInfo, OpeningHour, SocialLink } from "@/content/site";
 
 type ContactSectionProps = {
   highlights: ContactHighlight[];
   socialLinks: SocialLink[];
+  contactInfo: ContactInfo;
+  openingHours: OpeningHour[];
 };
 
-export default function ContactSection({ highlights, socialLinks }: ContactSectionProps) {
+export default function ContactSection({ highlights, socialLinks, contactInfo, openingHours }: ContactSectionProps) {
   return (
     <section id="kontakt" className="section-anchor mt-16 w-full px-6">
       <div className="relative mx-auto w-full max-w-6xl py-20">
@@ -43,6 +45,56 @@ export default function ContactSection({ highlights, socialLinks }: ContactSecti
                   </span>
                 </a>
               ))}
+            </div>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              <div className="rounded-2xl border border-stone-100 bg-stone-50/70 p-6">
+                <h3 className="text-lg font-semibold text-stone-900">Adresse & Kontakt</h3>
+                <address className="mt-3 space-y-1 text-stone-600 not-italic">
+                  <p className="font-semibold text-stone-900">{contactInfo.company}</p>
+                  <p>{contactInfo.street}</p>
+                  <p>
+                    {contactInfo.zip} {contactInfo.city}
+                  </p>
+                  <p>Deutschland</p>
+                  <p>
+                    <a href={`tel:${contactInfo.phone}`} className="font-semibold text-brotart-600">
+                      {contactInfo.displayPhone}
+                    </a>
+                  </p>
+                </address>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <a
+                    href={`tel:${contactInfo.phone}`}
+                    className="inline-flex items-center gap-2 rounded-full border border-brotart-200 bg-white px-4 py-2 text-sm font-semibold text-brotart-600 transition hover:bg-brotart-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500"
+                  >
+                    📞 Anrufen
+                  </a>
+                  <a
+                    href={contactInfo.mapsLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-brotart-200 bg-white px-4 py-2 text-sm font-semibold text-brotart-600 transition hover:bg-brotart-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500"
+                  >
+                    📍 Route anzeigen
+                  </a>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-stone-100 bg-stone-50/70 p-6">
+                <h3 className="text-lg font-semibold text-stone-900">Öffnungszeiten laut Google</h3>
+                <ul className="mt-3 space-y-2 text-sm text-stone-600">
+                  {openingHours.map((entry) => (
+                    <li
+                      key={`${entry.days}-${entry.hours}`}
+                      className="flex items-center justify-between rounded-xl bg-white px-4 py-2"
+                    >
+                      <span className="font-medium text-stone-900">{entry.days}</span>
+                      <span>{entry.hours}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-xs text-stone-500">Stand: laut Google Maps-Eintrag. Änderungen vorbehalten.</p>
+              </div>
             </div>
             <div className="mt-10">
               <p className="text-xs uppercase tracking-[0.3em] text-stone-400">Social & Presse</p>
