@@ -1,4 +1,4 @@
-# BrotArt Landingpage
+# Balkan Bäckerei-Pizza-Grill Landingpage
 
 Next.js 16 plus Tailwind CSS 4 liefern eine statische One-Page-Landing, die sich auf einfachem Storage (z. B. United Domains Webspace) hosten laesst. Impressum und Datenschutz liegen als eigene Routen.
 

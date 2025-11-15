@@ -10,8 +10,8 @@ export default function SiteFooter({ contactInfo }: SiteFooterProps) {
     <footer className="relative z-10 bg-[#1f140d] text-[#f9f1e7]">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-[#cba07f]">BrotArt</p>
-          <p className="mt-2 text-2xl font-semibold">Ofenfrisch seit 2024</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[#cba07f]">{contactInfo.brandShort}</p>
+          <p className="mt-2 text-2xl font-semibold">Balkan-Soulfood in Riedlingen</p>
           <p className="mt-2 text-sm text-[#d6c3b3]">
             {contactInfo.street} · {contactInfo.zip} {contactInfo.city} ·{" "}
             <a href={`tel:${contactInfo.phone}`} className="underline decoration-[#cba07f]">
@@ -32,7 +32,7 @@ export default function SiteFooter({ contactInfo }: SiteFooterProps) {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-[#cba07f]">
-        © {new Date().getFullYear()} BrotArt. Alle Rechte vorbehalten.
+        © {new Date().getFullYear()} {contactInfo.company}. Alle Rechte vorbehalten.
       </div>
     </footer>
   );

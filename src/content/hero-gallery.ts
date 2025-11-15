@@ -49,7 +49,7 @@ const loadHeroGalleryImages = (): HeroGalleryImage[] => {
       .sort()
       .map((fileName) => ({
         src: withBasePath(`/hero-gallery/${fileName}`),
-        alt: `BrotArt ${toAltText(fileName)}`,
+        alt: `Balkan Bäckerei-Pizza-Grill ${toAltText(fileName)}`,
       }));
   } catch {
     return [];
