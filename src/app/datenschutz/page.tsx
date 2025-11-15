@@ -3,7 +3,7 @@ import { CONTACT_INFO } from "@/content/site";
 
 export const metadata = {
   title: "Datenschutzerklärung",
-  description: "Informationen zum Datenschutz bei BrotArt – Bäckerei & Grill.",
+  description: "Informationen zum Datenschutz bei Balkan Bäckerei-Pizza-Grill-(Brotart) in Riedlingen.",
 };
 
 export default function DatenschutzPage() {
@@ -16,8 +16,9 @@ export default function DatenschutzPage() {
 
       <section className="mt-8 space-y-4 text-sm leading-relaxed text-stone-700">
         <p>
-          Wir freuen uns über Ihr Interesse an BrotArt. Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Die folgenden
-          Hinweise geben einen einfachen Überblick darüber, was mit Ihren Daten passiert, wenn Sie unsere Website besuchen.
+          Wir freuen uns über Ihr Interesse an Balkan Bäckerei-Pizza-Grill-(Brotart). Der Schutz Ihrer personenbezogenen Daten
+          ist uns wichtig. Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren Daten passiert, wenn Sie
+          unsere Website besuchen.
         </p>
 
         <h2 className="text-lg font-semibold text-stone-900">Verantwortlicher</h2>

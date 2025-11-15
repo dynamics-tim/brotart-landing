@@ -35,7 +35,7 @@ export const SPECIALTIES: Specialty[] = [
     icon: "🥖",
   },
   {
-    name: "Holzofen-Pizza",
+    name: "Leckere Pizza",
     description: "Dünner Boden, hohe Hitze, rauchiges Aroma.",
     details: "Signature-Pizza „Balkan“ mit Sudschuk, eingelegter Paprika und Kräuteröl.",
     icon: "🍕",
@@ -66,16 +66,67 @@ export const CORE_VALUES: ValueCard[] = [
 export type OpeningHour = {
   days: string;
   hours: string;
+  schemaDays: string[];
+  opens: string;
+  closes: string;
 };
 
 export const OPENING_HOURS: OpeningHour[] = [
-  { days: "Montag – Freitag", hours: "05:00 – 22:00 Uhr" },
-  { days: "Samstag", hours: "06:00 – 22:00 Uhr" },
-  { days: "Sonntag & Feiertag", hours: "07:00 – 21:00 Uhr" },
+  {
+    days: "Montag",
+    hours: "05:00 – 22:00 Uhr",
+    schemaDays: ["Monday"],
+    opens: "05:00",
+    closes: "22:00",
+  },
+  {
+    days: "Dienstag",
+    hours: "05:00 – 22:00 Uhr",
+    schemaDays: ["Tuesday"],
+    opens: "05:00",
+    closes: "22:00",
+  },
+  {
+    days: "Mittwoch",
+    hours: "05:00 – 22:00 Uhr",
+    schemaDays: ["Wednesday"],
+    opens: "05:00",
+    closes: "22:00",
+  },
+  {
+    days: "Donnerstag",
+    hours: "05:00 – 22:00 Uhr",
+    schemaDays: ["Thursday"],
+    opens: "05:00",
+    closes: "22:00",
+  },
+  {
+    days: "Freitag",
+    hours: "05:00 – 22:00 Uhr",
+    schemaDays: ["Friday"],
+    opens: "05:00",
+    closes: "22:00",
+  },
+  {
+    days: "Samstag",
+    hours: "05:00 – 22:00 Uhr",
+    schemaDays: ["Saturday"],
+    opens: "05:00",
+    closes: "22:00",
+  },
+  {
+    days: "Sonntag",
+    hours: "07:00 – 22:00 Uhr",
+    schemaDays: ["Sunday"],
+    opens: "07:00",
+    closes: "22:00",
+  },
 ];
 
 export type ContactInfo = {
   company: string;
+  brandShort: string;
+  brandInitials: string;
   street: string;
   zip: string;
   city: string;
@@ -87,15 +138,18 @@ export type ContactInfo = {
 };
 
 export const CONTACT_INFO: ContactInfo = {
-  company: "BrotArt – Bäckerei & Grill",
-  street: "Neue Unlinger Straße 19",
+  company: "Balkan Bäckerei-Pizza-Grill-(Brotart) - MANTIJE - BUREK",
+  brandShort: "Balkan Bäckerei-Pizza-Grill",
+  brandInitials: "BB",
+  street: "Neue Unlinger Str. 19/1",
   zip: "88499",
   city: "Riedlingen",
   phone: "+4973711296664",
   displayPhone: "07371 1296664",
-  email: "hallo@brotart.de",
+  email: "info@brotart-riedlingen.de",
   whatsapp: "https://wa.me/4973711296664",
-  mapsLink: "https://maps.app.goo.gl/RP7JbVXD8xV4yeQP6",
+  mapsLink:
+    "https://www.google.com/maps/place/Balkan+B%C3%A4ckerei-Pizza-Grill-(Brotart)+-+MANTIJE+-+BUREK/@48.1603653,9.4725603,17z",
 };
 
 export type ContactHighlight = {
@@ -198,19 +252,19 @@ export type HeroContent = {
 };
 
 export const HERO_CONTENT: HeroContent = {
-  eyebrow: "BrotArt Riedlingen",
+  eyebrow: "Balkan Bäckerei-Pizza-Grill",
   title: {
-    leading: "Brotkunst &",
-    highlight: "Balkan-Genuss",
-    trailing: "unter einem Dach.",
+    leading: "Burek, Brot &",
+    highlight: "Balkan-Soulfood",
+    trailing: "im Herzen Riedlingens.",
   },
   description:
-    "Frisch gebackenes Brot, saftiger Burek, Mantije, Holzofenpizza und wechselnde Mittagsteller – ab 05:00 Uhr für Frühaufsteher geöffnet, bis 22:00 Uhr für Nachtschwärmer.",
+    "Balkan Bäckerei-Pizza-Grill-(Brotart) – Mantije, Burek, Pizza und frisches Brot ab 05:00 Uhr. 7 Tage geöffnet direkt an der Neuen Unlinger Str. in Riedlingen.",
   image: {
     src: "https://images.unsplash.com/photo-1486887396153-fa416526c108?auto=format&fit=crop&w=1200&q=80",
     alt: "Frisch gebackenes Brot aus dem Steinofen",
   },
-  supportingNote: "Offenherzige Küche & direkte Sicht auf den Holzofen",
+  supportingNote: "Direkter Blick auf den Steinofen & Balkan-Spezialitäten",
 };
 
 export type GoogleReviewSummary = {
@@ -234,7 +288,7 @@ export type GoogleReview = {
 
 export const GOOGLE_REVIEW_SUMMARY: GoogleReviewSummary = {
   averageRating: 5,
-  reviewCount: 133,
+  reviewCount: 134,
   dataAsOf: "08.11.2025",
   source: "Google Maps",
   url: "https://www.google.com/maps/place/Balkan+B%C3%A4ckerei-Pizza-Grill-(Brotart)+-+MANTIJE+-+BUREK/@48.1499404,9.4871048,17z/data=!4m8!3m7!1s0x479a33a082553fc3:0x9e93d68f8046cbc0!8m2!3d48.1500973!4d9.4868941!9m1!1b1!16s%2Fg%2F11lf3jk52m?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D",

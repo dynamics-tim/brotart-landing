@@ -3,7 +3,7 @@ import { CONTACT_INFO } from "@/content/site";
 
 export const metadata = {
   title: "Impressum",
-  description: "Rechtliche Angaben zur BrotArt – Bäckerei & Grill in Riedlingen.",
+  description: "Rechtliche Angaben zur Balkan Bäckerei-Pizza-Grill-(Brotart) in Riedlingen.",
 };
 
 export default function ImpressumPage() {

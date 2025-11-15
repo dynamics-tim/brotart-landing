@@ -19,7 +19,7 @@ const withBasePath = (value: string) => {
 const FALLBACK_GALLERY: HeroGalleryImage[] = [
   {
     src: "https://images.unsplash.com/photo-1483691278019-cb7253bee49f?auto=format&fit=crop&w=1200&q=80",
-    alt: "Holzofenbrot wird frisch auf dem Brett angerichtet",
+    alt: "Frisches Brot wird frisch auf dem Brett angerichtet",
   },
   {
     src: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=80",
@@ -49,7 +49,7 @@ const loadHeroGalleryImages = (): HeroGalleryImage[] => {
       .sort()
       .map((fileName) => ({
         src: withBasePath(`/hero-gallery/${fileName}`),
-        alt: `BrotArt ${toAltText(fileName)}`,
+        alt: `Balkan Bäckerei-Pizza-Grill ${toAltText(fileName)}`,
       }));
   } catch {
     return [];

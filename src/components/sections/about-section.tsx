@@ -27,9 +27,9 @@ export default function AboutSection({ values }: AboutSectionProps) {
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Unsere Geschichte</p>
           <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">Familienbetrieb mit Blick über den Tellerrand.</h2>
           <p className="text-lg text-stone-600">
-            BrotArt entspringt der Liebe zu handwerklichem Brot und den Aromen der Balkan-Küche. Wir kneten, füllen und backen
-            alles selbst – mit Mehl aus der Region und Gewürzmischungen aus der Familienküche. Transparent, ehrlich und mit viel
-            Leidenschaft.
+            Balkan Bäckerei-Pizza-Grill-(Brotart) verbindet handwerkliches Brotbacken mit authentischen Balkan-Rezepten. Wir
+            kneten, füllen und backen alles selbst – mit Mehl aus der Region, Gewürzmischungen aus der Familienküche und einem
+            Ofen, der fast rund um die Uhr läuft.
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             {values.map((value) => (
@@ -42,7 +42,7 @@ export default function AboutSection({ values }: AboutSectionProps) {
         </div>
 
         <div className="flex-1 rounded-[2rem] border border-stone-100 bg-gradient-to-br from-[#fef4ea] to-[#f9e2ca] p-8 shadow-inner">
-          <h3 className="text-lg font-semibold text-stone-900">Warum BrotArt?</h3>
+          <h3 className="text-lg font-semibold text-stone-900">Warum Balkan Bäckerei-Pizza-Grill?</h3>
           <ul className="mt-6 space-y-6 text-stone-700">
             {differentiators.map((item) => (
               <li key={item.title}>

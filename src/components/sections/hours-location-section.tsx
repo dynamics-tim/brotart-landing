@@ -40,7 +40,7 @@ export default function HoursLocationSection({ openingHours, mapsEmbed }: HoursL
       <div className="flex-1 space-y-6">
         <div className="flex h-full flex-col gap-4 rounded-3xl border border-stone-100 bg-white p-4 shadow-lg shadow-brotart-50">
           <iframe
-            title="Google Maps – BrotArt Standort"
+            title="Google Maps – Balkan Bäckerei-Pizza-Grill Standort"
             src={mapsEmbed}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

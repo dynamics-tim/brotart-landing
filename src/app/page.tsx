@@ -114,25 +114,6 @@ export default function Home() {
     year: "numeric",
   }).format(Number.isNaN(parsedOfferDate.valueOf()) ? fallbackDate : parsedOfferDate);
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "Bakery",
-    name: CONTACT_INFO.company,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: CONTACT_INFO.street,
-      postalCode: CONTACT_INFO.zip,
-      addressLocality: CONTACT_INFO.city,
-      addressCountry: "DE",
-    },
-    telephone: CONTACT_INFO.phone,
-    email: CONTACT_INFO.email,
-    url: "https://brotart-riedlingen.de",
-    openingHours: OPENING_HOURS.map(({ days, hours }) => `${days} ${hours}`),
-    servesCuisine: ["Balkan", "Bakery", "Pizza"],
-    sameAs: SOCIAL_LINKS.map((link) => link.href),
-  };
-
   return (
     <>
       <ScrollBackground sections={SECTION_BACKDROPS} />
@@ -159,8 +140,6 @@ export default function Home() {
       </main>
 
       <SiteFooter contactInfo={CONTACT_INFO} />
-
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
     </>
   );
 }
