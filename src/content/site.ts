@@ -70,8 +70,8 @@ export type OpeningHour = {
 
 export const OPENING_HOURS: OpeningHour[] = [
   { days: "Montag – Freitag", hours: "05:00 – 22:00 Uhr" },
-  { days: "Samstag", hours: "06:00 – 22:00 Uhr" },
-  { days: "Sonntag & Feiertag", hours: "07:00 – 21:00 Uhr" },
+  { days: "Samstag", hours: "05:00 – 22:00 Uhr" },
+  { days: "Sonntag", hours: "07:00 – 22:00 Uhr" },
 ];
 
 export type ContactInfo = {
@@ -87,13 +87,13 @@ export type ContactInfo = {
 };
 
 export const CONTACT_INFO: ContactInfo = {
-  company: "BrotArt – Bäckerei & Grill",
-  street: "Neue Unlinger Straße 19",
+  company: "Balkan Bäckerei-Pizza-Grill-(Brotart) - MANTIJE - BUREK",
+  street: "Neue Unlinger Str. 19/1",
   zip: "88499",
   city: "Riedlingen",
   phone: "+4973711296664",
   displayPhone: "07371 1296664",
-  email: "hallo@brotart.de",
+  email: "kontakt@brotart-riedlingen.de",
   whatsapp: "https://wa.me/4973711296664",
   mapsLink: "https://maps.app.goo.gl/RP7JbVXD8xV4yeQP6",
 };
@@ -112,7 +112,7 @@ export const CONTACT_HIGHLIGHTS: ContactHighlight[] = [
   {
     label: "Telefon",
     value: CONTACT_INFO.displayPhone,
-    description: "Direkter Draht von 05:00 – 22:00 Uhr",
+    description: "Direkter Draht täglich 05:00 – 22:00 Uhr (So ab 07:00 Uhr)",
     href: `tel:${CONTACT_INFO.phone}`,
     icon: "📞",
     cta: "Jetzt anrufen",
@@ -178,7 +178,7 @@ export type HeroBadge = {
 
 export const HERO_BADGES: HeroBadge[] = [
   { label: "Neu seit 2024", detail: "Familiengeführt" },
-  { label: "Täglich offen", detail: "05:00 – 22:00 Uhr" },
+  { label: "Täglich offen", detail: "05:00 – 22:00 Uhr (So ab 07:00 Uhr)" },
   { label: "Ofenfrisch", detail: "Burek · Pizza · Brot" },
 ];
 
@@ -198,17 +198,17 @@ export type HeroContent = {
 };
 
 export const HERO_CONTENT: HeroContent = {
-  eyebrow: "BrotArt Riedlingen",
+  eyebrow: "Balkan Bäckerei-Pizza-Grill (Brotart)",
   title: {
-    leading: "Brotkunst &",
-    highlight: "Balkan-Genuss",
-    trailing: "unter einem Dach.",
+    leading: "Balkan-Spezialitäten &",
+    highlight: "Backhandwerk",
+    trailing: "aus Riedlingen.",
   },
   description:
-    "Frisch gebackenes Brot, saftiger Burek, Mantije, Holzofenpizza und wechselnde Mittagsteller – ab 05:00 Uhr für Frühaufsteher geöffnet, bis 22:00 Uhr für Nachtschwärmer.",
+    "Frisches Brot, Börek, Mantije, Holzofenpizza und Imbissgerichte – täglich ab 05:00 Uhr (Sonntag 07:00 Uhr) bis 22:00 Uhr geöffnet für Frühaufsteher und Spätesser.",
   image: {
     src: "https://images.unsplash.com/photo-1486887396153-fa416526c108?auto=format&fit=crop&w=1200&q=80",
-    alt: "Frisch gebackenes Brot aus dem Steinofen",
+    alt: "Frisch gebackenes Brot bei Balkan Bäckerei-Pizza-Grill in Riedlingen",
   },
   supportingNote: "Offenherzige Küche & direkte Sicht auf den Holzofen",
 };
@@ -234,8 +234,8 @@ export type GoogleReview = {
 
 export const GOOGLE_REVIEW_SUMMARY: GoogleReviewSummary = {
   averageRating: 5,
-  reviewCount: 133,
-  dataAsOf: "08.11.2025",
+  reviewCount: 134,
+  dataAsOf: "15.11.2025",
   source: "Google Maps",
   url: "https://www.google.com/maps/place/Balkan+B%C3%A4ckerei-Pizza-Grill-(Brotart)+-+MANTIJE+-+BUREK/@48.1499404,9.4871048,17z/data=!4m8!3m7!1s0x479a33a082553fc3:0x9e93d68f8046cbc0!8m2!3d48.1500973!4d9.4868941!9m1!1b1!16s%2Fg%2F11lf3jk52m?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D",
   highlights: [

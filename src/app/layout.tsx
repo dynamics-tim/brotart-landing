@@ -15,27 +15,33 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brotart.de"),
+  metadataBase: new URL("https://brotart-riedlingen.de"),
   title: {
-    default: "BrotArt – Bäckerei & Grill in Riedlingen",
-    template: "%s | BrotArt",
+    default: "Balkan Bäckerei-Pizza-Grill (Brotart) – Balkan-Spezialitäten & Bäckerei in Riedlingen",
+    template: "%s | Balkan Bäckerei-Pizza-Grill",
   },
   description:
-    "BrotArt vereint schwäbische Backkunst mit Balkan-Spezialitäten – täglich frisch, lange Öffnungszeiten und herzlicher Service in Riedlingen.",
-  keywords: ["BrotArt", "Bäckerei Riedlingen", "Balkan Spezialitäten", "Burek", "Holzofenpizza"],
+    "Balkan Bäckerei-Pizza-Grill (Brotart) in Riedlingen: Börek, Mantije, Holzofenpizza und frisches Brot – täglich bis 22:00 Uhr geöffnet.",
+  keywords: [
+    "Balkan Bäckerei-Pizza-Grill",
+    "Bäckerei Riedlingen",
+    "Balkan Spezialitäten Riedlingen",
+    "Börek Riedlingen",
+    "Mantije",
+  ],
   openGraph: {
-    title: "BrotArt – Bäckerei & Grill in Riedlingen",
+    title: "Balkan Bäckerei-Pizza-Grill (Brotart) in Riedlingen",
     description:
-      "Frisches Brot, Burek, Mantije und Holzofenpizza – täglich von früh bis spät geöffnet in der Neuen Unlinger Straße 19.",
+      "Börek, Mantije, Holzofenpizza und Brot frisch aus dem Ofen – täglich 05:00 bis 22:00 Uhr (So ab 07:00 Uhr) in der Neuen Unlinger Str. 19/1.",
     type: "website",
-    url: "https://brotart.de",
+    url: "https://brotart-riedlingen.de",
     locale: "de_DE",
     images: [
       {
         url: "https://images.unsplash.com/photo-1486887396153-fa416526c108?auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "Ofenfrisches Brot aus dem Steinofen",
+        alt: "Frisch gebackenes Brot bei Balkan Bäckerei-Pizza-Grill in Riedlingen",
       },
     ],
   },
