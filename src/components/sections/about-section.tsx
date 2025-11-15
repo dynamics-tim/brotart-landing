@@ -29,7 +29,7 @@ export default function AboutSection({ values }: AboutSectionProps) {
           <p className="text-lg text-stone-600">
             Balkan Bäckerei-Pizza-Grill-(Brotart) verbindet handwerkliches Brotbacken mit authentischen Balkan-Rezepten. Wir
             kneten, füllen und backen alles selbst – mit Mehl aus der Region, Gewürzmischungen aus der Familienküche und einem
-            Holzofen, der fast rund um die Uhr läuft.
+            Ofen, der fast rund um die Uhr läuft.
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             {values.map((value) => (

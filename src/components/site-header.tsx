@@ -107,7 +107,7 @@ export default function SiteHeader() {
               <div className="leading-tight">
                 <p className="text-[11px] uppercase tracking-[0.45em] text-stone-400">{CONTACT_INFO.brandShort}</p>
                 <p className="text-sm font-semibold text-stone-900">Bäckerei · Pizza · Grill</p>
-                <p className="text-[11px] text-stone-500">Mantije · Burek · Holzofen</p>
+                <p className="text-[11px] text-stone-500">Mantije · Burek · Pizza</p>
               </div>
             </Link>
 

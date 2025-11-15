@@ -27,19 +27,19 @@ export const metadata: Metadata = {
     template: "%s | Balkan Bäckerei-Pizza-Grill",
   },
   description:
-    "Balkan Bäckerei-Pizza-Grill-(Brotart) serviert Börek, Mantije, Holzofenpizza und frisches Brot – täglich 05:00 bis 22:00 Uhr in Riedlingen.",
+    "Balkan Bäckerei-Pizza-Grill-(Brotart) serviert Börek, Mantije, Pizza und frisches Brot – täglich 05:00 bis 22:00 Uhr in Riedlingen.",
   keywords: [
     "Balkan Bäckerei-Pizza-Grill",
     "Bäckerei Riedlingen",
     "Balkan Spezialitäten",
     "Burek",
     "Mantije",
-    "Holzofenpizza",
+    "Pizza",
   ],
   openGraph: {
     title: "Balkan Bäckerei-Pizza-Grill-(Brotart) - MANTIJE - BUREK in Riedlingen",
     description:
-      "Frisches Brot, Burek, Mantije und Holzofenpizza – täglich von 05:00 bis 22:00 Uhr in der Neuen Unlinger Str. 19/1 in Riedlingen.",
+      "Frisches Brot, Burek, Mantije und Pizza – täglich von 05:00 bis 22:00 Uhr in der Neuen Unlinger Str. 19/1 in Riedlingen.",
     type: "website",
     url: "https://brotart-riedlingen.de",
     locale: "de_DE",

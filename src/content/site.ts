@@ -35,7 +35,7 @@ export const SPECIALTIES: Specialty[] = [
     icon: "🥖",
   },
   {
-    name: "Holzofen-Pizza",
+    name: "Leckere Pizza",
     description: "Dünner Boden, hohe Hitze, rauchiges Aroma.",
     details: "Signature-Pizza „Balkan“ mit Sudschuk, eingelegter Paprika und Kräuteröl.",
     icon: "🍕",
@@ -259,12 +259,12 @@ export const HERO_CONTENT: HeroContent = {
     trailing: "im Herzen Riedlingens.",
   },
   description:
-    "Balkan Bäckerei-Pizza-Grill-(Brotart) – Mantije, Burek, Holzofenpizza und frisches Brot ab 05:00 Uhr. 7 Tage geöffnet direkt an der Neuen Unlinger Str. in Riedlingen.",
+    "Balkan Bäckerei-Pizza-Grill-(Brotart) – Mantije, Burek, Pizza und frisches Brot ab 05:00 Uhr. 7 Tage geöffnet direkt an der Neuen Unlinger Str. in Riedlingen.",
   image: {
     src: "https://images.unsplash.com/photo-1486887396153-fa416526c108?auto=format&fit=crop&w=1200&q=80",
     alt: "Frisch gebackenes Brot aus dem Steinofen",
   },
-  supportingNote: "Direkter Blick auf den Holzofen & Balkan-Spezialitäten",
+  supportingNote: "Direkter Blick auf den Steinofen & Balkan-Spezialitäten",
 };
 
 export type GoogleReviewSummary = {
