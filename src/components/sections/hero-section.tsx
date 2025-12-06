@@ -39,7 +39,7 @@ export default function HeroSection({
             className="inline-flex items-center gap-2 rounded-full bg-brotart-600 px-6 py-3 text-lg font-semibold text-white shadow-lg shadow-brotart-200 transition hover:-translate-y-0.5 hover:bg-brotart-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
           >
             <span aria-hidden="true" className="text-xl leading-none">
-              📞
+              ☎
             </span>
             <span>Jetzt anrufen: {contactInfo.displayPhone}</span>
           </a>
@@ -54,13 +54,24 @@ export default function HeroSection({
             </span>
             <span>Route planen</span>
           </a>
+          <a
+            href="https://whatsapp.com/channel/0029VbBa9yiIN9igZCneGa1W"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-6 py-3 text-lg font-semibold text-green-700 shadow-lg shadow-green-100 transition hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+          >
+            <span aria-hidden="true" className="text-xl leading-none">
+              🟢
+            </span>
+            <span>WhatsApp Kanal</span>
+          </a>
         </div>
 
         {hero.supportingNote && (
           <p className="text-sm uppercase tracking-[0.3em] text-stone-400">{hero.supportingNote}</p>
         )}
 
-        {/* <HeroGallery images={galleryImages} /> */}
+        <HeroGallery images={galleryImages} />
 
         <div className="flex flex-wrap gap-3">
           {badges.map((badge) => (
@@ -89,7 +100,6 @@ function HeroGallery({ images }: HeroGalleryProps) {
   const slides = useMemo(() => images.filter(Boolean), [images]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [loadedIndices, setLoadedIndices] = useState<Set<number>>(() => new Set([0]));
   const derivedIndex = slides.length ? activeIndex % slides.length : 0;
 
   useEffect(() => {
@@ -108,21 +118,6 @@ function HeroGallery({ images }: HeroGalleryProps) {
     return () => window.clearTimeout(timeout);
   }, [isPaused]);
 
-  useEffect(() => {
-    if (!slides.length) return undefined;
-
-    setLoadedIndices((prev) => {
-      const next = new Set(prev);
-      next.add(derivedIndex);
-      if (slides.length > 1) {
-        next.add((derivedIndex + 1) % slides.length);
-      }
-      return next;
-    });
-
-    return undefined;
-  }, [derivedIndex, slides.length]);
-
   const goToSlide = (index: number) => {
     if (!slides.length) return;
     const nextIndex = (index + slides.length) % slides.length;
@@ -138,8 +133,12 @@ function HeroGallery({ images }: HeroGalleryProps) {
     <div className="space-y-4 rounded-[28px] border border-stone-100/80 bg-gradient-to-b from-white/85 via-white to-white/90 p-4 shadow-inner shadow-brotart-50/40">
       <div className="relative overflow-hidden rounded-2xl bg-stone-950/5 shadow-lg" aria-label="Hero Galerie">
         <div className="relative aspect-[4/3] w-full">
-          {slides.map((slide, index) => (
-            loadedIndices.has(index) && (
+          {slides.map((slide, index) => {
+            const shouldRender =
+              index === derivedIndex || (slides.length > 1 && index === (derivedIndex + 1) % slides.length);
+            if (!shouldRender) return null;
+
+            return (
               <div
                 key={`${typeof slide.src === "string" ? slide.src : slide.src.src}-${index}`}
                 className={`absolute inset-0 transition duration-700 ease-out ${
@@ -159,8 +158,8 @@ function HeroGallery({ images }: HeroGalleryProps) {
                   className="h-full w-full object-cover"
                 />
               </div>
-            )
-          ))}
+            );
+          })}
 
           {!slides.length && (
             <div className="flex h-full items-center justify-center bg-stone-100/80 text-sm font-medium text-stone-500">
