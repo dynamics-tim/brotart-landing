@@ -104,7 +104,7 @@ export const CONTACT_INFO: ContactInfo = {
   email: "info@brotart-riedlingen.de",
   whatsapp: "https://wa.me/4973711296664",
   mapsLink:
-    "https://www.google.com/maps/place/Balkan+B%C3%A4ckerei-Pizza-Grill-(Brotart)+-+MANTIJE+-+BUREK/@48.1603653,9.4725603,17z",
+    "https://maps.app.goo.gl/wvBW7zB8kgAzDZZc9",
 };
 
 export type ContactHighlight = {
