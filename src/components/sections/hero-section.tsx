@@ -60,7 +60,7 @@ export default function HeroSection({
           <p className="text-sm uppercase tracking-[0.3em] text-stone-400">{hero.supportingNote}</p>
         )}
 
-        <HeroGallery images={galleryImages} />
+        {/* <HeroGallery images={galleryImages} /> */}
 
         <div className="flex flex-wrap gap-3">
           {badges.map((badge) => (
@@ -89,6 +89,7 @@ function HeroGallery({ images }: HeroGalleryProps) {
   const slides = useMemo(() => images.filter(Boolean), [images]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [loadedIndices, setLoadedIndices] = useState<Set<number>>(() => new Set([0]));
   const derivedIndex = slides.length ? activeIndex % slides.length : 0;
 
   useEffect(() => {
@@ -107,6 +108,21 @@ function HeroGallery({ images }: HeroGalleryProps) {
     return () => window.clearTimeout(timeout);
   }, [isPaused]);
 
+  useEffect(() => {
+    if (!slides.length) return undefined;
+
+    setLoadedIndices((prev) => {
+      const next = new Set(prev);
+      next.add(derivedIndex);
+      if (slides.length > 1) {
+        next.add((derivedIndex + 1) % slides.length);
+      }
+      return next;
+    });
+
+    return undefined;
+  }, [derivedIndex, slides.length]);
+
   const goToSlide = (index: number) => {
     if (!slides.length) return;
     const nextIndex = (index + slides.length) % slides.length;
@@ -123,22 +139,27 @@ function HeroGallery({ images }: HeroGalleryProps) {
       <div className="relative overflow-hidden rounded-2xl bg-stone-950/5 shadow-lg" aria-label="Hero Galerie">
         <div className="relative aspect-[4/3] w-full">
           {slides.map((slide, index) => (
-            <div
-              key={`${slide.src}-${index}`}
-              className={`absolute inset-0 transition duration-700 ease-out ${
-                index === derivedIndex ? "scale-100 opacity-100" : "scale-105 opacity-0"
-              }`}
-              aria-hidden={index !== derivedIndex}
-            >
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                priority={index === 0}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 640px"
-                className="h-full w-full object-cover"
-              />
-            </div>
+            loadedIndices.has(index) && (
+              <div
+                key={`${typeof slide.src === "string" ? slide.src : slide.src.src}-${index}`}
+                className={`absolute inset-0 transition duration-700 ease-out ${
+                  index === derivedIndex ? "scale-100 opacity-100" : "scale-105 opacity-0"
+                }`}
+                aria-hidden={index !== derivedIndex}
+              >
+                <Image
+                  src={slide.src}
+                  alt={slide.alt}
+                  fill
+                  priority={index === 0}
+                  fetchPriority={index === 0 ? "high" : undefined}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  placeholder={typeof slide.src === "string" ? "empty" : "blur"}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1100px"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            )
           ))}
 
           {!slides.length && (
