@@ -26,7 +26,7 @@ export default function ContactSection({ highlights, socialLinks }: ContactSecti
                   key={item.label}
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noreferrer" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   className="group flex h-full flex-col justify-between rounded-2xl border border-stone-100 bg-stone-50/70 p-5 transition hover:-translate-y-0.5 hover:border-brotart-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500"
                   aria-label={`${item.label}: ${item.value}`}
                 >
@@ -52,7 +52,7 @@ export default function ContactSection({ highlights, socialLinks }: ContactSecti
                     key={social.label}
                     href={social.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="rounded-full border border-stone-200 bg-white/80 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-brotart-200 hover:text-brotart-600"
                   >
                     <span className="font-semibold">{social.label}</span>{" "}

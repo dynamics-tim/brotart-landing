@@ -37,7 +37,7 @@ export default function HeroSection({
           <a
             href="https://whatsapp.com/channel/0029VbBa9yiIN9igZCneGa1W"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-6 py-3 text-lg font-semibold text-green-700 shadow-lg shadow-green-100 transition hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
           >
             <span aria-hidden="true" className="text-xl leading-none">
@@ -57,7 +57,7 @@ export default function HeroSection({
           <a
             href={contactInfo.mapsLink}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-brotart-200 bg-white px-6 py-3 text-lg font-semibold text-brotart-600 shadow-lg shadow-brotart-50 transition hover:-translate-y-0.5 hover:border-brotart-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
           >
             <span aria-hidden="true" className="text-xl leading-none">

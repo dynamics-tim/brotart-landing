@@ -113,6 +113,14 @@ export default function RootLayout({
     <html lang="de">
       <head>
         <link rel="icon" href="/favicon.svg" />
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+        />
+        <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: localBusinessJsonLd }} />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>

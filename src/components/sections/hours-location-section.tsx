@@ -53,12 +53,13 @@ export default function HoursLocationSection({ openingHours, mapsEmbed, mapsLink
                 title="Google Maps – Balkan Bäckerei-Pizza-Grill Standort"
                 src={mapsEmbed}
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                sandbox="allow-same-origin allow-scripts allow-popups"
+                referrerPolicy="strict-origin-when-cross-origin"
                 className="h-72 w-full border-0"
               />
             ) : (
               <div className="flex h-72 flex-col items-center justify-center gap-4 p-6 text-center text-stone-600">
-                <p className="text-lg font-semibold text-stone-900">Karte laden?</p>
+                <p className="text-lg font-semibold text-stone-900">Google Maps laden?</p>
                 <p className="text-sm">
                   Durch einen Klick wird Google Maps eingebettet und es können Cookies von Google gesetzt werden.
                 </p>
@@ -85,7 +86,7 @@ export default function HoursLocationSection({ openingHours, mapsEmbed, mapsLink
               <a
                 href={mapsLink}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brotart-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brotart-200 transition hover:-translate-y-0.5 hover:bg-brotart-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
               >
                 <span aria-hidden="true">📍</span>
