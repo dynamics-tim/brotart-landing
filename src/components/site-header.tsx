@@ -98,16 +98,18 @@ export default function SiteHeader() {
           >
             <Link
               href="#start"
-              className="flex min-w-max items-center gap-3 rounded-full border border-white/70 bg-white/95 px-3 py-2 shadow-sm shadow-white/60 transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500"
+              className="flex min-w-max items-center gap-3 rounded-full border border-stone-200 bg-white px-3 py-2 shadow-sm shadow-stone-200/80 transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500"
               aria-label="Zur Startsektion scrollen"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brotart-600 to-brotart-400 text-sm font-semibold text-white shadow-md shadow-brotart-300">
                 {CONTACT_INFO.brandInitials}
               </div>
               <div className="leading-tight">
-                <p className="text-[11px] uppercase tracking-[0.45em] text-stone-400">{CONTACT_INFO.brandShort}</p>
-                <p className="text-sm font-semibold text-stone-900">Bäckerei · Pizza · Grill</p>
-                <p className="text-[11px] text-stone-500">Mantije · Burek · Pizza</p>
+                <p className="text-[11px] uppercase tracking-[0.4em] text-stone-400">{CONTACT_INFO.brandShort}</p>
+                <p className="text-sm font-semibold text-stone-900">Mantije · Burek · Pizza</p>
+                <p className="text-[11px] text-stone-500">
+                  {CONTACT_INFO.street}, {CONTACT_INFO.city}
+                </p>
               </div>
             </Link>
 
