@@ -35,13 +35,24 @@ export default function HeroSection({
 
         <div className="flex flex-wrap gap-4">
           <a
+            href="https://whatsapp.com/channel/0029VbBa9yiIN9igZCneGa1W"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-6 py-3 text-lg font-semibold text-green-700 shadow-lg shadow-green-100 transition hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+          >
+            <span aria-hidden="true" className="text-xl leading-none">
+              🟢
+            </span>
+            <span>WhatsApp Kanal</span>
+          </a>
+          <a
             href={`tel:${contactInfo.phone}`}
             className="inline-flex items-center gap-2 rounded-full bg-brotart-600 px-6 py-3 text-lg font-semibold text-white shadow-lg shadow-brotart-200 transition hover:-translate-y-0.5 hover:bg-brotart-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
           >
             <span aria-hidden="true" className="text-xl leading-none">
               ☎
             </span>
-            <span>Jetzt anrufen: {contactInfo.displayPhone}</span>
+            <span>Jetzt anrufen</span>
           </a>
           <a
             href={contactInfo.mapsLink}
@@ -54,17 +65,7 @@ export default function HeroSection({
             </span>
             <span>Route planen</span>
           </a>
-          <a
-            href="https://whatsapp.com/channel/0029VbBa9yiIN9igZCneGa1W"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-6 py-3 text-lg font-semibold text-green-700 shadow-lg shadow-green-100 transition hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
-          >
-            <span aria-hidden="true" className="text-xl leading-none">
-              🟢
-            </span>
-            <span>WhatsApp Kanal</span>
-          </a>
+          
         </div>
 
         {hero.supportingNote && (

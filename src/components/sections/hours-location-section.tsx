@@ -29,10 +29,10 @@ export default function HoursLocationSection({ openingHours, mapsEmbed, mapsLink
           {openingHours.map((entry) => (
             <li
               key={entry.days}
-              className="flex items-center justify-between rounded-2xl border border-stone-100 bg-stone-50/60 px-4 py-3 text-sm"
+              className="flex items-center justify-between rounded-2xl border border-stone-200 bg-white px-4 py-3 text-sm shadow-sm"
             >
-              <span className="font-medium text-stone-800">{entry.days}</span>
-              <span className="text-stone-600">{entry.hours}</span>
+              <span className="font-semibold text-stone-900">{entry.days}</span>
+              <span className="font-medium text-stone-700">{entry.hours}</span>
             </li>
           ))}
         </ul>
