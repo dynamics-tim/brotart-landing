@@ -51,8 +51,8 @@ export const CORE_VALUES: ValueCard[] = [
     description: "Geführt von Familie Imeri – schwäbische Bodenständigkeit trifft Balkan-Gastfreundschaft.",
   },
   {
-    title: "Backofen live erlebbar",
-    description: "Der Blick in den Ofen ist gewollt: Gäste sehen jede Etappe vom Teig bis zum Brot.",
+    title: "Handwerklich & transparent",
+    description: "Vom Teigkneten bis zum fertigen Produkt – bei uns wird alles frisch vor Ort zubereitet.",
   },
   {
     title: "Ganztägig frische Küche",
@@ -234,7 +234,7 @@ export type GoogleReview = {
 };
 
 export const GOOGLE_REVIEW_SUMMARY: GoogleReviewSummary = {
-  averageRating: 4.4,
+  averageRating: 5,
   reviewCount: 86,
   dataAsOf: "08.11.2025",
   source: "Google Maps",
@@ -261,7 +261,7 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     author: "Julia H.",
     role: "Stammkundin",
     relativeTime: "vor 2 Wochen",
-    rating: 4.5,
+    rating: 5,
     excerpt:
       "Pizza mit Sudschuk mega, kann ich nur empfehlen. Der Inhaber versucht jeden Wunsch zu erfüllen.",
     highlight: "Takeaway klappt schnell",
@@ -271,7 +271,7 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     author: "Cornelia L.",
     role: "Frühstücksfan",
     relativeTime: "vor 1 Monat",
-    rating: 4.5,
+    rating: 5,
     excerpt:
       "Günstiges Frühstück, frische Sesamzöpfe und Mantije wie im Urlaub. Personal super freundlich.",
     highlight: "Preiswertes Frühstück",

@@ -57,7 +57,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                 </p>
                 <ul className="mt-6 flex flex-wrap gap-2 text-sm text-stone-700">
                   {summary.highlights.map((item) => (
-                    <li key={item} className="rounded-full bg-brotart-50/80 px-4 py-1 font-medium">
+                    <li key={item} className="rounded-full bg-brotart-100 px-4 py-1 font-medium text-stone-900">
                       {item}
                     </li>
                   ))}
