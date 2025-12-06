@@ -127,23 +127,6 @@ export const CONTACT_HIGHLIGHTS: ContactHighlight[] = [
     cta: "Jetzt anrufen",
   },
   {
-    label: "WhatsApp",
-    value: "Sofortnachricht",
-    description: "Fotos schicken, Bestellung abstimmen",
-    href: CONTACT_INFO.whatsapp,
-    icon: "💬",
-    cta: "Chat öffnen",
-    external: true,
-  },
-  {
-    label: "E-Mail",
-    value: CONTACT_INFO.email,
-    description: "Antwort innerhalb eines Werktags",
-    href: `mailto:${CONTACT_INFO.email}`,
-    icon: "✉️",
-    cta: "Mail schreiben",
-  },
-  {
     label: "Adresse",
     value: CONTACT_INFO.street,
     description: `${CONTACT_INFO.zip} ${CONTACT_INFO.city}`,
@@ -161,8 +144,8 @@ export type SocialLink = {
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "Instagram", href: "https://www.instagram.com/brotart.riedlingen", handle: "@brotart.riedlingen" },
-  { label: "Facebook", href: "https://www.facebook.com/brotart", handle: "@brotart" },
+  // { label: "Instagram", href: "https://www.instagram.com/brotart.riedlingen", handle: "@brotart.riedlingen" },
+  // { label: "Facebook", href: "https://www.facebook.com/brotart", handle: "@brotart" },
   { label: "Google Maps", href: CONTACT_INFO.mapsLink, handle: "Bewertungen" },
 ];
 

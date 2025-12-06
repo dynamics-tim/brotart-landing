@@ -115,7 +115,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                 <p className="mt-3 text-base leading-relaxed text-stone-700 lg:min-h-[130px]">&ldquo;{review.excerpt}&rdquo;</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {review.topics.map((topic) => (
-                    <span key={topic} className="rounded-full bg-brotart-50 px-3 py-1 text-xs font-medium text-brotart-600">
+                    <span key={topic} className="rounded-full bg-brotart-100 px-3 py-1 text-xs font-medium text-stone-900">
                       {topic}
                     </span>
                   ))}

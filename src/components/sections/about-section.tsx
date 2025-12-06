@@ -35,7 +35,7 @@ export default function AboutSection({ values }: AboutSectionProps) {
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             {values.map((value) => (
-              <article key={value.title} className="rounded-2xl border border-stone-100 bg-brotart-50/60 p-5">
+              <article key={value.title} className="rounded-2xl border border-white/70 bg-white/90 p-5 shadow-lg shadow-brotart-50">
                 <h3 className="text-lg font-semibold text-stone-900">{value.title}</h3>
                 <p className="mt-2 text-sm text-stone-600">{value.description}</p>
               </article>

@@ -72,18 +72,26 @@ export default function HoursLocationSection({ openingHours, mapsEmbed, mapsLink
               </div>
             )}
           </div>
-          <div className="flex flex-col gap-2 rounded-2xl bg-stone-50/70 px-5 py-4 text-sm text-stone-700 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              Neue Unlinger Str. 19/1, 88499 Riedlingen – Parkplätze vor dem Laden, Buslinie 7606 »Neue Unlinger Straße«.
+          <div className="group rounded-2xl border border-white/70 bg-white/90 p-6 shadow-lg shadow-brotart-50 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brotart-100">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex-1 space-y-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brotart-500">Standort</p>
+                <p className="text-base font-semibold text-stone-900">Neue Unlinger Str. 19/1</p>
+                <p className="text-sm text-stone-600">88499 Riedlingen</p>
+                <p className="text-sm text-stone-500">
+                  Parkplätze vor dem Laden · Buslinie 7606 »Neue Unlinger Straße«
+                </p>
+              </div>
+              <a
+                href={mapsLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brotart-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brotart-200 transition hover:-translate-y-0.5 hover:bg-brotart-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
+              >
+                <span aria-hidden="true">📍</span>
+                Route planen
+              </a>
             </div>
-            <a
-              href={mapsLink}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1 text-brotart-600 font-semibold"
-            >
-              Route planen <span aria-hidden="true">→</span>
-            </a>
           </div>
         </div>
       </div>
