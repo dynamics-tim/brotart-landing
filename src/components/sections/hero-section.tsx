@@ -2,21 +2,25 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import type { DailyOffer, HeroBadge, HeroContent } from "@/content/site";
+import type { ContactInfo, HeroBadge, HeroContent } from "@/content/site";
 import type { HeroGalleryImage } from "@/content/hero-gallery";
 
 type HeroSectionProps = {
   hero: HeroContent;
   badges: HeroBadge[];
-  dailyOffer: DailyOffer;
-  offerDate: string;
   galleryImages: HeroGalleryImage[];
+  contactInfo: ContactInfo;
 };
 
 const AUTO_ROTATE_INTERVAL = 5000;
 const MANUAL_PAUSE_DURATION = 8000;
 
-export default function HeroSection({ hero, badges, dailyOffer, offerDate, galleryImages }: HeroSectionProps) {
+export default function HeroSection({
+  hero,
+  badges,
+  galleryImages,
+  contactInfo,
+}: HeroSectionProps) {
   return (
     <section id="start" className="section-anchor w-full px-6 pb-16 pt-4">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 rounded-3xl bg-white/90 p-6 shadow-lg shadow-brotart-100 sm:p-8">
@@ -26,27 +30,35 @@ export default function HeroSection({ hero, badges, dailyOffer, offerDate, galle
           <span className="text-brotart-600 font-[var(--font-playfair)]">{hero.title.highlight}</span>{" "}
           {hero.title.trailing}
         </h1>
-        <p className="max-w-xl text-lg text-stone-600">{hero.description}</p>
-        <a
-          href="https://whatsapp.com/channel/0029VbBa9yiIN9igZCneGa1W"
-          target="_blank"
-          rel="noopener"
-          aria-label="Heutiges Angebot auf WhatsApp anzeigen"
-          className="inline-flex w-fit items-center gap-3 rounded-full bg-brotart-600 px-6 py-3 text-lg font-semibold text-white shadow-lg shadow-brotart-200 transition hover:bg-brotart-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
-        >
-          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brotart-100/20">
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12.04 2.004c-5.522 0-10 4.383-10 9.79 0 1.727.469 3.414 1.358 4.906L2 22.078l5.563-1.455c1.456.799 3.095 1.221 4.777 1.221 5.522 0 10-4.382 10-9.79 0-5.407-4.478-9.79-10-9.79Zm0 1.85c4.458 0 8.08 3.515 8.08 7.94s-3.622 7.94-8.08 7.94c-1.482 0-2.932-.4-4.207-1.158l-.3-.177-3.302.864.884-3.22-.195-.313c-.82-1.318-1.254-2.84-1.254-4.437 0-4.425 3.622-7.94 8.08-7.94Zm-2.97 3.586a.747.747 0 0 0-.681.4c-.187.332-.613.968-.613 1.794 0 .826.63 1.62.718 1.733.087.113 1.21 1.917 2.915 2.61 1.708.695 1.83.557 2.159.522.33-.034 1.064-.433 1.214-.853.148-.42.148-.78.104-.853-.043-.074-.17-.113-.36-.2-.19-.086-1.125-.55-1.3-.61-.174-.06-.3-.086-.429.087-.126.173-.493.61-.605.733-.11.126-.221.143-.41.052-.187-.09-.792-.29-1.51-.93-.558-.5-.933-1.117-1.043-1.304-.11-.186-.012-.286.083-.38.084-.083.19-.217.288-.326.096-.108.13-.183.195-.307.065-.126.035-.237-.017-.326-.052-.086-.45-1.09-.616-1.492-.165-.401-.337-.347-.429-.35Z" />
-            </svg>
-          </span>
-          <span>Heutiges Angebot ansehen</span>
-        </a>
+        <p className="max-w-2xl text-lg text-stone-600">{hero.description}</p>
+        <p className="text-base text-brotart-700">{hero.secondary}</p>
+
+        <div className="flex flex-wrap gap-4">
+          <a
+            href={`tel:${contactInfo.phone}`}
+            className="inline-flex items-center gap-2 rounded-full bg-brotart-600 px-6 py-3 text-lg font-semibold text-white shadow-lg shadow-brotart-200 transition hover:-translate-y-0.5 hover:bg-brotart-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
+          >
+            <span aria-hidden="true" className="text-xl leading-none">
+              📞
+            </span>
+            <span>Jetzt anrufen: {contactInfo.displayPhone}</span>
+          </a>
+          <a
+            href={contactInfo.mapsLink}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-brotart-200 bg-white px-6 py-3 text-lg font-semibold text-brotart-600 shadow-lg shadow-brotart-50 transition hover:-translate-y-0.5 hover:border-brotart-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
+          >
+            <span aria-hidden="true" className="text-xl leading-none">
+              📍
+            </span>
+            <span>Route planen</span>
+          </a>
+        </div>
+
+        {hero.supportingNote && (
+          <p className="text-sm uppercase tracking-[0.3em] text-stone-400">{hero.supportingNote}</p>
+        )}
 
         <HeroGallery images={galleryImages} />
 
@@ -64,20 +76,6 @@ export default function HeroSection({ hero, badges, dailyOffer, offerDate, galle
             </div>
           ))}
         </div>
-
-        <article className="rounded-2xl border border-brotart-100 bg-brotart-50/80 p-6 shadow-inner">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brotart-500">{dailyOffer.title}</p>
-          <div className="mt-2 flex flex-wrap items-baseline gap-3">
-            <h2 className="text-3xl font-semibold text-brotart-700">{dailyOffer.offer}</h2>
-            <span className="rounded-full bg-white px-3 py-1 text-lg font-semibold text-brotart-600">
-              {dailyOffer.price}
-            </span>
-          </div>
-          <p className="mt-3 text-sm text-stone-600">{dailyOffer.note}</p>
-          <p className="mt-1 text-xs uppercase tracking-[0.3em] text-stone-400">
-            {dailyOffer.tagline} {"\u2013"} {offerDate}
-          </p>
-        </article>
       </div>
     </section>
   );

@@ -8,11 +8,13 @@ export default function SpecialtiesSection({ specialties }: SpecialtiesSectionPr
   return (
     <section id="angebot" className="section-anchor mx-auto max-w-6xl px-6 py-16">
       <div className="flex flex-col gap-4 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Signatures</p>
-        <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">Unsere beliebtesten Klassiker</h2>
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Balkan Klassiker</p>
+        <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">
+          Börek, Mantije, Pizza & Frühstück in Riedlingen
+        </h2>
         <p className="mx-auto max-w-3xl text-lg text-stone-600">
-          Jede Spezialität wird morgens vorbereitet, ruht mit geheimer Gewürzmischung und wird erst kurz vor dem Servieren
-          gebacken – so bleibt alles knusprig und saftig.
+          Jede Spezialität entsteht in kleinen Chargen, ruht mit Familien-Gewürzmischung und wird erst kurz vor dem Servieren
+          frisch gebacken – knusprig, saftig und perfekt zum Mitnehmen.
         </p>
       </div>
 

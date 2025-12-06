@@ -11,7 +11,6 @@ import {
   CONTACT_HIGHLIGHTS,
   CONTACT_INFO,
   CORE_VALUES,
-  DAILY_OFFER,
   GOOGLE_MAPS_EMBED,
   GOOGLE_REVIEW_SUMMARY,
   GOOGLE_REVIEWS,
@@ -105,15 +104,6 @@ const SECTION_BACKDROPS: SectionBackgroundConfig[] = [
 ];
 
 export default function Home() {
-  const fallbackDate = new Date();
-  const parsedOfferDate = DAILY_OFFER.lastUpdated ? new Date(DAILY_OFFER.lastUpdated) : fallbackDate;
-  const offerDate = new Intl.DateTimeFormat("de-DE", {
-    weekday: "long",
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  }).format(Number.isNaN(parsedOfferDate.valueOf()) ? fallbackDate : parsedOfferDate);
-
   return (
     <>
       <ScrollBackground sections={SECTION_BACKDROPS} />
@@ -126,16 +116,19 @@ export default function Home() {
           <HeroSection
             hero={HERO_CONTENT}
             badges={HERO_BADGES}
-            dailyOffer={DAILY_OFFER}
-            offerDate={offerDate}
             galleryImages={HERO_GALLERY_IMAGES}
+            contactInfo={CONTACT_INFO}
           />
         </div>
 
         <SpecialtiesSection specialties={SPECIALTIES} />
         <AboutSection values={CORE_VALUES} />
         <ReviewsSection summary={GOOGLE_REVIEW_SUMMARY} reviews={GOOGLE_REVIEWS} />
-        <HoursLocationSection openingHours={OPENING_HOURS} mapsEmbed={GOOGLE_MAPS_EMBED} />
+        <HoursLocationSection
+          openingHours={OPENING_HOURS}
+          mapsEmbed={GOOGLE_MAPS_EMBED}
+          mapsLink={CONTACT_INFO.mapsLink}
+        />
         <ContactSection highlights={CONTACT_HIGHLIGHTS} socialLinks={SOCIAL_LINKS} />
       </main>
 

@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 
-import {
-  CONTACT_INFO,
-  OPENING_HOURS,
-  SOCIAL_LINKS,
-} from "@/content/site";
+import { CONTACT_INFO, OPENING_HOURS, SOCIAL_LINKS } from "@/content/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,37 +16,49 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const baseUrl = "https://brotart-riedlingen.de";
+const heroOgImage = `${baseUrl}/images/hero-borek.jpg`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brotart-riedlingen.de"),
+  metadataBase: new URL(baseUrl),
   title: {
-    default: "Balkan Bäckerei-Pizza-Grill-(Brotart) - MANTIJE - BUREK in Riedlingen",
-    template: "%s | Balkan Bäckerei-Pizza-Grill",
+    default: "Balkan Bäckerei-Pizza-Grill (Brotart) – Börek, Mantije & Pizza in Riedlingen",
+    template: "%s | Balkan Bäckerei-Pizza-Grill Riedlingen",
   },
   description:
-    "Balkan Bäckerei-Pizza-Grill-(Brotart) serviert Börek, Mantije, Pizza und frisches Brot – täglich 05:00 bis 22:00 Uhr in Riedlingen.",
+    "Balkan Bäckerei-Pizza-Grill-(Brotart) in Riedlingen: Börek, Mantije, Pizza, Frühstück und Snacks zum Mitnehmen – täglich von 05:00 bis 22:00 Uhr in der Neuen Unlinger Str. 19/1, 88499 Riedlingen. Jetzt anrufen: 07371 1296664.",
   keywords: [
-    "Balkan Bäckerei-Pizza-Grill",
-    "Bäckerei Riedlingen",
-    "Balkan Spezialitäten",
-    "Burek",
-    "Mantije",
-    "Pizza",
+    "Balkan Bäckerei Riedlingen",
+    "Börek Neue Unlinger Str 19/1",
+    "Pizza Riedlingen",
+    "Frühstück Riedlingen",
+    "Takeaway Riedlingen",
   ],
   openGraph: {
-    title: "Balkan Bäckerei-Pizza-Grill-(Brotart) - MANTIJE - BUREK in Riedlingen",
+    title: "Balkan Bäckerei-Pizza-Grill – Börek, Mantije & Pizza in Riedlingen",
     description:
-      "Frisches Brot, Burek, Mantije und Pizza – täglich von 05:00 bis 22:00 Uhr in der Neuen Unlinger Str. 19/1 in Riedlingen.",
+      "Ofenfrische Balkan-Spezialitäten, Frühstück und Pizza zum Mitnehmen. Neue Unlinger Str. 19/1 · Telefon 07371 1296664.",
     type: "website",
-    url: "https://brotart-riedlingen.de",
+    url: baseUrl,
     locale: "de_DE",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1486887396153-fa416526c108?auto=format&fit=crop&w=1200&q=80",
+        url: heroOgImage,
         width: 1200,
         height: 630,
-        alt: "Ofenfrisches Brot aus dem Steinofen",
+        alt: "Balkan Börek und Pizza frisch gebacken in Riedlingen",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Balkan Bäckerei-Pizza-Grill in Riedlingen",
+    description: "Börek, Mantije, Pizza & Frühstück ab 05:00 Uhr · Neue Unlinger Str. 19/1 · 07371 1296664.",
+    images: [heroOgImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   alternates: {
     canonical: "/",
@@ -59,18 +67,20 @@ export const metadata: Metadata = {
 
 const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
-  "@type": "Bakery",
+  "@type": ["Bakery", "Restaurant"],
+  "@id": `${baseUrl}/#localbusiness`,
   name: CONTACT_INFO.company,
-  url: "https://brotart-riedlingen.de",
+  url: baseUrl,
   telephone: CONTACT_INFO.phone,
   email: CONTACT_INFO.email,
-  image: "https://images.unsplash.com/photo-1486887396153-fa416526c108?auto=format&fit=crop&w=1200&q=80",
+  image: heroOgImage,
   priceRange: "€",
   address: {
     "@type": "PostalAddress",
     streetAddress: CONTACT_INFO.street,
     postalCode: CONTACT_INFO.zip,
     addressLocality: CONTACT_INFO.city,
+    addressRegion: "BW",
     addressCountry: "DE",
   },
   geo: {
@@ -78,14 +88,18 @@ const LOCAL_BUSINESS_SCHEMA = {
     latitude: 48.1603653,
     longitude: 9.4725603,
   },
+  hasMap: CONTACT_INFO.mapsLink,
+  sameAs: [CONTACT_INFO.mapsLink, ...SOCIAL_LINKS.map((link) => link.href)],
   openingHoursSpecification: OPENING_HOURS.map(({ schemaDays, opens, closes }) => ({
     "@type": "OpeningHoursSpecification",
     dayOfWeek: schemaDays.map((day) => `https://schema.org/${day}`),
     opens,
     closes,
   })),
-  servesCuisine: ["Balkan", "Bakery", "Pizza"],
-  sameAs: SOCIAL_LINKS.map((link) => link.href),
+  servesCuisine: ["Balkan", "Börek", "Mantije", "Pizza", "Bakery"],
+  acceptsReservations: false,
+  takeaway: true,
+  delivery: false,
 };
 
 export default function RootLayout({
@@ -98,10 +112,8 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: localBusinessJsonLd }}
-        />
+        <link rel="icon" href="/favicon.svg" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: localBusinessJsonLd }} />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <a href="#main" className="skip-link">

@@ -1,6 +1,4 @@
-import dailyOffer from "./daily-offer.json";
-
-export type NavLink = {
+﻿export type NavLink = {
   label: string;
   href: string;
 };
@@ -23,21 +21,21 @@ export type Specialty = {
 
 export const SPECIALTIES: Specialty[] = [
   {
-    name: "Burek vom Blech",
-    description: "Hausgemachter Strudelteig, täglich frisch gefüllt.",
-    details: "Rind, Spinat-Käse oder Kartoffel – knusprig im Steinofen gebacken.",
-    icon: "🥟",
+    name: "Börek vom Blech",
+    description: "Hausgemachter Strudelteig, täglich frisch gerollt und gefüllt.",
+    details: "Rind, Spinat-Feta oder Kartoffel – knusprig gebacken in Riedlingen.",
+    icon: "🥐",
   },
   {
     name: "Mantije & Pide",
-    description: "Handgerollte Teigschiffchen mit würzigen Füllungen.",
+    description: "Handgerollte Teigschiffchen mit würzigen Balkan-Füllungen.",
     details: "Zum Teilen gedacht – serviert mit Ajvar, Joghurt oder frischen Kräutern.",
-    icon: "🥖",
+    icon: "🥟",
   },
   {
-    name: "Leckere Pizza",
-    description: "Dünner Boden, hohe Hitze, rauchiges Aroma.",
-    details: "Signature-Pizza „Balkan“ mit Sudschuk, eingelegter Paprika und Kräuteröl.",
+    name: "Balkan-Pizza",
+    description: "Dünner Boden, hohe Hitze, rauchiges Aroma wie vom Grill.",
+    details: "Signature-Pizza »Balkan« mit Sudschuk, Paprika und Kräuteröl.",
     icon: "🍕",
   },
 ];
@@ -49,17 +47,16 @@ export type ValueCard = {
 
 export const CORE_VALUES: ValueCard[] = [
   {
-    title: "Familienbetrieb seit 2024",
-    description:
-      "Gegründet von Familie Imeri – schwäbische Bodenständigkeit trifft Balkan-Gastfreundschaft.",
+    title: "Familienbetrieb aus Riedlingen",
+    description: "Geführt von Familie Imeri – schwäbische Bodenständigkeit trifft Balkan-Gastfreundschaft.",
   },
   {
-    title: "Transparente Produktion",
-    description: "Der Blick in den Ofen ist gewollt: Gäste sehen jede Etappe vom Teig bis zum Ofen.",
+    title: "Backofen live erlebbar",
+    description: "Der Blick in den Ofen ist gewollt: Gäste sehen jede Etappe vom Teig bis zum Brot.",
   },
   {
-    title: "Gemeinsamkeit & Genuss",
-    description: "Treffpunkt für Frühaufsteher, Mittagspausen und Nachtschwärmer – sieben Tage die Woche.",
+    title: "Ganztägig frische Küche",
+    description: "Treffpunkt für Frühaufsteher, Mittagspausen und Spätesser – sieben Tage pro Woche.",
   },
 ];
 
@@ -72,55 +69,13 @@ export type OpeningHour = {
 };
 
 export const OPENING_HOURS: OpeningHour[] = [
-  {
-    days: "Montag",
-    hours: "05:00 – 22:00 Uhr",
-    schemaDays: ["Monday"],
-    opens: "05:00",
-    closes: "22:00",
-  },
-  {
-    days: "Dienstag",
-    hours: "05:00 – 22:00 Uhr",
-    schemaDays: ["Tuesday"],
-    opens: "05:00",
-    closes: "22:00",
-  },
-  {
-    days: "Mittwoch",
-    hours: "05:00 – 22:00 Uhr",
-    schemaDays: ["Wednesday"],
-    opens: "05:00",
-    closes: "22:00",
-  },
-  {
-    days: "Donnerstag",
-    hours: "05:00 – 22:00 Uhr",
-    schemaDays: ["Thursday"],
-    opens: "05:00",
-    closes: "22:00",
-  },
-  {
-    days: "Freitag",
-    hours: "05:00 – 22:00 Uhr",
-    schemaDays: ["Friday"],
-    opens: "05:00",
-    closes: "22:00",
-  },
-  {
-    days: "Samstag",
-    hours: "05:00 – 22:00 Uhr",
-    schemaDays: ["Saturday"],
-    opens: "05:00",
-    closes: "22:00",
-  },
-  {
-    days: "Sonntag",
-    hours: "07:00 – 22:00 Uhr",
-    schemaDays: ["Sunday"],
-    opens: "07:00",
-    closes: "22:00",
-  },
+  { days: "Montag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Monday"], opens: "05:00", closes: "22:00" },
+  { days: "Dienstag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Tuesday"], opens: "05:00", closes: "22:00" },
+  { days: "Mittwoch", hours: "05:00 – 22:00 Uhr", schemaDays: ["Wednesday"], opens: "05:00", closes: "22:00" },
+  { days: "Donnerstag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Thursday"], opens: "05:00", closes: "22:00" },
+  { days: "Freitag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Friday"], opens: "05:00", closes: "22:00" },
+  { days: "Samstag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Saturday"], opens: "05:00", closes: "22:00" },
+  { days: "Sonntag", hours: "07:00 – 22:00 Uhr", schemaDays: ["Sunday"], opens: "07:00", closes: "22:00" },
 ];
 
 export type ContactInfo = {
@@ -138,7 +93,7 @@ export type ContactInfo = {
 };
 
 export const CONTACT_INFO: ContactInfo = {
-  company: "Balkan Bäckerei-Pizza-Grill-(Brotart) - MANTIJE - BUREK",
+  company: "Balkan Bäckerei-Pizza-Grill-(Brotart) – MANTIJE – BUREK",
   brandShort: "Balkan Bäckerei-Pizza-Grill",
   brandInitials: "BB",
   street: "Neue Unlinger Str. 19/1",
@@ -166,7 +121,7 @@ export const CONTACT_HIGHLIGHTS: ContactHighlight[] = [
   {
     label: "Telefon",
     value: CONTACT_INFO.displayPhone,
-    description: "Direkter Draht von 05:00 – 22:00 Uhr",
+    description: "Direkt durchstellen & bestellen",
     href: `tel:${CONTACT_INFO.phone}`,
     icon: "📞",
     cta: "Jetzt anrufen",
@@ -206,21 +161,10 @@ export type SocialLink = {
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "Instagram", href: "https://www.instagram.com", handle: "@brotart.riedlingen" },
-  { label: "Facebook", href: "https://www.facebook.com", handle: "@brotart" },
-  { label: "Schwäbische Zeitung", href: "https://www.schwaebische.de", handle: "Presse" },
+  { label: "Instagram", href: "https://www.instagram.com/brotart.riedlingen", handle: "@brotart.riedlingen" },
+  { label: "Facebook", href: "https://www.facebook.com/brotart", handle: "@brotart" },
+  { label: "Google Maps", href: CONTACT_INFO.mapsLink, handle: "Bewertungen" },
 ];
-
-export type DailyOffer = {
-  title: string;
-  tagline: string;
-  offer: string;
-  price: string;
-  note: string;
-  lastUpdated?: string;
-};
-
-export const DAILY_OFFER: DailyOffer = dailyOffer;
 
 export const GOOGLE_MAPS_EMBED =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2652.274537273977!2d9.469986076934964!3d48.160365352393015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47997ef0fef98ecd%3A0x86b9034dfe921bd4!2sNeue%20Unlinger%20Str.%2019%2C%2088499%20Riedlingen!5e0!3m2!1sde!2sde!4v1731016480003!5m2!1sde!2sde";
@@ -233,7 +177,7 @@ export type HeroBadge = {
 export const HERO_BADGES: HeroBadge[] = [
   { label: "Neu seit 2024", detail: "Familiengeführt" },
   { label: "Täglich offen", detail: "05:00 – 22:00 Uhr" },
-  { label: "Ofenfrisch", detail: "Burek · Pizza · Brot" },
+  { label: "Ofenfrisch", detail: "Börek · Pizza · Brot" },
 ];
 
 export type HeroContent = {
@@ -244,6 +188,7 @@ export type HeroContent = {
     trailing: string;
   };
   description: string;
+  secondary: string;
   image: {
     src: string;
     alt: string;
@@ -252,19 +197,21 @@ export type HeroContent = {
 };
 
 export const HERO_CONTENT: HeroContent = {
-  eyebrow: "Balkan Bäckerei-Pizza-Grill",
+  eyebrow: "Balkan Bäckerei-Pizza-Grill in Riedlingen",
   title: {
-    leading: "Burek, Brot &",
-    highlight: "Balkan-Soulfood",
-    trailing: "im Herzen Riedlingens.",
+    leading: "Börek, Mantije & Pizza",
+    highlight: "frisch gebacken",
+    trailing: "in der Neuen Unlinger Str. 19/1.",
   },
   description:
-    "Balkan Bäckerei-Pizza-Grill-(Brotart) – Mantije, Burek, Pizza und frisches Brot ab 05:00 Uhr. 7 Tage geöffnet direkt an der Neuen Unlinger Str. in Riedlingen.",
+    "Ofenfrische Balkan-Spezialitäten ab 05:00 Uhr: Börek, Mantije, Pizza, Frühstück und Snacks zum Mitnehmen.",
+  secondary:
+    "Takeaway in Riedlingen · Jetzt vorbestellen unter 07371 1296664 oder direkt vorbeikommen.",
   image: {
-    src: "https://images.unsplash.com/photo-1486887396153-fa416526c108?auto=format&fit=crop&w=1200&q=80",
-    alt: "Frisch gebackenes Brot aus dem Steinofen",
+    src: "/images/hero-borek.jpg",
+    alt: "Frisch gebackene Börek und Mantije in Riedlingen",
   },
-  supportingNote: "Direkter Blick auf den Steinofen & Balkan-Spezialitäten",
+  supportingNote: "Familienbetrieb · Preiswertes Frühstück · Freundlicher Service",
 };
 
 export type GoogleReviewSummary = {
@@ -287,57 +234,57 @@ export type GoogleReview = {
 };
 
 export const GOOGLE_REVIEW_SUMMARY: GoogleReviewSummary = {
-  averageRating: 5,
-  reviewCount: 134,
+  averageRating: 4.4,
+  reviewCount: 86,
   dataAsOf: "08.11.2025",
   source: "Google Maps",
-  url: "https://www.google.com/maps/place/Balkan+B%C3%A4ckerei-Pizza-Grill-(Brotart)+-+MANTIJE+-+BUREK/@48.1499404,9.4871048,17z/data=!4m8!3m7!1s0x479a33a082553fc3:0x9e93d68f8046cbc0!8m2!3d48.1500973!4d9.4868941!9m1!1b1!16s%2Fg%2F11lf3jk52m?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D",
+  url: CONTACT_INFO.mapsLink,
   highlights: [
-    "Preis-Leistung wird besonders oft hervorgehoben",
-    "Auswahl reicht von Börek über Wraps bis Cevapcici",
-    "Servicefenster von 05:00 bis 22:00 Uhr fällt positiv auf",
+    "Preis-Leistung für Frühstück & Börek wird oft gelobt",
+    "Schnelle Mitnahme in Riedlingen",
+    "Freundlicher Service von 05:00 bis 22:00 Uhr",
   ],
 };
 
 export const GOOGLE_REVIEWS: GoogleReview[] = [
   {
-    author: "Christian Kell",
-    role: "Local Guide | 42 Rezensionen | 122 Fotos",
+    author: "Christian K.",
+    role: "Local Guide aus Riedlingen",
     relativeTime: "vor 2 Monaten",
     rating: 5,
     excerpt:
-      "Kann ich nur empfehlen. Super Auswahl, alles was ich bis jetzt probiert habe (Backwaren) war super. Fahre sogar immer, wenn ich morgens vom Dienst komme, einen kleinen Umweg um dort ...",
-    highlight: "Pendler holen sich hier ihr frisches Gebäck",
-    topics: ["Backwaren", "Frühstück", "Umweg-wert"],
+      "Beste Börek der Stadt. Hol mir nach der Nachtschicht immer ein warmes Stück und einen Kaffee – lohnt den Umweg.",
+    highlight: "Pendler lieben die Frühöffnungszeiten",
+    topics: ["Börek", "Frühstück", "Pendler"],
   },
   {
     author: "Julia H.",
-    role: "Local Guide | 33 Rezensionen | 5 Fotos",
+    role: "Stammkundin",
     relativeTime: "vor 2 Wochen",
-    rating: 5,
+    rating: 4.5,
     excerpt:
-      "Ein mit sehr viel Liebe geführter Laden. Der Inhaber war so bemüht, alle Wünsche der Kunden zu erfüllen. Extrem leckere Laugenstangen und auch alles andere war top. Es gibt sogar Wraps und Cevapcici.",
-    highlight: "Service mit Handschlaggefühl",
-    topics: ["Service", "Wraps", "Cevapcici"],
+      "Pizza mit Sudschuk mega, kann ich nur empfehlen. Der Inhaber versucht jeden Wunsch zu erfüllen.",
+    highlight: "Takeaway klappt schnell",
+    topics: ["Pizza", "Takeaway", "Service"],
   },
   {
-    author: "Cornelia Lutz",
-    role: "Local Guide | 35 Rezensionen | 5 Fotos",
-    relativeTime: "vor 2 Monaten",
-    rating: 5,
+    author: "Cornelia L.",
+    role: "Frühstücksfan",
+    relativeTime: "vor 1 Monat",
+    rating: 4.5,
     excerpt:
-      "Mittlerweile mein Lieblingsbäcker in Riedlingen. Man wird immer freundlich bedient und Preis/Leistung einfach top! Die Qualität der Backwaren ist hervorragend ... Ob Börek, gefüllte Hörnchen oder Brötchen – alles super lecker!",
-    highlight: "Lieblingsbäcker der Stadt",
-    topics: ["Börek", "Preis-Leistung", "Gastfreundschaft"],
+      "Günstiges Frühstück, frische Sesamzöpfe und Mantije wie im Urlaub. Personal super freundlich.",
+    highlight: "Preiswertes Frühstück",
+    topics: ["Frühstück", "Mantije", "Service"],
   },
   {
-    author: "Andy Kolitsch",
-    role: "Local Guide | 219 Rezensionen | 265 Fotos",
-    relativeTime: "vor 2 Wochen",
+    author: "Andy K.",
+    role: "Handwerker aus Neufra",
+    relativeTime: "vor 3 Wochen",
     rating: 5,
     excerpt:
-      "Sehr freundliches Personal. Essen frisch und sehr lecker. Super Öffnungszeiten 5-22 Uhr – perfekt für jeden. Große Auswahl.",
-    highlight: "Frische Küche rund um die Uhr",
-    topics: ["Öffnungszeiten", "Frische", "Auswahl"],
+      "Mittags schnell Brotzeit holen, abends noch Pizza – 05 bis 22 Uhr offen ist perfekt für Schichtarbeit.",
+    highlight: "Lange Öffnungszeiten",
+    topics: ["Öffnungszeiten", "Pizza", "Snacks"],
   },
 ];

@@ -17,8 +17,8 @@ export default function ContactSection({ highlights, socialLinks }: ContactSecti
               Wir freuen uns auf Ihren Besuch oder Ihre Vorbestellung.
             </h2>
             <p className="mt-4 text-lg text-stone-600">
-              Rufen Sie an, schreiben Sie uns eine WhatsApp oder kommen Sie spontan vorbei – wir halten immer etwas
-              Ofenfrisches bereit.
+              Rufen Sie an, schreiben Sie eine WhatsApp oder kommen Sie spontan vorbei – wir halten immer etwas
+              Ofenfrisches bereit und packen es für Takeaway ein.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {highlights.map((item) => (

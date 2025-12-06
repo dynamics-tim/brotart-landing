@@ -29,12 +29,10 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-8">
             <div className="space-y-4 text-center lg:max-w-2xl lg:text-left">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Bewertungen</p>
-              <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">
-                Was unsere Kunden sagen
-              </h2>
+              <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">Was unsere Gäste sagen</h2>
               <p className="text-lg text-stone-600 lg:text-xl">
-                Echte Bewertungen von echten Menschen. Keine Werbeversprechen – nur ehrliche Meinungen 
-                aus unserer Google Maps Community.
+                Stimmen aus Riedlingen, Neufra und Umgebung: echte Erfahrungsberichte zu Börek, Frühstück, Pizza und Takeaway
+                der Balkan Bäckerei-Pizza-Grill-(Brotart).
               </p>
             </div>
 
@@ -55,7 +53,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-stone-600">
-                  {formattedCount} öffentliche Stimmen - Stand {summary.dataAsOf} - Quelle: {summary.source}
+                  {formattedCount} öffentliche Stimmen – Stand {summary.dataAsOf} – Quelle: {summary.source}
                 </p>
                 <ul className="mt-6 flex flex-wrap gap-2 text-sm text-stone-700">
                   {summary.highlights.map((item) => (

@@ -7,15 +7,15 @@ type AboutSectionProps = {
 const differentiators = [
   {
     title: "Tagesaktuelle Theke",
-    description: "Brot und Gebäck entstehen in kleinen Chargen über den Tag verteilt – nie abgestanden.",
+    description: "Brot, Börek und Sesamzöpfe werden mehrmals täglich frisch gebacken – nichts liegt lange.",
   },
   {
     title: "Mittagszeit = Grillzeit",
-    description: "Neben Burek & Pizza servieren wir Cevapcici vom Grill, hausgemachte Suppen und vegetarische Bowls.",
+    description: "Cevapcici, Wraps, Salate und Pizza gehen schnell über die Theke zum Mitnehmen.",
   },
   {
     title: "Abends entspannt",
-    description: "Bis 22:00 Uhr warme Küche, Snacks und Desserts – perfekt nach Feierabend.",
+    description: "Bis 22:00 Uhr warme Küche, Snacks und Desserts – perfekt nach Feierabend oder für Spätschichten.",
   },
 ];
 
@@ -25,11 +25,13 @@ export default function AboutSection({ values }: AboutSectionProps) {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 lg:flex-row">
         <div className="flex-1 space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Unsere Geschichte</p>
-          <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">Familienbetrieb mit Blick über den Tellerrand.</h2>
+          <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">
+            Familienbetrieb mit Blick über den Tellerrand.
+          </h2>
           <p className="text-lg text-stone-600">
             Balkan Bäckerei-Pizza-Grill-(Brotart) verbindet handwerkliches Brotbacken mit authentischen Balkan-Rezepten. Wir
-            kneten, füllen und backen alles selbst – mit Mehl aus der Region, Gewürzmischungen aus der Familienküche und einem
-            Ofen, der fast rund um die Uhr läuft.
+            kneten, füllen und grillen alles selbst – mit Mehl aus der Region, Gewürzmischungen aus der Familienküche und
+            einem Ofen, der fast rund um die Uhr läuft.
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             {values.map((value) => (
