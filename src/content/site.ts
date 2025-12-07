@@ -24,7 +24,7 @@ export const SPECIALTIES: Specialty[] = [
   {
     name: "Börek vom Blech",
     description: "Hausgemachter Strudelteig, täglich frisch gerollt und gefüllt.",
-    details: "Rind, Spinat-Feta oder Kartoffel - knusprig gebacken in Riedlingen.",
+    details: "Rind, Spinat-Feta oder Käse - knusprig gebacken in Riedlingen.",
     icon: "🥧",
   },
   {
@@ -283,6 +283,8 @@ export type MenuCategory = {
   id: string;
   title: string;
   description: string;
+  header: string;
+  subtitle: string;
   items: MenuItem[];
   visible?: boolean;
 };
@@ -293,67 +295,69 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     title: "Grillgerichte",
     description:
       "Balkan-Grill mit Rind und Geflügel – frisch gegrillt, mit Salat und Brot. Ideal zum Mitnehmen oder direkt genießen.",
+    header: "Grillgerichte in Riedlingen – Cevapcici, Sucuk, Pleskawitza",
+    subtitle: "Balkangrill mit Rind und Geflügel: Cevapcici, Sucuk, Pleskawitza und mehr. Frisch gegrillt, mit Salat und Brot – ideal zum Mitnehmen oder vor Ort genießen.",
     items: [
       {
         name: "Cevapcici (Rind)",
         description: "Mit Salat und Brot – 10 Stk.",
         price: "10,00 €",
         note: "Halbe Portion 5,00 € – 5 Stk.",
-        allergens: ["A", "B", "C", "D", "E", "H"],
+        allergens: [],
       },
       {
         name: "Hamburger (Rind)",
         description: "Mit Salat",
         price: "5,00 €",
-        allergens: ["A", "E"],
+        allergens: [],
       },
       {
         name: "Cheeseburger (Rind)",
         description: "Mit Salat",
-        price: "5,00 €",
-        allergens: ["A", "E"],
+        price: "6,00 €",
+        allergens: [],
       },
       {
         name: "Hähnchenbrust",
         description: "Mit Salat und Brot",
         price: "11,00 €",
-        allergens: ["A", "C", "D"],
+        allergens: [],
       },
       {
         name: "Sucuk (Rind)",
         description: "Mit Salat und Brot",
         price: "11,00 €",
-        allergens: ["A", "C", "D", "H"],
+        allergens: ["A", "B", "C", "D"],
       },
       {
         name: "Pleskawitza (standard)",
         description: "Mit Salat und Brot",
         price: "10,00 €",
-        allergens: ["A", "C", "D", "H"],
+        allergens: [],
       },
       {
         name: "Pleskawitza (mit Käse)",
         description: "Mit Salat und Brot",
         price: "12,00 €",
-        allergens: ["A", "C", "D", "E", "H"],
+        allergens: [],
       },
       {
         name: "Target vom Rind",
         description: "Mit Salat und Brot",
         price: "17,00 €",
-        allergens: ["A", "C", "D"],
+        allergens: ["A", "B", "C", "D"],
       },
       {
         name: "Gemischter Salat",
         description: "Frisch angerichtet",
         price: "4,00 €",
-        allergens: [],
+        allergens: ["D"],
       },
       {
         name: "Extra Brot",
         description: "Ofenfrisches Brot",
         price: "1,20 €",
-        allergens: ["A"],
+        allergens: ["A", "D"],
       },
     ],
     visible: true,
@@ -361,15 +365,57 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     id: "ofen",
     title: "Ofen-Spezialitäten",
-    description: "Börek, Mantije und Pizza aus dem Steinofen.",
-    items: [],
-    visible: false,
+    description: "Börek, Mantije und Pizza frisch gebacken aus dem Ofen.",
+    header: "Ofen-Spezialitäten – Börek, Mantije & Pizza",
+    subtitle: "Ofenfrische Balkan-Klassiker: Börek mit verschiedenen Füllungen, handgerollte Mantije und Pizza mit rauchigem Aroma – täglich frisch gebacken.",
+    items: [
+      {
+        name: "Börek (Rind)",
+        description: "Ofenfrisches Brot",
+        price: "4,00 €",
+        allergens: ["A", "D"],
+      },
+      {
+        name: "Börek (Spinat-Feta)",
+        description: "Ofenfrisches Brot",
+        price: "4,00 €",
+        allergens: ["A", "D"],
+      },
+      {
+        name: "Börek (Käse)",
+        description: "Ofenfrisches Brot",
+        price: "4,00 €",
+        allergens: ["A", "D"],
+      },
+      {
+        name: "Mantije (Rind) - 7 Stück",
+        description: "Frisch angerichtet",
+        price: "5,00 €",
+        allergens: ["A", "D"],
+      }
+    ],
+    visible: true,
   },
   {
     id: "backwaren",
     title: "Backwaren & Frühstück",
     description: "Sesamzöpfe, Croissants, belegte Brötchen und süße Teilchen.",
-    items: [],
+    header: "Backwaren & Frühstück ab 05:00 Uhr",
+    subtitle: "Frische Sesamzöpfe, Croissants, belegte Brötchen und süße Teilchen – perfekt für einen guten Start in den Tag.",
+    items: [
+      {
+        name: "Sesamzopf",
+        description: "Ofenfrisch, mit Sesam bestreut",
+        price: "2,50 €",
+        allergens: ["A", "D"],
+      },
+      {
+        name: "Croissant",
+        description: "Buttrig und frisch gebacken",
+        price: "1,50 €",
+        allergens: ["A", "D"],
+      }
+    ],
     visible: false,
   },
 ];
