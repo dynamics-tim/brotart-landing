@@ -115,12 +115,11 @@ export default function SiteHeader() {
 
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className="ml-auto inline-flex items-center justify-center gap-2 rounded-full bg-brotart-600 px-5 py-2 text-sm font-semibold text-white text-center shadow-sm shadow-brotart-400 transition hover:bg-brotart-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
+              className="ml-auto hidden sm:inline-flex items-center justify-center gap-2 rounded-full bg-brotart-600 px-5 py-2 text-sm font-semibold text-white text-center shadow-sm shadow-brotart-400 transition hover:bg-brotart-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
             >
               <span aria-hidden="true" className="text-base leading-none">
                 📞
               </span>
-              <span className="leading-tight">{CONTACT_INFO.displayPhone}</span>
             </a>
           </div>
         </div>

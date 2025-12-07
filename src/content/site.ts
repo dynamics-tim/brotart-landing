@@ -237,7 +237,7 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     rating: 5,
     excerpt:
       "Beste Börek der Stadt. Hol mir nach der Nachtschicht immer ein warmes Stück und einen Kaffee – lohnt den Umweg.",
-    highlight: "Pendler lieben die Frühöffnungszeiten",
+    highlight: "Frühöffnung für Pendler",
     topics: ["Börek", "Frühstück", "Pendler"],
   },
   {

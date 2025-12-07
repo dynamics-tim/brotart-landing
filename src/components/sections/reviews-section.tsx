@@ -24,7 +24,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
 
   return (
     <section id="bewertungen" className="section-anchor">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+      <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col gap-10 lg:gap-14">
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-8">
             <div className="space-y-4 text-center lg:max-w-2xl lg:text-left">
@@ -89,15 +89,12 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                   className="pointer-events-none absolute inset-x-7 top-0 hidden h-1 rounded-b-full bg-gradient-to-r from-brotart-400/80 via-brotart-500/80 to-brotart-400/80 opacity-0 transition group-hover:opacity-100 lg:block"
                   aria-hidden="true"
                 />
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brotart-100 text-base font-semibold text-brotart-600">
-                    {getInitials(review.author)}
-                  </div>
+                <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="text-base font-semibold text-stone-900">{review.author}</p>
                     <p className="text-sm text-stone-500">{review.role}</p>
                   </div>
-                  <span className="ml-auto text-xs font-medium uppercase tracking-wider text-stone-400">
+                  <span className="text-xs font-medium uppercase tracking-wider text-stone-400">
                     {review.relativeTime}
                   </span>
                 </div>
