@@ -370,26 +370,26 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     subtitle: "Ofenfrische Balkan-Klassiker: Börek mit verschiedenen Füllungen, handgerollte Mantije und Pizza mit rauchigem Aroma – täglich frisch gebacken.",
     items: [
       {
-        name: "Börek (Rind)",
-        description: "Ofenfrisches Brot",
+        name: "Börek (Fleisch)",
+        description: "Knuspriger Blätterteig mit würziger Fleischfüllung",
         price: "4,00 €",
         allergens: ["A", "D"],
       },
       {
         name: "Börek (Spinat-Feta)",
-        description: "Ofenfrisches Brot",
+        description: "Blätterteig mit cremiger Spinat-Feta-Füllung",
         price: "4,00 €",
         allergens: ["A", "D"],
       },
       {
         name: "Börek (Käse)",
-        description: "Ofenfrisches Brot",
+        description: "Goldbraun gebacken mit herzhafter Käsefüllung",
         price: "4,00 €",
         allergens: ["A", "D"],
       },
       {
-        name: "Mantije (Rind) - 7 Stück",
-        description: "Frisch angerichtet",
+        name: "Mantije (Fleisch) - 7 Stück",
+        description: "Handgerollt mit würziger Fleischfüllung",
         price: "5,00 €",
         allergens: ["A", "D"],
       }
@@ -405,13 +405,13 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     items: [
       {
         name: "Sesamzopf",
-        description: "Ofenfrisch, mit Sesam bestreut",
+        description: "Fluffiger Hefezopf mit geröstetem Sesam – täglich frisch",
         price: "2,50 €",
         allergens: ["A", "D"],
       },
       {
         name: "Croissant",
-        description: "Buttrig und frisch gebacken",
+        description: "Buttrig-knusprig mit zarter Blätterteigstruktur",
         price: "1,50 €",
         allergens: ["A", "D"],
       }
