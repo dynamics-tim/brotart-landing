@@ -9,15 +9,6 @@ const starArray = Array.from({ length: 5 });
 
 const formatRating = (value: number) => value.toFixed(1).replace(".", ",");
 
-const getInitials = (name: string) =>
-  name
-    .split(" ")
-    .filter(Boolean)
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-
 export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps) {
   const formattedAverage = formatRating(summary.averageRating);
   const formattedCount = new Intl.NumberFormat("de-DE").format(summary.reviewCount);

@@ -6,6 +6,7 @@
 export const NAV_LINKS: NavLink[] = [
   { label: "Start", href: "#start" },
   { label: "Angebot", href: "#angebot" },
+  { label: "Speisekarte", href: "#speisekarte" },
   { label: "Über uns", href: "#ueber-uns" },
   { label: "Bewertungen", href: "#bewertungen" },
   { label: "Öffnungszeiten", href: "#oeffnungszeiten" },
@@ -264,5 +265,109 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
       "Mittags schnell Brotzeit holen, abends noch Pizza - 05 bis 22 Uhr offen ist perfekt für Schichtarbeit.",
     highlight: "Lange Öffnungszeiten",
     topics: ["Öffnungszeiten", "Pizza", "Snacks"],
+  },
+];
+
+// Speisekarte
+export type MenuItem = {
+  name: string;
+  description: string;
+  price: string;
+  note?: string;
+  allergens?: string[];
+};
+
+export type MenuCategory = {
+  id: string;
+  title: string;
+  description: string;
+  items: MenuItem[];
+  visible?: boolean;
+};
+
+export const MENU_CATEGORIES: MenuCategory[] = [
+  {
+    id: "grill",
+    title: "Grillgerichte",
+    description:
+      "Balkan-Grill mit Rind und Geflügel – frisch gegrillt, mit Salat und Brot. Ideal zum Mitnehmen oder direkt genießen.",
+    items: [
+      {
+        name: "Cevapcici (Rind)",
+        description: "Mit Salat und Brot – 10 Stk.",
+        price: "10,00 €",
+        note: "Halbe Portion 5,00 € – 5 Stk.",
+        allergens: ["A", "B", "C", "D", "E", "H"],
+      },
+      {
+        name: "Hamburger (Rind)",
+        description: "Mit Salat",
+        price: "5,00 €",
+        allergens: ["A", "E"],
+      },
+      {
+        name: "Cheeseburger (Rind)",
+        description: "Mit Salat",
+        price: "5,00 €",
+        allergens: ["A", "E"],
+      },
+      {
+        name: "Hähnchenbrust",
+        description: "Mit Salat und Brot",
+        price: "11,00 €",
+        allergens: ["A", "C", "D"],
+      },
+      {
+        name: "Sucuk (Rind)",
+        description: "Mit Salat und Brot",
+        price: "11,00 €",
+        allergens: ["A", "C", "D", "H"],
+      },
+      {
+        name: "Pleskawitza (standard)",
+        description: "Mit Salat und Brot",
+        price: "10,00 €",
+        allergens: ["A", "C", "D", "H"],
+      },
+      {
+        name: "Pleskawitza (mit Käse)",
+        description: "Mit Salat und Brot",
+        price: "12,00 €",
+        allergens: ["A", "C", "D", "E", "H"],
+      },
+      {
+        name: "Target vom Rind",
+        description: "Mit Salat und Brot",
+        price: "17,00 €",
+        allergens: ["A", "C", "D"],
+      },
+      {
+        name: "Gemischter Salat",
+        description: "Frisch angerichtet",
+        price: "4,00 €",
+        allergens: [],
+      },
+      {
+        name: "Extra Brot",
+        description: "Ofenfrisches Brot",
+        price: "1,20 €",
+        allergens: ["A"],
+      },
+    ],
+    visible: true,
+  },
+  {
+    id: "ofen",
+    title: "Ofen-Spezialitäten",
+    description: "Börek, Mantije und Pizza aus dem Steinofen.",
+    items: [],
+    visible: false,
+  },
+  {
+    id: "backwaren",
+    title: "Backwaren & Frühstück",
+    description: "Sesamzöpfe, Croissants, belegte Brötchen und süße Teilchen.",
+    items: [],
+    visible: false,
   },
 ];
