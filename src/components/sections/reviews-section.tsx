@@ -24,7 +24,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
 
   return (
     <section id="bewertungen" className="section-anchor">
-      <div className="mx-auto max-w-7xl px-6 py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="flex flex-col gap-10 lg:gap-14">
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-8">
             <div className="space-y-4 text-center lg:max-w-2xl lg:text-left">

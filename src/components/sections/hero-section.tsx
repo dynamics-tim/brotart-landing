@@ -22,7 +22,7 @@ export default function HeroSection({
   contactInfo,
 }: HeroSectionProps) {
   return (
-    <section id="start" className="section-anchor w-full px-6 pb-16 pt-4">
+    <section id="start" className="section-anchor w-full px-6 pb-8 pt-4">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 rounded-3xl bg-white/90 p-6 shadow-lg shadow-brotart-100 sm:p-8">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">{hero.eyebrow}</p>
         <h1 className="text-4xl font-semibold text-stone-900 sm:text-5xl lg:text-6xl">

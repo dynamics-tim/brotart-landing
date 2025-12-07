@@ -15,7 +15,7 @@ export default function HoursLocationSection({ openingHours, mapsEmbed, mapsLink
   return (
     <section
       id="oeffnungszeiten"
-      className="section-anchor mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 lg:flex-row"
+      className="section-anchor mx-auto flex max-w-6xl flex-col gap-10 px-6 py-12 lg:flex-row"
     >
       <div className="flex-1 rounded-3xl border border-stone-100 bg-white p-8 shadow-lg shadow-brotart-50">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Öffnungszeiten</p>

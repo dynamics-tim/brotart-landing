@@ -6,7 +6,7 @@ type SpecialtiesSectionProps = {
 
 export default function SpecialtiesSection({ specialties }: SpecialtiesSectionProps) {
   return (
-    <section id="angebot" className="section-anchor mx-auto max-w-6xl px-6 py-16">
+    <section id="angebot" className="section-anchor mx-auto max-w-6xl px-6 py-12">
       <div className="flex flex-col gap-4 text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Balkan Klassiker</p>
         <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">

@@ -21,8 +21,8 @@ const differentiators = [
 
 export default function AboutSection({ values }: AboutSectionProps) {
   return (
-    <section id="ueber-uns" className="section-anchor bg-white/80">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 lg:flex-row">
+    <section id="ueber-uns" className="section-anchor">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-12 lg:flex-row">
         <div className="flex-1 space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Unsere Geschichte</p>
           <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">
