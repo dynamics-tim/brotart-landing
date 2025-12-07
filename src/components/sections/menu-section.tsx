@@ -60,7 +60,6 @@ export default function MenuSection({ categories }: MenuSectionProps) {
           <div className="flex flex-col gap-2 border-b border-stone-100 pb-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brotart-500">{activeCategory.title}</p>
-              <p className="text-base text-stone-600">{activeCategory.description}</p>
             </div>
             <p className="text-sm font-semibold text-brotart-600">Alle Gerichte auch zum Mitnehmen!</p>
           </div>
