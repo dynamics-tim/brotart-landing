@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 
 import { CONTACT_INFO, OPENING_HOURS, SOCIAL_LINKS } from "@/content/site";
@@ -22,11 +22,11 @@ const heroOgImage = `${baseUrl}/images/hero-borek.jpg`;
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Balkan Bäckerei-Pizza-Grill (Brotart) – Börek, Mantije & Pizza in Riedlingen",
+    default: "Balkan Bäckerei-Pizza-Grill (Brotart) - Börek, Mantije & Pizza in Riedlingen",
     template: "%s | Balkan Bäckerei-Pizza-Grill Riedlingen",
   },
   description:
-    "Balkan Bäckerei-Pizza-Grill-(Brotart) in Riedlingen: Börek, Mantije, Pizza, Frühstück und Snacks zum Mitnehmen – täglich von 05:00 bis 22:00 Uhr in der Neuen Unlinger Str. 19/1, 88499 Riedlingen. Jetzt anrufen: 07371 1296664.",
+    "Balkan Bäckerei-Pizza-Grill-(Brotart) in Riedlingen: Börek, Mantije, Pizza, Frühstück und Snacks zum Mitnehmen - täglich von 05:00 bis 22:00 Uhr in der Neuen Unlinger Str. 19/1, 88499 Riedlingen. Jetzt anrufen: 07371 1296664.",
   keywords: [
     "Balkan Bäckerei Riedlingen",
     "Börek Neue Unlinger Str 19/1",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     "Takeaway Riedlingen",
   ],
   openGraph: {
-    title: "Balkan Bäckerei-Pizza-Grill – Börek, Mantije & Pizza in Riedlingen",
+    title: "Balkan Bäckerei-Pizza-Grill - Börek, Mantije & Pizza in Riedlingen",
     description:
-      "Ofenfrische Balkan-Spezialitäten, Frühstück und Pizza zum Mitnehmen. Neue Unlinger Str. 19/1 · Telefon 07371 1296664.",
+      "Ofenfrische Balkan-Spezialitäten, Frühstück und Pizza zum Mitnehmen. Neue Unlinger Str. 19/1 – Telefon 07371 1296664.",
     type: "website",
     url: baseUrl,
     locale: "de_DE",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Balkan Bäckerei-Pizza-Grill in Riedlingen",
-    description: "Börek, Mantije, Pizza & Frühstück ab 05:00 Uhr · Neue Unlinger Str. 19/1 · 07371 1296664.",
+    description: "Börek, Mantije, Pizza & Frühstück ab 05:00 Uhr – Neue Unlinger Str. 19/1 – 07371 1296664.",
     images: [heroOgImage],
   },
   robots: {

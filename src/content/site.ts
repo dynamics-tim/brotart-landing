@@ -23,19 +23,19 @@ export const SPECIALTIES: Specialty[] = [
   {
     name: "Börek vom Blech",
     description: "Hausgemachter Strudelteig, täglich frisch gerollt und gefüllt.",
-    details: "Rind, Spinat-Feta oder Kartoffel – knusprig gebacken in Riedlingen.",
-    icon: "🥐",
+    details: "Rind, Spinat-Feta oder Kartoffel - knusprig gebacken in Riedlingen.",
+    icon: "🥧",
   },
   {
     name: "Mantije & Pide",
     description: "Handgerollte Teigschiffchen mit würzigen Balkan-Füllungen.",
-    details: "Zum Teilen gedacht – serviert mit Ajvar, Joghurt oder frischen Kräutern.",
-    icon: "🥟",
+    details: "Zum Teilen gedacht - serviert mit Ajvar, Joghurt oder frischen Kräutern.",
+    icon: "🥙",
   },
   {
     name: "Balkan-Pizza",
     description: "Dünner Boden, hohe Hitze, rauchiges Aroma wie vom Grill.",
-    details: "Signature-Pizza »Balkan« mit Sudschuk, Paprika und Kräuteröl.",
+    details: "Signature-Pizza „Balkan“ mit Sudschuk, Paprika und Kräuteröl.",
     icon: "🍕",
   },
 ];
@@ -48,15 +48,15 @@ export type ValueCard = {
 export const CORE_VALUES: ValueCard[] = [
   {
     title: "Familienbetrieb aus Riedlingen",
-    description: "Geführt von Familie Imeri – schwäbische Bodenständigkeit trifft Balkan-Gastfreundschaft.",
+    description: "Geführt von Familie Imeri - schwäbische Bodenständigkeit trifft Balkan-Gastfreundschaft.",
   },
   {
     title: "Handwerklich & transparent",
-    description: "Vom Teigkneten bis zum fertigen Produkt – bei uns wird alles frisch vor Ort zubereitet.",
+    description: "Vom Teigkneten bis zum fertigen Produkt - bei uns wird alles frisch vor Ort zubereitet.",
   },
   {
     title: "Ganztägig frische Küche",
-    description: "Treffpunkt für Frühaufsteher, Mittagspausen und Spätesser – sieben Tage pro Woche.",
+    description: "Treffpunkt für Frühaufsteher, Mittagspausen und Spätesser - sieben Tage pro Woche.",
   },
 ];
 
@@ -69,13 +69,13 @@ export type OpeningHour = {
 };
 
 export const OPENING_HOURS: OpeningHour[] = [
-  { days: "Montag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Monday"], opens: "05:00", closes: "22:00" },
-  { days: "Dienstag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Tuesday"], opens: "05:00", closes: "22:00" },
-  { days: "Mittwoch", hours: "05:00 – 22:00 Uhr", schemaDays: ["Wednesday"], opens: "05:00", closes: "22:00" },
-  { days: "Donnerstag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Thursday"], opens: "05:00", closes: "22:00" },
-  { days: "Freitag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Friday"], opens: "05:00", closes: "22:00" },
-  { days: "Samstag", hours: "05:00 – 22:00 Uhr", schemaDays: ["Saturday"], opens: "05:00", closes: "22:00" },
-  { days: "Sonntag", hours: "07:00 – 22:00 Uhr", schemaDays: ["Sunday"], opens: "07:00", closes: "22:00" },
+  { days: "Montag", hours: "05:00 - 22:00 Uhr", schemaDays: ["Monday"], opens: "05:00", closes: "22:00" },
+  { days: "Dienstag", hours: "05:00 - 22:00 Uhr", schemaDays: ["Tuesday"], opens: "05:00", closes: "22:00" },
+  { days: "Mittwoch", hours: "05:00 - 22:00 Uhr", schemaDays: ["Wednesday"], opens: "05:00", closes: "22:00" },
+  { days: "Donnerstag", hours: "05:00 - 22:00 Uhr", schemaDays: ["Thursday"], opens: "05:00", closes: "22:00" },
+  { days: "Freitag", hours: "05:00 - 22:00 Uhr", schemaDays: ["Friday"], opens: "05:00", closes: "22:00" },
+  { days: "Samstag", hours: "05:00 - 22:00 Uhr", schemaDays: ["Saturday"], opens: "05:00", closes: "22:00" },
+  { days: "Sonntag", hours: "07:00 - 22:00 Uhr", schemaDays: ["Sunday"], opens: "07:00", closes: "22:00" },
 ];
 
 export type ContactInfo = {
@@ -93,7 +93,7 @@ export type ContactInfo = {
 };
 
 export const CONTACT_INFO: ContactInfo = {
-  company: "Balkan Bäckerei-Pizza-Grill-(Brotart) – MANTIJE – BUREK",
+  company: "Balkan Bäckerei-Pizza-Grill-(Brotart) - MANTIJE - BUREK",
   brandShort: "Balkan Bäckerei-Pizza-Grill",
   brandInitials: "BB",
   street: "Neue Unlinger Str. 19/1",
@@ -101,10 +101,9 @@ export const CONTACT_INFO: ContactInfo = {
   city: "Riedlingen",
   phone: "+4973711296664",
   displayPhone: "07371 1296664",
-  email: "info@brotart-riedlingen.de",
+  email: "baeckereibrotart@google.de",
   whatsapp: "https://wa.me/4973711296664",
-  mapsLink:
-    "https://maps.app.goo.gl/wvBW7zB8kgAzDZZc9",
+  mapsLink: "https://maps.app.goo.gl/wvBW7zB8kgAzDZZc9",
 };
 
 export type ContactHighlight = {
@@ -150,7 +149,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const GOOGLE_MAPS_EMBED =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2652.274537273977!2d9.469986076934964!3d48.160365352393015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47997ef0fef98ecd%3A0x86b9034dfe921bd4!2sNeue%20Unlinger%20Str.%2019%2C%2088499%20Riedlingen!5e0!3m2!1sde!2sde!4v1731016480003!5m2!1sde!2sde";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.9327990446327!2d9.482023191558474!3d48.15010077615481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a33a082553fc3%3A0x9e93d68f8046cbc0!2sBalkan%20B%C3%A4ckerei-Pizza-Grill-(Brotart)%20-%20MANTIJE%20-%20BUREK!5e0!3m2!1sde!2sde!4v1765094047223!5m2!1sde!2sde";
 
 export type HeroBadge = {
   label: string;
@@ -159,7 +158,7 @@ export type HeroBadge = {
 
 export const HERO_BADGES: HeroBadge[] = [
   { label: "Neu seit 2024", detail: "Familiengeführt" },
-  { label: "Täglich offen", detail: "05:00 – 22:00 Uhr" },
+  { label: "Täglich offen", detail: "05:00 - 22:00 Uhr" },
   { label: "Ofenfrisch", detail: "Börek · Pizza · Brot" },
 ];
 
@@ -186,10 +185,8 @@ export const HERO_CONTENT: HeroContent = {
     highlight: "frisch gebacken",
     trailing: "in der Neuen Unlinger Str. 19/1.",
   },
-  description:
-    "Ofenfrische Balkan-Spezialitäten ab 05:00 Uhr: Börek, Mantije, Pizza, Frühstück und Snacks zum Mitnehmen.",
-  secondary:
-    "Takeaway in Riedlingen · Jetzt vorbestellen unter 07371 1296664 oder direkt vorbeikommen.",
+  description: "Ofenfrische Balkan-Spezialitäten ab 05:00 Uhr: Börek, Mantije, Pizza, Frühstück und Snacks zum Mitnehmen.",
+  secondary: "Takeaway in Riedlingen – Jetzt vorbestellen unter 07371 1296664 oder direkt vorbeikommen.",
   image: {
     src: "/images/hero-borek.jpg",
     alt: "Frisch gebackene Börek und Mantije in Riedlingen",
@@ -236,7 +233,7 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     relativeTime: "vor 2 Monaten",
     rating: 5,
     excerpt:
-      "Beste Börek der Stadt. Hol mir nach der Nachtschicht immer ein warmes Stück und einen Kaffee – lohnt den Umweg.",
+      "Beste Börek der Stadt. Hol mir nach der Nachtschicht immer ein warmes Stück und einen Kaffee - lohnt den Umweg.",
     highlight: "Frühöffnung für Pendler",
     topics: ["Börek", "Frühstück", "Pendler"],
   },
@@ -245,8 +242,7 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     role: "Stammkundin",
     relativeTime: "vor 2 Wochen",
     rating: 5,
-    excerpt:
-      "Pizza mit Sudschuk mega, kann ich nur empfehlen. Der Inhaber versucht jeden Wunsch zu erfüllen.",
+    excerpt: "Pizza mit Sudschuk mega, kann ich nur empfehlen. Der Inhaber versucht jeden Wunsch zu erfüllen.",
     highlight: "Takeaway klappt schnell",
     topics: ["Pizza", "Takeaway", "Service"],
   },
@@ -255,8 +251,7 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     role: "Frühstücksfan",
     relativeTime: "vor 1 Monat",
     rating: 5,
-    excerpt:
-      "Günstiges Frühstück, frische Sesamzöpfe und Mantije wie im Urlaub. Personal super freundlich.",
+    excerpt: "Günstiges Frühstück, frische Sesamzöpfe und Mantije wie im Urlaub. Personal super freundlich.",
     highlight: "Preiswertes Frühstück",
     topics: ["Frühstück", "Mantije", "Service"],
   },
@@ -266,7 +261,7 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     relativeTime: "vor 3 Wochen",
     rating: 5,
     excerpt:
-      "Mittags schnell Brotzeit holen, abends noch Pizza – 05 bis 22 Uhr offen ist perfekt für Schichtarbeit.",
+      "Mittags schnell Brotzeit holen, abends noch Pizza - 05 bis 22 Uhr offen ist perfekt für Schichtarbeit.",
     highlight: "Lange Öffnungszeiten",
     topics: ["Öffnungszeiten", "Pizza", "Snacks"],
   },

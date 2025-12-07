@@ -18,6 +18,9 @@ export default function SiteFooter({ contactInfo }: SiteFooterProps) {
               {contactInfo.displayPhone}
             </a>
           </p>
+          <p className="mt-2 text-xs text-[#bfa894]">
+            Keine Cookies oder Tracking. Google Maps wird erst nach Ihrem Klick geladen.
+          </p>
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-[#d6c3b3]">
           <Link href="/impressum" className="transition hover:text-white">

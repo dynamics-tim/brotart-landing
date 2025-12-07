@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ImpressumPage() {
   return (
-    <main className="mx-auto max-w-4xl px-6 py-16 text-stone-800">
+    <main id="main" className="mx-auto max-w-4xl px-6 py-16 text-stone-800">
       <Link href="/" className="text-sm text-brotart-600 underline">
         ← Zurück zur Startseite
       </Link>
@@ -40,12 +40,22 @@ export default function ImpressumPage() {
       </section>
 
       <section className="mt-8 space-y-2">
-        <h2 className="text-lg font-semibold">Verantwortlich für den Inhalt</h2>
+        <h2 className="text-lg font-semibold">Vertretungsberechtigt</h2>
         <p>Familie Imeri</p>
         <p>{CONTACT_INFO.street}</p>
         <p>
           {CONTACT_INFO.zip} {CONTACT_INFO.city}
         </p>
+      </section>
+
+      <section className="mt-8 space-y-2">
+        <h2 className="text-lg font-semibold">Inhaltlich Verantwortlicher (§ 18 Abs. 2 MStV)</h2>
+        <p>Familie Imeri, Anschrift wie oben.</p>
+      </section>
+
+      <section className="mt-8 space-y-2">
+        <h2 className="text-lg font-semibold">Umsatzsteuer-ID</h2>
+        <p>Wird mitgeteilt, sobald verfügbar.</p>
       </section>
 
       <section className="mt-8 space-y-2">

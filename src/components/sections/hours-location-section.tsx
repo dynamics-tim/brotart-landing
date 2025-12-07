@@ -58,18 +58,20 @@ export default function HoursLocationSection({ openingHours, mapsEmbed, mapsLink
                 className="h-72 w-full border-0"
               />
             ) : (
-              <div className="flex h-72 flex-col items-center justify-center gap-4 p-6 text-center text-stone-600">
+              <div className="flex h-72 flex-col items-center justify-center gap-3 p-6 text-center text-stone-600">
                 <p className="text-lg font-semibold text-stone-900">Google Maps laden?</p>
                 <p className="text-sm">
-                  Durch einen Klick wird Google Maps eingebettet und es können Cookies von Google gesetzt werden.
+                  Google Maps wird erst nach Ihrer Einwilligung geladen. Mit Klick auf „Karte laden (Google)“ willige ich ein,
+                  dass Google Ireland/Google LLC (USA) meine IP-Adresse und Nutzungsdaten erhält; Cookies sind möglich.
                 </p>
                 <button
                   type="button"
                   onClick={() => setMapLoaded(true)}
                   className="inline-flex items-center gap-2 rounded-full bg-brotart-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-brotart-200 transition hover:-translate-y-0.5 hover:bg-brotart-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
                 >
-                  Karte laden
+                  Karte laden (Google)
                 </button>
+                <p className="text-xs text-stone-500">Hinweis: Einbettung widerrufen, indem Sie die Seite neu laden.</p>
               </div>
             )}
           </div>
@@ -80,7 +82,7 @@ export default function HoursLocationSection({ openingHours, mapsEmbed, mapsLink
                 <p className="text-base font-semibold text-stone-900">Neue Unlinger Str. 19/1</p>
                 <p className="text-sm text-stone-600">88499 Riedlingen</p>
                 <p className="text-sm text-stone-500">
-                  Parkplätze vor dem Laden · Buslinie 7606 »Neue Unlinger Straße«
+                  Parkplätze vor dem Laden · Buslinie 7606 „Neue Unlinger Straße“
                 </p>
               </div>
               <a
