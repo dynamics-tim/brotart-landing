@@ -55,7 +55,7 @@ export default function ImpressumPage() {
 
       <section className="mt-8 space-y-2">
         <h2 className="text-lg font-semibold">Umsatzsteuer-ID</h2>
-        <p>Wird mitgeteilt, sobald verfügbar.</p>
+        <p>{CONTACT_INFO.taxId}</p>
       </section>
 
       <section className="mt-8 space-y-2">

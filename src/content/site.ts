@@ -87,6 +87,7 @@ export type ContactInfo = {
   zip: string;
   city: string;
   phone: string;
+  taxId: string;
   displayPhone: string;
   email: string;
   whatsapp: string;
@@ -101,8 +102,9 @@ export const CONTACT_INFO: ContactInfo = {
   zip: "88499",
   city: "Riedlingen",
   phone: "+4973711296664",
+  taxId: "79446/11617",
   displayPhone: "07371 1296664",
-  email: "baeckereibrotart@google.de",
+  email: "baeckereibrotart@gmail.com",
   whatsapp: "https://wa.me/4973711296664",
   mapsLink: "https://maps.app.goo.gl/wvBW7zB8kgAzDZZc9",
 };
