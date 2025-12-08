@@ -277,6 +277,7 @@ export type MenuItem = {
   price: string;
   note?: string;
   allergens?: string[];
+  section?: string;
 };
 
 export type MenuCategory = {
@@ -287,6 +288,7 @@ export type MenuCategory = {
   subtitle: string;
   items: MenuItem[];
   visible?: boolean;
+  allergensVisible?: boolean;
 };
 
 export const MENU_CATEGORIES: MenuCategory[] = [
@@ -304,63 +306,74 @@ export const MENU_CATEGORIES: MenuCategory[] = [
         price: "10,00 €",
         note: "Halbe Portion 5,00 € – 5 Stk.",
         allergens: [],
+        section: "Fleischgerichte",
       },
       {
         name: "Hamburger (Rind)",
         description: "Mit Salat",
         price: "5,00 €",
         allergens: [],
+        section: "Burger",
       },
       {
         name: "Cheeseburger (Rind)",
         description: "Mit Salat",
         price: "6,00 €",
         allergens: [],
+        section: "Burger",
       },
       {
         name: "Hähnchenbrust",
         description: "Mit Salat und Brot",
         price: "11,00 €",
         allergens: [],
+        section: "Fleischgerichte",
       },
       {
         name: "Sucuk (Rind)",
         description: "Mit Salat und Brot",
         price: "11,00 €",
         allergens: ["A", "B", "C", "D"],
+        section: "Fleischgerichte",
       },
       {
         name: "Pleskawitza (standard)",
         description: "Mit Salat und Brot",
         price: "10,00 €",
         allergens: [],
+        section: "Fleischgerichte",
       },
       {
         name: "Pleskawitza (mit Käse)",
         description: "Mit Salat und Brot",
         price: "12,00 €",
         allergens: [],
+        section: "Fleischgerichte",
       },
       {
         name: "Target vom Rind",
         description: "Mit Salat und Brot",
         price: "17,00 €",
         allergens: ["A", "B", "C", "D"],
+        section: "Fleischgerichte",
       },
       {
         name: "Gemischter Salat",
         description: "Frisch angerichtet",
         price: "4,00 €",
         allergens: ["D"],
+        section: "Beilagen",
       },
       {
         name: "Extra Brot",
         description: "Ofenfrisches Brot",
         price: "1,20 €",
         allergens: ["A", "D"],
+        section: "Beilagen",
       },
     ],
     visible: true,
+    allergensVisible: true,
   },
   {
     id: "ofen",
@@ -370,31 +383,80 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     subtitle: "Ofenfrische Balkan-Klassiker: Börek mit verschiedenen Füllungen, handgerollte Mantije und Pizza mit rauchigem Aroma – täglich frisch gebacken.",
     items: [
       {
-        name: "Börek (Fleisch)",
-        description: "Knuspriger Blätterteig mit würziger Fleischfüllung",
+        name: "Burek mit Käse",
+        description: "",
         price: "4,00 €",
-        allergens: ["A", "D"],
+        section: "Burek",
       },
       {
-        name: "Börek (Spinat-Feta)",
-        description: "Blätterteig mit cremiger Spinat-Feta-Füllung",
+        name: "Burek mit Spinat und Käse",
+        description: "",
         price: "4,00 €",
-        allergens: ["A", "D"],
+        section: "Burek",
       },
       {
-        name: "Börek (Käse)",
-        description: "Goldbraun gebacken mit herzhafter Käsefüllung",
+        name: "Burek mit Fleisch",
+        description: "",
         price: "4,00 €",
-        allergens: ["A", "D"],
+        section: "Burek",
       },
       {
-        name: "Mantije (Fleisch) - 7 Stück",
-        description: "Handgerollt mit würziger Fleischfüllung",
+        name: "Mantije mit Fleisch (1 Stück)",
+        description: "",
+        price: "1,00 €",
+        section: "Mantije",
+      },
+      {
+        name: "Mantije mit Fleisch (7 Stück)",
+        description: "",
         price: "5,00 €",
-        allergens: ["A", "D"],
+        section: "Mantije",
+      },
+      {
+        name: "Hähnchen-Wrap",
+        description: "",
+        price: "6,00 €",
+        section: "Wraps",
+      },
+      {
+        name: "Pizza Thunfisch (1 Stück)",
+        description: "",
+        price: "3,50 €",
+        section: "Pizza",
+      },
+      {
+        name: "Pizza Thunfisch (ganze)",
+        description: "",
+        price: "12,00 €",
+        section: "Pizza",
+      },
+      {
+        name: "Pizza Margherita (1 Stück)",
+        description: "",
+        price: "3,50 €",
+        section: "Pizza",
+      },
+      {
+        name: "Pizza Margherita (ganze)",
+        description: "",
+        price: "12,00 €",
+        section: "Pizza",
+      },
+      {
+        name: "Pizza Salami (1 Stück)",
+        description: "",
+        price: "3,50 €",
+        section: "Pizza",
+      },
+      {
+        name: "Pizza Salami (ganze)",
+        description: "",
+        price: "12,00 €",
+        section: "Pizza",
       }
     ],
     visible: true,
+    allergensVisible: false
   },
   {
     id: "backwaren",
@@ -405,17 +467,120 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     items: [
       {
         name: "Sesamzopf",
-        description: "Fluffiger Hefezopf mit geröstetem Sesam – täglich frisch",
+        description: "",
         price: "2,50 €",
-        allergens: ["A", "D"],
+        section: "Gebäck",
       },
       {
-        name: "Croissant",
-        description: "Buttrig-knusprig mit zarter Blätterteigstruktur",
+        name: "Belegte Brötchen",
+        description: "",
+        price: "4,00 €",
+        section: "Frühstück",
+      },
+      {
+        name: "Mohnstrudel",
+        description: "",
+        price: "2,50 €",
+        section: "Strudel",
+      },
+      {
+        name: "Nussstrudel",
+        description: "",
+        price: "2,50 €",
+        section: "Strudel",
+      },
+      {
+        name: "Apfelstrudel",
+        description: "",
+        price: "2,50 €",
+        section: "Strudel",
+      },
+      {
+        name: "Kirschstrudel",
+        description: "",
+        price: "2,50 €",
+        section: "Strudel",
+      },
+      {
+        name: "Schnecke mit Frischkäse",
+        description: "",
         price: "1,50 €",
-        allergens: ["A", "D"],
-      }
+        section: "Gebäck",
+      },
+      {
+        name: "Pizza-Schnecke",
+        description: "",
+        price: "2,50 €",
+        section: "Gebäck",
+      },
+      {
+        name: "Marmelade-Croissant",
+        description: "",
+        price: "2,00 €",
+        section: "Gebäck",
+      },
+      {
+        name: "Schoko-Croissant",
+        description: "",
+        price: "2,00 €",
+        section: "Gebäck",
+      },
+      {
+        name: "Butter-Croissant",
+        description: "",
+        price: "1,80 €",
+        section: "Gebäck",
+      },
+      {
+        name: "Kipferl mit Käse",
+        description: "",
+        price: "1,70 €",
+        section: "Gebäck",
+      },
+      {
+        name: "Pflaumenkuchen",
+        description: "",
+        price: "3,50 €",
+        section: "Kuchen",
+      },
+      {
+        name: "Apfelkuchen",
+        description: "",
+        price: "3,50 €",
+        section: "Kuchen",
+      },
+      {
+        name: "Trilece",
+        description: "",
+        price: "3,50 €",
+        section: "Süßspeisen",
+      },
+      {
+        name: "Kremschnitte",
+        description: "",
+        price: "3,50 €",
+        section: "Süßspeisen",
+      },
+      {
+        name: "Pistazien-Baklava",
+        description: "",
+        price: "3,00 €",
+        section: "Süßspeisen",
+      },
+      {
+        name: "Baklava",
+        description: "",
+        price: "3,00 €",
+        section: "Süßspeisen",
+      },
+      {
+        name: "Tulumbe",
+        description: "",
+        price: "3,00 €",
+        section: "Süßspeisen",
+      },
     ],
-    visible: false,
+    visible: true,
+    allergensVisible: false
   },
 ];

@@ -66,16 +66,32 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
             </article>
           </div>
 
-          <div
-            className="flex snap-x gap-6 overflow-x-auto pb-6 lg:grid lg:auto-rows-fr lg:grid-cols-2 lg:gap-8 lg:overflow-visible lg:pb-0 xl:grid-cols-3 2xl:grid-cols-4"
-            role="list"
-          >
-            {reviews.map((review, index) => (
-              <article
-                key={`${review.author}-${index}`}
-                role="listitem"
-                className="group relative w-80 flex-shrink-0 snap-center rounded-3xl border border-white/70 bg-white/90 p-6 shadow-lg shadow-brotart-50 backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl lg:w-auto lg:h-full lg:p-7"
-              >
+          <div className="relative">
+            {/* Scroll hint indicator on mobile */}
+            <div className="pointer-events-none absolute -right-3 top-0 z-10 h-full w-32 bg-gradient-to-l from-stone-50 via-stone-50/60 via-30% to-transparent lg:hidden" aria-hidden="true" />
+            <div className="pointer-events-none absolute -right-6 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1 lg:hidden" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 text-brotart-400/70 animate-pulse" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <svg viewBox="0 0 24 24" className="h-4 w-4 text-brotart-400/50" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            
+            <div
+              className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 scrollbar-hide lg:grid lg:auto-rows-fr lg:grid-cols-2 lg:gap-8 lg:overflow-visible lg:pb-0 xl:grid-cols-3 2xl:grid-cols-4"
+              role="list"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}
+            >
+              {reviews.map((review, index) => (
+                <article
+                  key={`${review.author}-${index}`}
+                  role="listitem"
+                  className="group relative w-80 flex-shrink-0 snap-center rounded-3xl border border-white/70 bg-white/90 p-6 shadow-lg shadow-brotart-50 backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl lg:w-auto lg:h-full lg:p-7"
+                >
                 <div
                   className="pointer-events-none absolute inset-x-7 top-0 hidden h-1 rounded-b-full bg-gradient-to-r from-brotart-400/80 via-brotart-500/80 to-brotart-400/80 opacity-0 transition group-hover:opacity-100 lg:block"
                   aria-hidden="true"
@@ -110,6 +126,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                 </div>
               </article>
             ))}
+            </div>
           </div>
         </div>
       </div>

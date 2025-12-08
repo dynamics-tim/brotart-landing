@@ -24,11 +24,11 @@ export default function AboutSection({ values }: AboutSectionProps) {
     <section id="ueber-uns" className="section-anchor">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-12 lg:flex-row">
         <div className="flex-1 space-y-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Unsere Geschichte</p>
-          <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">
+          <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500 lg:text-left">Unsere Geschichte</p>
+          <h2 className="text-center text-3xl font-semibold text-stone-900 sm:text-4xl lg:text-left">
             Familienbetrieb mit Blick über den Tellerrand.
           </h2>
-          <p className="text-lg text-stone-600">
+          <p className="text-center text-lg text-stone-600 lg:text-left">
             Balkan Bäckerei-Pizza-Grill-(Brotart) verbindet handwerkliches Brotbacken mit authentischen Balkan-Rezepten. Wir
             kneten, füllen und grillen alles selbst – mit Mehl aus der Region, Gewürzmischungen aus der Familienküche und
             einem Ofen, der fast rund um die Uhr läuft.
