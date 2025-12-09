@@ -58,7 +58,10 @@ export default function DatenschutzPage() {
 
         <h2 className="text-lg font-semibold text-stone-900">Schriftarten</h2>
         <p>
-          Schriftarten werden lokal mit <code>next/font</code> bereitgestellt. Es erfolgt kein Abruf von Google Fonts Servern.
+          Alle Schriftarten (Inter, Playfair Display, Orbitron) werden lokal mit <code>next/font/google</code> optimiert und 
+          als Webfonts direkt vom Server bereitgestellt. Es erfolgt kein direkter Abruf von Google Fonts Servern während des 
+          Seitenbesuchs. Die Schriftdateien werden beim Build-Prozess heruntergeladen und selbst gehostet, sodass keine 
+          Verbindung zu Google oder anderen Drittanbietern für Schriftarten hergestellt wird.
         </p>
 
         <h2 className="text-lg font-semibold text-stone-900">Externe Dienste – Google Maps (optionale Einbettung)</h2>

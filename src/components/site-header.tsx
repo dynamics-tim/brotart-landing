@@ -75,6 +75,12 @@ export default function SiteHeader() {
     setIsMenuOpen(false);
   };
 
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    document.querySelector("#start")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActiveHref("#start");
+  };
+
   const activeIndex = NAV_LINKS.findIndex((link) => link.href === activeHref);
 
   return (
@@ -91,10 +97,11 @@ export default function SiteHeader() {
             {/* Logo - Compact on mobile */}
             <Link
               href="#start"
+              onClick={handleLogoClick}
               className="group flex items-center gap-2 sm:gap-3 transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500 rounded-full"
               aria-label="Zur Startsektion scrollen"
             >
-              <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-gradient-to-br from-brotart-600 to-brotart-400 text-sm font-bold text-white shadow-lg shadow-brotart-300/50 transition-shadow group-hover:shadow-brotart-400/70">
+              <div className="flex h-9 w-auto sm:h-10 items-center justify-center rounded-full bg-gradient-to-br from-brotart-600 to-brotart-400 px-2.5 sm:px-3 text-xs sm:text-sm font-black text-white shadow-lg shadow-brotart-300/50 transition-shadow group-hover:shadow-brotart-400/70 font-[var(--font-orbitron)] tracking-wider italic">
                 {CONTACT_INFO.brandInitials}
               </div>
               <div className="hidden sm:block leading-tight">
@@ -227,6 +234,24 @@ export default function SiteHeader() {
                 </a>
               );
             })}
+            
+            {/* Legal Links */}
+            <div className="mt-4 pt-4 border-t border-stone-200">
+              <Link
+                href="/impressum"
+                className="flex items-center gap-3 px-6 py-3 text-sm font-medium text-stone-600 hover:bg-stone-50 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Impressum
+              </Link>
+              <Link
+                href="/datenschutz"
+                className="flex items-center gap-3 px-6 py-3 text-sm font-medium text-stone-600 hover:bg-stone-50 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Datenschutz
+              </Link>
+            </div>
           </div>
 
           <div className="p-4 border-t border-stone-200 bg-stone-50">

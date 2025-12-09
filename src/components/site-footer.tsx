@@ -14,7 +14,7 @@ export default function SiteFooter({ contactInfo }: SiteFooterProps) {
   };
 
   return (
-    <footer className="relative z-10 bg-[#1f140d] text-[#f9f1e7]">
+    <footer className="relative z-0 bg-[#1f140d] text-[#f9f1e7]">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="text-sm uppercase tracking-[0.3em] text-[#cba07f]">{contactInfo.brandShort}</p>

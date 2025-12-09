@@ -97,7 +97,7 @@ export type ContactInfo = {
 export const CONTACT_INFO: ContactInfo = {
   company: "Balkan Bäckerei-Pizza-Grill-(Brotart) - MANTIJE - BUREK",
   brandShort: "Balkan Bäckerei-Pizza-Grill",
-  brandInitials: "BB",
+  brandInitials: "BROTART",
   street: "Neue Unlinger Str. 19/1",
   zip: "88499",
   city: "Riedlingen",
@@ -240,15 +240,15 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     highlight: "Frühöffnung für Pendler",
     topics: ["Börek", "Frühstück", "Pendler"],
   },
-  {
-    author: "Julia H.",
-    role: "Stammkundin",
-    relativeTime: "vor 2 Wochen",
-    rating: 5,
-    excerpt: "Pizza mit Sudschuk mega, kann ich nur empfehlen. Der Inhaber versucht jeden Wunsch zu erfüllen.",
-    highlight: "Takeaway klappt schnell",
-    topics: ["Pizza", "Takeaway", "Service"],
-  },
+  // {
+  //   author: "Julia H.",
+  //   role: "Stammkundin",
+  //   relativeTime: "vor 2 Wochen",
+  //   rating: 5,
+  //   excerpt: "Pizza mit Sudschuk mega, kann ich nur empfehlen. Der Inhaber versucht jeden Wunsch zu erfüllen.",
+  //   highlight: "Takeaway klappt schnell",
+  //   topics: ["Pizza", "Takeaway", "Service"],
+  // },
   {
     author: "Cornelia L.",
     role: "Frühstücksfan",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Orbitron } from "next/font/google";
 
 import { CONTACT_INFO, OPENING_HOURS, SOCIAL_LINKS } from "@/content/site";
 import "./globals.css";
@@ -13,6 +13,13 @@ const inter = Inter({
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+  display: "swap",
+});
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  variable: "--font-orbitron",
+  weight: ["700", "900"],
   display: "swap",
 });
 
@@ -123,7 +130,7 @@ export default function RootLayout({
         <meta httpEquiv="X-Frame-Options" content="DENY" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: localBusinessJsonLd }} />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} ${orbitron.variable} antialiased`}>
         <a href="#main" className="skip-link">
           Zum Inhalt springen
         </a>

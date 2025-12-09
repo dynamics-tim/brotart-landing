@@ -21,41 +21,16 @@ export default function MenuSection({ categories }: MenuSectionProps) {
   const visibleCategories = categories.filter((category) => category.visible !== false);
   const [activeCategoryId, setActiveCategoryId] = useState(visibleCategories[0]?.id ?? "");
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(new Set());
   
   const activeCategory = visibleCategories.find((cat) => cat.id === activeCategoryId) ?? visibleCategories[0];
 
   const handleCategoryChange = (categoryId: string) => {
     if (categoryId === activeCategoryId) return;
     setIsTransitioning(true);
-    setCollapsedSections(new Set()); // Reset collapsed sections when changing category
     setTimeout(() => {
       setActiveCategoryId(categoryId);
       setTimeout(() => setIsTransitioning(false), 50);
     }, 200);
-  };
-
-  const toggleSection = (sectionName: string) => {
-    setCollapsedSections((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(sectionName)) {
-        newSet.delete(sectionName);
-      } else {
-        newSet.add(sectionName);
-      }
-      return newSet;
-    });
-  };
-
-  const toggleAllSections = () => {
-    const allSections = Object.keys(groupedItems);
-    if (collapsedSections.size === allSections.length) {
-      // All collapsed, expand all
-      setCollapsedSections(new Set());
-    } else {
-      // Some or none collapsed, collapse all
-      setCollapsedSections(new Set(allSections));
-    }
   };
 
   // Group items by section
@@ -71,28 +46,30 @@ export default function MenuSection({ categories }: MenuSectionProps) {
   if (!activeCategory) return null;
 
   return (
-    <section id="speisekarte" className="section-anchor mx-auto max-w-6xl px-6 py-12">
-      <div className="flex flex-col gap-8">
-        <div className="flex flex-col gap-3 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Speisekarte</p>
-          <h2 className={`text-3xl font-semibold text-stone-900 transition-opacity duration-200 sm:text-4xl ${isTransitioning ? "opacity-0" : "opacity-100"}`}>
+    <section id="speisekarte" className="section-anchor mx-auto max-w-6xl px-6 py-12 sm:py-16">
+      <div className="flex flex-col gap-6 sm:gap-8">
+        {/* Header */}
+        <div className="flex flex-col gap-2 text-center">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Speisekarte</p>
+          <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 transition-opacity duration-200 ${isTransitioning ? "opacity-0" : "opacity-100"}`}>
             {activeCategory.header}
           </h2>
-          <p className={`mx-auto max-w-3xl text-lg text-stone-600 transition-opacity duration-200 ${isTransitioning ? "opacity-0" : "opacity-100"}`}>
+          <p className={`mx-auto max-w-2xl text-sm sm:text-base text-stone-600 transition-opacity duration-200 ${isTransitioning ? "opacity-0" : "opacity-100"}`}>
             {activeCategory.subtitle}
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3">
+        {/* Category Tabs - Stacked on Mobile, Inline on Desktop */}
+        <div className="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:justify-center">
           {visibleCategories.map((category) => (
             <button
               key={category.id}
               type="button"
               onClick={() => handleCategoryChange(category.id)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 hover:border-brotart-200 hover:bg-brotart-50/50 hover:scale-105 ${
+              className={`w-full sm:w-auto whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
                 category.id === activeCategory.id
-                  ? "border-brotart-300 bg-brotart-50 text-brotart-700 shadow-md shadow-brotart-100"
-                  : "border-stone-200 bg-white text-stone-600"
+                  ? "bg-brotart-600 text-white shadow-lg shadow-brotart-300/40"
+                  : "bg-white border border-stone-200 text-stone-600 hover:border-brotart-300 hover:text-brotart-600 active:scale-95"
               }`}
               aria-pressed={category.id === activeCategory.id}
             >
@@ -101,129 +78,95 @@ export default function MenuSection({ categories }: MenuSectionProps) {
           ))}
         </div>
 
-        <div className={`grid gap-4 rounded-3xl border border-stone-100 bg-white/90 p-6 shadow-lg shadow-brotart-50 transition-all duration-300 ${isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}>
-          <button
-            type="button"
-            onClick={toggleAllSections}
-            className="flex flex-col gap-2 border-b border-stone-100 pb-3 text-left transition-opacity hover:opacity-70 sm:flex-row sm:items-center sm:justify-between"
-            title={collapsedSections.size === Object.keys(groupedItems).length ? "Alle aufklappen" : "Alle zuklappen"}
-          >
-            <div className="flex items-center gap-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brotart-500">{activeCategory.title}</p>
-              <div className="flex items-center gap-1.5 rounded-full border border-brotart-200 bg-brotart-50 px-3 py-1.5 text-xs font-semibold text-brotart-600 shadow-sm transition-all hover:border-brotart-300 hover:bg-brotart-100 hover:shadow-md">
-                <div className={`flex flex-col gap-0 transition-transform duration-300 ${collapsedSections.size === Object.keys(groupedItems).length ? "" : "rotate-180"}`}>
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-2.5 w-2.5 -mb-1"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m18 15-6-6-6 6" />
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-2.5 w-2.5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m18 15-6-6-6 6" />
-                  </svg>
-                </div>
-                <span className="hidden sm:inline">{collapsedSections.size === Object.keys(groupedItems).length ? "Alle aufklappen" : "Alle zuklappen"}</span>
-              </div>
+        {/* Menu Content */}
+        <div className={`transition-all duration-300 ${isTransitioning ? "opacity-0 scale-[0.98]" : "opacity-100 scale-100"}`}>
+          {/* Category Info Badge */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-4 border-b border-stone-200">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-brotart-50 px-3 py-1.5 text-xs font-semibold text-brotart-700">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                </svg>
+                Zum Mitnehmen
+              </span>
             </div>
-            <p className="text-sm font-semibold text-brotart-600">Alle Gerichte auch zum Mitnehmen!</p>
-          </button>
-
-          <div className="space-y-8">
-            {Object.entries(groupedItems).map(([sectionName, items], index) => {
-              const isCollapsed = collapsedSections.has(sectionName);
-              return (
-                <div key={sectionName} className="space-y-4">
-                  <button
-                    type="button"
-                    onClick={() => toggleSection(sectionName)}
-                    className="flex w-full items-center gap-4 text-left transition-opacity hover:opacity-70"
-                    aria-expanded={!isCollapsed}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brotart-400 to-brotart-500 text-sm font-bold text-white shadow-md shadow-brotart-200 transition-transform duration-300">
-                        {index + 1}
-                      </div>
-                      <h3 className="text-lg font-bold tracking-wide text-stone-800">{sectionName}</h3>
-                    </div>
-                    <div className="h-px flex-1 bg-gradient-to-r from-brotart-200 to-transparent"></div>
-                    <svg
-                      viewBox="0 0 24 24"
-                      className={`h-5 w-5 flex-shrink-0 text-brotart-500 transition-transform duration-300 ${isCollapsed ? "" : "rotate-180"}`}
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m18 15-6-6-6 6" />
-                    </svg>
-                  </button>
-                  <div
-                    className={`grid gap-4 overflow-hidden transition-all duration-500 ease-in-out md:grid-cols-2 ${
-                      isCollapsed ? "grid-rows-[0fr] opacity-0" : "grid-rows-[1fr] opacity-100"
-                    }`}
-                  >
-                    <div className="min-h-0 space-y-4 md:col-span-2">
-                      <div className="grid gap-4 md:grid-cols-2">
-                        {items.map((item) => (
-                          <article
-                            key={item.name}
-                            className="flex flex-col gap-1 rounded-2xl border border-stone-200 bg-white p-4 shadow-sm shadow-brotart-100"
-                          >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h4 className="text-lg font-semibold text-stone-900">{item.name}</h4>
-                        <p className="text-sm text-stone-600">{item.description}</p>
-                        {item.note && <p className="text-xs text-stone-500">{item.note}</p>}
-                      </div>
-                      <span className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-brotart-50 px-3 py-1 text-sm font-semibold text-brotart-700">
-                        {item.price}
-                      </span>
-                    </div>
-                    {activeCategory.allergensVisible && item.allergens && item.allergens.length > 0 && (
-                      <p className="text-[11px] uppercase tracking-[0.15em] text-stone-400">
-                        Zusätze: {item.allergens.join(", ")}
-                      </p>
-                    )}
-                  </article>
-                ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            <a
+              href="tel:+4973714095580"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-brotart-600 hover:text-brotart-700 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+              </svg>
+              Jetzt bestellen
+            </a>
           </div>
 
+          {/* Sections Grid */}
+          <div className="space-y-6">
+            {Object.entries(groupedItems).map(([sectionName, items]) => (
+              <div key={sectionName} className="space-y-3">
+                {/* Section Header */}
+                <h3 className="text-base sm:text-lg font-bold text-stone-800 flex items-center gap-2">
+                  <span className="w-1 h-5 bg-gradient-to-b from-brotart-500 to-brotart-400 rounded-full"></span>
+                  {sectionName}
+                </h3>
+                
+                {/* Items Grid */}
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {items.map((item) => (
+                    <article
+                      key={item.name}
+                      className="group relative rounded-xl border border-stone-200 bg-white p-3 sm:p-4 transition-all hover:border-brotart-300 hover:shadow-md hover:shadow-brotart-100/50"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-sm sm:text-base font-semibold text-stone-900 leading-tight">
+                            {item.name}
+                          </h4>
+                          {item.description && (
+                            <p className="mt-0.5 text-xs sm:text-sm text-stone-600 leading-snug">
+                              {item.description}
+                            </p>
+                          )}
+                          {item.note && (
+                            <p className="mt-1 text-xs text-stone-500 italic">
+                              {item.note}
+                            </p>
+                          )}
+                          {activeCategory.allergensVisible && item.allergens && item.allergens.length > 0 && (
+                            <p className="mt-1 text-[10px] uppercase tracking-wider text-stone-400">
+                              {item.allergens.join(", ")}
+                            </p>
+                          )}
+                        </div>
+                        <span className="flex-shrink-0 inline-flex items-center justify-center rounded-full bg-brotart-50 px-2.5 py-1 text-xs sm:text-sm font-bold text-brotart-700 group-hover:bg-brotart-100 transition-colors">
+                          {item.price}
+                        </span>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Allergen Legend */}
           {activeCategory.allergensVisible && (
-            <div className="rounded-2xl border border-dashed border-stone-200 bg-stone-50/70 p-4 text-xs text-stone-500">
-              <p className="font-semibold text-stone-700">Zusatzstoffe (Legende)</p>
-              <p className="mt-1 flex flex-wrap gap-3">
+            <div className="mt-6 rounded-xl border border-dashed border-stone-300 bg-stone-50/50 p-3 sm:p-4">
+              <p className="text-xs font-semibold text-stone-700 mb-2">Zusatzstoffe</p>
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-600">
                 {Object.entries(ALLERGEN_LEGEND).map(([code, label]) => (
-                  <span key={code} className="inline-flex items-center gap-1">
-                    <span className="font-semibold text-stone-700">{code}</span>
-                    <span>{label}</span>
+                  <span key={code}>
+                    <span className="font-bold text-stone-800">{code}</span> {label}
                   </span>
                 ))}
-              </p>
+              </div>
             </div>
           )}
           
-          <p className="text-center text-xs text-stone-400">
-            Alle Preise verstehen sich in Euro inkl. MwSt. Preise und Verfügbarkeit können sich ändern. Stand: Dezember 2025.
+          {/* Footer Note */}
+          <p className="mt-4 text-center text-xs text-stone-400">
+            Alle Preise in Euro inkl. MwSt. · Preise und Verfügbarkeit können sich ändern · Stand: Dezember 2025
           </p>
         </div>
       </div>
