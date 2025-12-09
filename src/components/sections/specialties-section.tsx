@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/scroll-reveal";
 import type { Specialty } from "@/content/site";
 
 type SpecialtiesSectionProps = {

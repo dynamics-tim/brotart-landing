@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/scroll-reveal";
 import type { ContactHighlight, SocialLink } from "@/content/site";
 
 type ContactSectionProps = {
@@ -10,16 +11,17 @@ export default function ContactSection({ highlights, socialLinks }: ContactSecti
     <section id="kontakt" className="section-anchor mt-8 w-full px-6">
       <div className="relative mx-auto w-full max-w-6xl py-12">
         <div aria-hidden="true" className="absolute inset-0 -z-10 mx-auto max-w-5xl rounded-[3rem] bg-white/50 blur-3xl" />
-        <div className="grid grid-cols-1 gap-10">
-          <div className="rounded-[2.5rem] border border-white/70 bg-white/95 p-8 shadow-2xl shadow-brotart-100">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Kontakt & Bestellung</p>
-            <h2 className="mt-4 text-3xl font-semibold text-stone-900 sm:text-4xl">
-              Wir freuen uns auf Ihren Besuch oder Ihre Vorbestellung.
-            </h2>
-            <p className="mt-4 text-lg text-stone-600">
-              Rufen Sie an, schreiben Sie eine WhatsApp oder kommen Sie spontan vorbei – wir halten immer etwas
-              Ofenfrisches bereit und packen es für Takeaway ein.
-            </p>
+        <ScrollReveal>
+          <div className="grid grid-cols-1 gap-10">
+            <div className="rounded-[2.5rem] border border-white/70 bg-white/95 p-8 shadow-2xl shadow-brotart-100">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Kontakt & Bestellung</p>
+              <h2 className="mt-4 text-3xl font-semibold text-stone-900 sm:text-4xl">
+                Wir freuen uns auf Ihren Besuch oder Ihre Vorbestellung.
+              </h2>
+              <p className="mt-4 text-lg text-stone-600">
+                Rufen Sie an, schreiben Sie eine WhatsApp oder kommen Sie spontan vorbei – wir halten immer etwas
+                Ofenfrisches bereit und packen es für Takeaway ein.
+              </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {highlights.map((item) => (
                 <a
@@ -63,6 +65,7 @@ export default function ContactSection({ highlights, socialLinks }: ContactSecti
             </div>
           </div>
         </div>
+      </ScrollReveal>
       </div>
     </section>
   );

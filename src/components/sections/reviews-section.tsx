@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/scroll-reveal";
 import type { GoogleReview, GoogleReviewSummary } from "@/content/site";
 
 type ReviewsSectionProps = {
@@ -18,16 +19,19 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col gap-10 lg:gap-14">
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-8">
-            <div className="space-y-4 text-center lg:max-w-2xl lg:text-left">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Bewertungen</p>
-              <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">Was unsere Gäste sagen</h2>
-              <p className="text-lg text-stone-600 lg:text-xl">
-                Stimmen aus Riedlingen, Neufra und Umgebung: echte Erfahrungsberichte zu Börek, Frühstück, Pizza und Takeaway
-                der Balkan Bäckerei-Pizza-Grill-(Brotart).
-              </p>
-            </div>
+            <ScrollReveal>
+              <div className="space-y-4 text-center lg:max-w-2xl lg:text-left">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Bewertungen</p>
+                <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">Was unsere Gäste sagen</h2>
+                <p className="text-lg text-stone-600 lg:text-xl">
+                  Stimmen aus Riedlingen, Neufra und Umgebung: echte Erfahrungsberichte zu Börek, Frühstück, Pizza und Takeaway
+                  der Balkan Bäckerei-Pizza-Grill-(Brotart).
+                </p>
+              </div>
+            </ScrollReveal>
 
-            <article className="flex flex-col justify-between rounded-[2rem] border border-white/60 bg-white/90 p-8 shadow-xl shadow-brotart-50 lg:sticky lg:top-10 lg:p-9">
+            <ScrollReveal delay={100}>
+              <article className="flex flex-col justify-between rounded-[2rem] border border-white/60 bg-white/90 p-8 shadow-xl shadow-brotart-50 lg:sticky lg:top-10 lg:p-9">
               <div>
                 <div className="flex flex-wrap items-end gap-4">
                   <div>
@@ -64,6 +68,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                 <ArrowIcon />
               </a>
             </article>
+            </ScrollReveal>
           </div>
 
           <div className="relative">
