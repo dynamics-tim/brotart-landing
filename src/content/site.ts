@@ -1,4 +1,4 @@
-﻿export type NavLink = {
+export type NavLink = {
   label: string;
   href: string;
 };
@@ -31,12 +31,12 @@ export const SPECIALTIES: Specialty[] = [
     name: "Mantije & Pide",
     description: "Handgerollte Teigschiffchen mit würzigen Balkan-Füllungen.",
     details: "Zum Teilen gedacht - serviert mit Ajvar, Joghurt oder frischen Kräutern.",
-    icon: "🥙",
+    icon: "🥟",
   },
   {
     name: "Balkan-Pizza",
     description: "Dünner Boden, hohe Hitze, rauchiges Aroma wie vom Grill.",
-    details: "Signature-Pizza „Balkan“ mit Sudschuk, Paprika und Kräuteröl.",
+    details: 'Signature-Pizza "Balkan" mit Sudschuk, Paprika und Kräuteröl.',
     icon: "🍕",
   },
 ];
@@ -125,7 +125,7 @@ export const CONTACT_HIGHLIGHTS: ContactHighlight[] = [
     value: CONTACT_INFO.displayPhone,
     description: "Direkt durchstellen & bestellen",
     href: `tel:${CONTACT_INFO.phone}`,
-    icon: "📞",
+    icon: "☎️",
     cta: "Jetzt anrufen",
   },
   {
@@ -145,11 +145,7 @@ export type SocialLink = {
   handle: string;
 };
 
-export const SOCIAL_LINKS: SocialLink[] = [
-  // { label: "Instagram", href: "https://www.instagram.com/brotart.riedlingen", handle: "@brotart.riedlingen" },
-  // { label: "Facebook", href: "https://www.facebook.com/brotart", handle: "@brotart" },
-  { label: "Google Maps", href: CONTACT_INFO.mapsLink, handle: "Bewertungen" },
-];
+export const SOCIAL_LINKS: SocialLink[] = [{ label: "Google Maps", href: CONTACT_INFO.mapsLink, handle: "Bewertungen" }];
 
 export const GOOGLE_MAPS_EMBED =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.9327990446327!2d9.482023191558474!3d48.15010077615481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a33a082553fc3%3A0x9e93d68f8046cbc0!2sBalkan%20B%C3%A4ckerei-Pizza-Grill-(Brotart)%20-%20MANTIJE%20-%20BUREK!5e0!3m2!1sde!2sde!4v1765094047223!5m2!1sde!2sde";
@@ -189,7 +185,7 @@ export const HERO_CONTENT: HeroContent = {
     trailing: "in der Neuen Unlinger Str. 19/1.",
   },
   description: "Ofenfrische Balkan-Spezialitäten ab 05:00 Uhr: Börek, Mantije, Pizza, Frühstück und Snacks zum Mitnehmen.",
-  secondary: "Takeaway in Riedlingen – Jetzt vorbestellen unter 07371 1296664 oder direkt vorbeikommen.",
+  secondary: "Takeaway in Riedlingen - Jetzt vorbestellen unter 07371 1296664 oder direkt vorbeikommen.",
   image: {
     src: "/images/hero-borek.jpg",
     alt: "Frisch gebackene Börek und Mantije in Riedlingen",
@@ -240,15 +236,6 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
     highlight: "Frühöffnung für Pendler",
     topics: ["Börek", "Frühstück", "Pendler"],
   },
-  // {
-  //   author: "Julia H.",
-  //   role: "Stammkundin",
-  //   relativeTime: "vor 2 Wochen",
-  //   rating: 5,
-  //   excerpt: "Pizza mit Sudschuk mega, kann ich nur empfehlen. Der Inhaber versucht jeden Wunsch zu erfüllen.",
-  //   highlight: "Takeaway klappt schnell",
-  //   topics: ["Pizza", "Takeaway", "Service"],
-  // },
   {
     author: "Cornelia L.",
     role: "Frühstücksfan",
@@ -296,15 +283,16 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     id: "grill",
     title: "Grillgerichte",
     description:
-      "Balkan-Grill mit Rind und Geflügel – frisch gegrillt, mit Salat und Brot. Ideal zum Mitnehmen oder direkt genießen.",
-    header: "Grillgerichte in Riedlingen – Cevapcici, Sucuk, Pleskawitza",
-    subtitle: "Balkangrill mit Rind und Geflügel: Cevapcici, Sucuk, Pleskawitza und mehr. Frisch gegrillt, mit Salat und Brot – ideal zum Mitnehmen oder vor Ort genießen.",
+      "Balkan-Grill mit Rind und Geflügel - frisch gegrillt, mit Salat und Brot. Ideal zum Mitnehmen oder direkt genießen.",
+    header: "Grillgerichte in Riedlingen - Cevapcici, Sucuk, Pleskawitza",
+    subtitle:
+      "Balkangrill mit Rind und Geflügel: Cevapcici, Sucuk, Pleskawitza und mehr. Frisch gegrillt, mit Salat und Brot - ideal zum Mitnehmen oder vor Ort genießen.",
     items: [
       {
         name: "Cevapcici (Rind)",
-        description: "Mit Salat und Brot – 10 Stk.",
+        description: "Mit Salat und Brot - 10 Stk.",
         price: "10,00 €",
-        note: "Halbe Portion 5,00 € – 5 Stk.",
+        note: "Halbe Portion 5,00 € - 5 Stk.",
         allergens: [],
         section: "Fleischgerichte",
       },
@@ -379,8 +367,9 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     id: "ofen",
     title: "Ofen-Spezialitäten",
     description: "Börek, Mantije und Pizza frisch gebacken aus dem Ofen.",
-    header: "Ofen-Spezialitäten – Börek, Mantije & Pizza",
-    subtitle: "Ofenfrische Balkan-Klassiker: Börek mit verschiedenen Füllungen, handgerollte Mantije und Pizza mit rauchigem Aroma – täglich frisch gebacken.",
+    header: "Ofen-Spezialitäten - Börek, Mantije & Pizza",
+    subtitle:
+      "Ofenfrische Balkan-Klassiker: Börek mit verschiedenen Füllungen, handgerollte Mantije und Pizza mit rauchigem Aroma - täglich frisch gebacken.",
     items: [
       {
         name: "Burek mit Käse",
@@ -453,17 +442,18 @@ export const MENU_CATEGORIES: MenuCategory[] = [
         description: "",
         price: "12,00 €",
         section: "Pizza",
-      }
+      },
     ],
     visible: true,
-    allergensVisible: false
+    allergensVisible: false,
   },
   {
     id: "backwaren",
     title: "Backwaren & Frühstück",
     description: "Sesamzöpfe, Croissants, belegte Brötchen und süße Teilchen.",
     header: "Backwaren & Frühstück ab 05:00 Uhr",
-    subtitle: "Frische Sesamzöpfe, Croissants, belegte Brötchen und süße Teilchen – perfekt für einen guten Start in den Tag.",
+    subtitle:
+      "Frische Sesamzöpfe, Croissants, belegte Brötchen und süße Teilchen - perfekt für einen guten Start in den Tag.",
     items: [
       {
         name: "Sesamzopf",
@@ -581,6 +571,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       },
     ],
     visible: true,
-    allergensVisible: false
+    allergensVisible: false,
   },
 ];

@@ -1,18 +1,21 @@
-import ScrollReveal from "@/components/scroll-reveal";
-import type { GoogleReview, GoogleReviewSummary } from "@/content/site";
+"use client";
 
-type ReviewsSectionProps = {
-  summary: GoogleReviewSummary;
-  reviews: GoogleReview[];
-};
+import ScrollReveal from "@/components/scroll-reveal";
+import { useI18n } from "@/i18n/i18n-provider";
 
 const starArray = Array.from({ length: 5 });
 
-const formatRating = (value: number) => value.toFixed(1).replace(".", ",");
+export default function ReviewsSection() {
+  const { content, locale } = useI18n();
+  const { reviews } = content;
 
-export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps) {
-  const formattedAverage = formatRating(summary.averageRating);
-  const formattedCount = new Intl.NumberFormat("de-DE").format(summary.reviewCount);
+  const formatRating = (value: number) => {
+    const formatted = value.toFixed(1);
+    return locale === "de" ? formatted.replace(".", ",") : formatted;
+  };
+
+  const formattedAverage = formatRating(reviews.summary.averageRating);
+  const formattedCount = new Intl.NumberFormat(locale === "de" ? "de-DE" : "en-US").format(reviews.summary.reviewCount);
 
   return (
     <section id="bewertungen" className="section-anchor">
@@ -21,12 +24,9 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-8">
             <ScrollReveal>
               <div className="space-y-4 text-center lg:max-w-2xl lg:text-left">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">Bewertungen</p>
-                <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">Was unsere Gäste sagen</h2>
-                <p className="text-lg text-stone-600 lg:text-xl">
-                  Stimmen aus Riedlingen, Neufra und Umgebung: echte Erfahrungsberichte zu Börek, Frühstück, Pizza und Takeaway
-                  der Balkan Bäckerei-Pizza-Grill-(Brotart).
-                </p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brotart-500">{reviews.eyebrow}</p>
+                <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">{reviews.heading}</h2>
+                <p className="text-lg text-stone-600 lg:text-xl">{reviews.description}</p>
               </div>
             </ScrollReveal>
 
@@ -35,23 +35,23 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
               <div>
                 <div className="flex flex-wrap items-end gap-4">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-400">Durchschnitt</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-400">{reviews.labels.average}</p>
                     <div className="flex items-baseline gap-3">
                       <span className="text-6xl font-semibold text-stone-900">{formattedAverage}</span>
-                      <span className="text-lg font-semibold text-stone-400">/ 5</span>
+                      <span className="text-lg font-semibold text-stone-400">{reviews.labels.outOf}</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1 text-brotart-500" aria-label={`${formattedAverage} von 5 Sternen`}>
+                  <div className="flex items-center gap-1 text-brotart-500" aria-label={`${formattedAverage} ${reviews.labels.starSuffix}`}>
                     {starArray.map((_, index) => (
                       <StarIcon key={index} />
                     ))}
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-stone-600">
-                  {formattedCount} öffentliche Stimmen – Stand {summary.dataAsOf} – Quelle: {summary.source}
+                  {formattedCount} {reviews.labels.publicVoices} - {reviews.labels.asOf} {reviews.summary.dataAsOf} - {reviews.labels.source}: {reviews.summary.source}
                 </p>
                 <ul className="mt-6 flex flex-wrap gap-2 text-sm text-stone-700">
-                  {summary.highlights.map((item) => (
+                  {reviews.summary.highlights.map((item) => (
                     <li key={item} className="rounded-full bg-brotart-100 px-4 py-1 font-medium text-stone-900">
                       {item}
                     </li>
@@ -59,12 +59,12 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                 </ul>
               </div>
               <a
-                href={summary.url}
+                href={reviews.summary.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-stone-900 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-stone-400/40 transition hover:-translate-y-0.5 hover:bg-stone-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
               >
-                Alle Rezensionen auf Google lesen
+                {reviews.buttonLabel}
                 <ArrowIcon />
               </a>
             </article>
@@ -72,7 +72,6 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
           </div>
 
           <div className="relative">
-            {/* Scroll hint indicator on mobile */}
             <div className="pointer-events-none absolute -right-3 top-0 z-10 h-full w-32 bg-gradient-to-l from-stone-50 via-stone-50/60 via-30% to-transparent lg:hidden" aria-hidden="true" />
             <div className="pointer-events-none absolute -right-6 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1 lg:hidden" aria-hidden="true">
               <svg viewBox="0 0 24 24" className="h-4 w-4 text-brotart-400/70 animate-pulse" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -91,7 +90,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                 msOverflowStyle: 'none',
               }}
             >
-              {reviews.map((review, index) => (
+              {reviews.reviews.map((review, index) => (
                 <article
                   key={`${review.author}-${index}`}
                   role="listitem"
@@ -111,7 +110,7 @@ export default function ReviewsSection({ summary, reviews }: ReviewsSectionProps
                   </span>
                 </div>
                 <div className="mt-4 flex items-center gap-3 text-brotart-500">
-                  <div className="flex items-center gap-0.5" aria-label={`${formatRating(review.rating)} von 5 Sternen`}>
+                  <div className="flex items-center gap-0.5" aria-label={`${formatRating(review.rating)} ${reviews.labels.starSuffix}`}>
                     {starArray.map((_, starIndex) => (
                       <StarIcon key={starIndex} className="h-4 w-4" />
                     ))}

@@ -8,21 +8,6 @@ import HoursLocationSection from "@/components/sections/hours-location-section";
 import ContactSection from "@/components/sections/contact-section";
 import SiteFooter from "@/components/site-footer";
 import ScrollBackground, { type SectionBackgroundConfig } from "@/components/scroll-background";
-import {
-  CONTACT_HIGHLIGHTS,
-  CONTACT_INFO,
-  CORE_VALUES,
-  GOOGLE_MAPS_EMBED,
-  GOOGLE_REVIEW_SUMMARY,
-  GOOGLE_REVIEWS,
-  HERO_BADGES,
-  HERO_CONTENT,
-  MENU_CATEGORIES,
-  OPENING_HOURS,
-  SOCIAL_LINKS,
-  SPECIALTIES,
-} from "@/content/site";
-import { HERO_GALLERY_IMAGES } from "@/content/hero-gallery";
 
 const SECTION_BACKDROPS: SectionBackgroundConfig[] = [
   {
@@ -115,27 +100,18 @@ export default function Home() {
           <div className="absolute inset-x-0 top-0 flex justify-center">
             <div className="h-40 w-full max-w-4xl rounded-full bg-gradient-to-r from-[#f3ceb0] via-[#f9e6c9] to-[#f3ceb0] opacity-20 blur-3xl" />
           </div>
-          <HeroSection
-            hero={HERO_CONTENT}
-            badges={HERO_BADGES}
-            galleryImages={HERO_GALLERY_IMAGES}
-            contactInfo={CONTACT_INFO}
-          />
+          <HeroSection />
         </div>
 
-        <SpecialtiesSection specialties={SPECIALTIES} />
-        <MenuSection categories={MENU_CATEGORIES} />
-        <HoursLocationSection
-          openingHours={OPENING_HOURS}
-          mapsEmbed={GOOGLE_MAPS_EMBED}
-          mapsLink={CONTACT_INFO.mapsLink}
-        />
-        <ReviewsSection summary={GOOGLE_REVIEW_SUMMARY} reviews={GOOGLE_REVIEWS} />
-        <AboutSection values={CORE_VALUES} />
-        <ContactSection highlights={CONTACT_HIGHLIGHTS} socialLinks={SOCIAL_LINKS} />
+        <SpecialtiesSection />
+        <MenuSection />
+        <HoursLocationSection />
+        <ReviewsSection />
+        <AboutSection />
+        <ContactSection />
       </main>
 
-      <SiteFooter contactInfo={CONTACT_INFO} />
+      <SiteFooter />
     </>
   );
 }
