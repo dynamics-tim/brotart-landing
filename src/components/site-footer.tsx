@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import type { ContactInfo } from "@/content/site";
 
@@ -6,6 +8,11 @@ type SiteFooterProps = {
 };
 
 export default function SiteFooter({ contactInfo }: SiteFooterProps) {
+  const handleScrollToTop = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    document.querySelector("#start")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <footer className="relative z-10 bg-[#1f140d] text-[#f9f1e7]">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between">
@@ -29,7 +36,7 @@ export default function SiteFooter({ contactInfo }: SiteFooterProps) {
           <Link href="/datenschutz" className="transition hover:text-white">
             Datenschutz
           </Link>
-          <a href="#start" className="transition hover:text-white">
+          <a href="#start" onClick={handleScrollToTop} className="transition hover:text-white">
             Nach oben
           </a>
         </div>

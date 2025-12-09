@@ -7,9 +7,9 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Start", href: "#start" },
   { label: "Angebot", href: "#angebot" },
   { label: "Speisekarte", href: "#speisekarte" },
-  { label: "Über uns", href: "#ueber-uns" },
-  { label: "Bewertungen", href: "#bewertungen" },
   { label: "Öffnungszeiten", href: "#oeffnungszeiten" },
+  { label: "Bewertungen", href: "#bewertungen" },
+  { label: "Über uns", href: "#ueber-uns" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 

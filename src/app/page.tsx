@@ -52,17 +52,17 @@ const SECTION_BACKDROPS: SectionBackgroundConfig[] = [
     grainOpacity: 0.22,
   },
   {
-    id: "ueber-uns",
+    id: "oeffnungszeiten",
     layers: {
-      color: "#fff5ee",
+      color: "#fff3ea",
       image: `
-        radial-gradient(circle at 15% 25%, rgba(255, 210, 180, 0.85), transparent 60%),
-        radial-gradient(circle at 85% 10%, rgba(251, 235, 215, 0.75), transparent 55%),
-        linear-gradient(120deg, rgba(231, 166, 120, 0.35), rgba(255, 255, 255, 0)),
-        linear-gradient(180deg, #fff5ee 0%, #f8e2cc 40%, #f1cda9 100%)
+        radial-gradient(circle at 20% 25%, rgba(255, 208, 163, 0.85), transparent 58%),
+        radial-gradient(circle at 85% 5%, rgba(253, 233, 205, 0.75), transparent 50%),
+        linear-gradient(140deg, rgba(215, 140, 90, 0.35), rgba(255, 255, 255, 0)),
+        linear-gradient(180deg, #fff3ea 0%, #f8dec5 50%, #f1c29b 100%)
       `,
     },
-    grainOpacity: 0.2,
+    grainOpacity: 0.26,
   },
   {
     id: "bewertungen",
@@ -78,17 +78,17 @@ const SECTION_BACKDROPS: SectionBackgroundConfig[] = [
     grainOpacity: 0.28,
   },
   {
-    id: "oeffnungszeiten",
+    id: "ueber-uns",
     layers: {
-      color: "#fff3ea",
+      color: "#fff5ee",
       image: `
-        radial-gradient(circle at 20% 25%, rgba(255, 208, 163, 0.85), transparent 58%),
-        radial-gradient(circle at 85% 5%, rgba(253, 233, 205, 0.75), transparent 50%),
-        linear-gradient(140deg, rgba(215, 140, 90, 0.35), rgba(255, 255, 255, 0)),
-        linear-gradient(180deg, #fff3ea 0%, #f8dec5 50%, #f1c29b 100%)
+        radial-gradient(circle at 15% 25%, rgba(255, 210, 180, 0.85), transparent 60%),
+        radial-gradient(circle at 85% 10%, rgba(251, 235, 215, 0.75), transparent 55%),
+        linear-gradient(120deg, rgba(231, 166, 120, 0.35), rgba(255, 255, 255, 0)),
+        linear-gradient(180deg, #fff5ee 0%, #f8e2cc 40%, #f1cda9 100%)
       `,
     },
-    grainOpacity: 0.26,
+    grainOpacity: 0.2,
   },
   {
     id: "kontakt",
@@ -125,13 +125,13 @@ export default function Home() {
 
         <SpecialtiesSection specialties={SPECIALTIES} />
         <MenuSection categories={MENU_CATEGORIES} />
-        <AboutSection values={CORE_VALUES} />
-        <ReviewsSection summary={GOOGLE_REVIEW_SUMMARY} reviews={GOOGLE_REVIEWS} />
         <HoursLocationSection
           openingHours={OPENING_HOURS}
           mapsEmbed={GOOGLE_MAPS_EMBED}
           mapsLink={CONTACT_INFO.mapsLink}
         />
+        <ReviewsSection summary={GOOGLE_REVIEW_SUMMARY} reviews={GOOGLE_REVIEWS} />
+        <AboutSection values={CORE_VALUES} />
         <ContactSection highlights={CONTACT_HIGHLIGHTS} socialLinks={SOCIAL_LINKS} />
       </main>
 
