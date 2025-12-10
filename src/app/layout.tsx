@@ -3,6 +3,9 @@ import { Inter, Playfair_Display, Orbitron } from "next/font/google";
 
 import { CONTACT_INFO, OPENING_HOURS, SOCIAL_LINKS } from "@/content/site";
 import "./globals.css";
+import Providers from "./providers";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
+import { getSiteContent } from "@/i18n/content";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -114,11 +117,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const baseContent = getSiteContent(DEFAULT_LOCALE);
   const localBusinessJsonLd = JSON.stringify(LOCAL_BUSINESS_SCHEMA);
 
   return (
-    <html lang="de">
+    <html lang={DEFAULT_LOCALE}>
       <head>
+        <meta charSet="UTF-8" />
         <link rel="icon" href="/favicon.svg" />
         <meta
           httpEquiv="Content-Security-Policy"
@@ -132,9 +137,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${playfair.variable} ${orbitron.variable} antialiased`}>
         <a href="#main" className="skip-link">
-          Zum Inhalt springen
+          {baseContent.skipToContentLabel}
         </a>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
