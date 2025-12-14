@@ -21,7 +21,7 @@ export default function AboutSection() {
                 key={value.title}
                 className="rounded-2xl border border-white/70 bg-white/90 p-5 shadow-lg shadow-brotart-50"
               >
-                <h3 className="text-lg font-semibold text-stone-900">{value.title}</h3>
+                <p className="text-lg font-semibold text-stone-900">{value.title}</p>
                 <p className="mt-2 text-sm text-stone-600">{value.description}</p>
               </article>
             ))}
@@ -29,7 +29,7 @@ export default function AboutSection() {
         </div>
 
         <div className="flex-1 rounded-[2rem] border border-stone-100 bg-gradient-to-br from-[#fef4ea] to-[#f9e2ca] p-8 shadow-inner">
-          <h3 className="text-lg font-semibold text-stone-900">{about.whyTitle}</h3>
+          <p className="text-lg font-semibold text-stone-900">{about.whyTitle}</p>
           <ul className="mt-6 space-y-6 text-stone-700">
             {about.differentiators.map((item) => (
               <li key={item.title}>

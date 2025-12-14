@@ -15,12 +15,6 @@ const FLAG_ICON: Record<Locale, string> = {
   sl: "🇸🇮",
 };
 
-const SHORT_LABEL: Record<Locale, string> = {
-  de: "DE",
-  en: "EN",
-  sl: "SL",
-};
-
 export default function LanguageSwitcher({ variant = "desktop", placement = "header" }: LanguageSwitcherProps) {
   const { locale, setLocale, localeOptions, content } = useI18n();
   const [isOpen, setIsOpen] = useState(false);

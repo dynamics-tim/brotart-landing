@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/i18n-provider";
@@ -128,7 +128,7 @@ export default function MenuSection() {
                     >
                       <div className="flex items-center justify-between gap-3">
                         <div className="flex-1 min-w-0 my-auto">
-                          <h4 className="text-sm sm:text-base font-semibold text-stone-900 leading-tight">{item.name}</h4>
+                          <p className="text-sm sm:text-base font-semibold text-stone-900 leading-tight">{item.name}</p>
                           {item.description && (
                             <p className="mt-0.5 text-xs sm:text-sm text-stone-600 leading-snug">{item.description}</p>
                           )}

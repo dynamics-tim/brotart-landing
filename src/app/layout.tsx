@@ -44,12 +44,21 @@ export const metadata: Metadata = {
     "Frühstück Riedlingen",
     "Takeaway Riedlingen",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
     title: "Balkan Bäckerei-Pizza-Grill - Börek, Mantije & Pizza in Riedlingen",
     description:
       "Ofenfrische Balkan-Spezialitäten, Frühstück und Pizza zum Mitnehmen. Neue Unlinger Str. 19/1 – Telefon 07371 1296664.",
     type: "website",
     url: baseUrl,
+    siteName: "Balkan Bäckerei-Pizza-Grill Riedlingen",
     locale: "de_DE",
     images: [
       {
@@ -65,14 +74,24 @@ export const metadata: Metadata = {
     title: "Balkan Bäckerei-Pizza-Grill in Riedlingen",
     description: "Börek, Mantije, Pizza & Frühstück ab 05:00 Uhr – Neue Unlinger Str. 19/1 – 07371 1296664.",
     images: [heroOgImage],
+    creator: "@brotart_riedlingen",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   alternates: {
     canonical: "/",
   },
+  authors: [{ name: "Balkan Bäckerei-Pizza-Grill" }],
+  category: "Restaurant",
 };
 
 const LOCAL_BUSINESS_SCHEMA = {
@@ -80,11 +99,16 @@ const LOCAL_BUSINESS_SCHEMA = {
   "@type": ["Bakery", "Restaurant"],
   "@id": `${baseUrl}/#localbusiness`,
   name: CONTACT_INFO.company,
+  alternateName: "BrotArt Riedlingen",
+  description: "Balkan Bäckerei in Riedlingen mit frischen Börek, Mantije, Pizza und Frühstück zum Mitnehmen",
   url: baseUrl,
   telephone: CONTACT_INFO.phone,
   email: CONTACT_INFO.email,
   image: heroOgImage,
+  logo: `${baseUrl}/favicon.svg`,
   priceRange: "€",
+  currenciesAccepted: "EUR",
+  paymentAccepted: "Cash, Debit Card",
   address: {
     "@type": "PostalAddress",
     streetAddress: CONTACT_INFO.street,
@@ -97,6 +121,10 @@ const LOCAL_BUSINESS_SCHEMA = {
     "@type": "GeoCoordinates",
     latitude: 48.1603653,
     longitude: 9.4725603,
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Riedlingen",
   },
   hasMap: CONTACT_INFO.mapsLink,
   sameAs: [CONTACT_INFO.mapsLink, ...SOCIAL_LINKS.map((link) => link.href)],

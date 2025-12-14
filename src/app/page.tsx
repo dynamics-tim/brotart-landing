@@ -90,9 +90,66 @@ const SECTION_BACKDROPS: SectionBackgroundConfig[] = [
   },
 ];
 
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://brotart-riedlingen.de"
+    }
+  ]
+};
+
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Welche Spezialitäten gibt es bei BrotArt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wir bieten hausgemachten Börek vom Blech mit verschiedenen Füllungen (Rind, Spinat-Feta, Käse), handgerollte Mantije & Pide mit würzigen Balkan-Füllungen, sowie Balkan-Pizza mit dünnem Boden und rauchigem Aroma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie sind die Öffnungszeiten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Montag bis Samstag von 05:00 bis 22:00 Uhr und Sonntag von 07:00 bis 22:00 Uhr. Wir sind sieben Tage die Woche für Sie da."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wo befindet sich BrotArt in Riedlingen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sie finden uns in der Neuen Unlinger Str. 19/1, 88499 Riedlingen. Parkplätze sind direkt vor dem Laden verfügbar. Die Buslinie 7606 hält an der Haltestelle 'Neue Unlinger Straße'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann man online bestellen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Am besten rufen Sie uns direkt unter 07371 1296664 an, um Ihre Bestellung aufzugeben. Wir bereiten alles frisch für Sie vor."
+      }
+    }
+  ]
+};
+
 export default function Home() {
+  const breadcrumbJsonLd = JSON.stringify(BREADCRUMB_SCHEMA);
+  const faqJsonLd = JSON.stringify(FAQ_SCHEMA);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
       <ScrollBackground sections={SECTION_BACKDROPS} />
       <main id="main" className="relative z-10 text-stone-900">
         <SiteHeader />
