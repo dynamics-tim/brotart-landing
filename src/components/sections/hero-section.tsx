@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "@/i18n/i18n-provider";
 import type { HeroGalleryImage } from "@/content/hero-gallery";
 
-const AUTO_ROTATE_INTERVAL = 5000;
+const AUTO_ROTATE_INTERVAL = 8000; // 8 seconds between slides
 
 export default function HeroSection() {
   const { content } = useI18n();
@@ -135,6 +135,34 @@ function HeroGallery({ images, labels }: HeroGalleryProps) {
   const [progress, setProgress] = useState(0);
   const derivedIndex = slides.length ? activeIndex % slides.length : 0;
 
+  // Preload next 2 images in background using native Image() constructor
+  // This works with static export and ensures images are cached before needed
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    
+    const preloadImages: HTMLImageElement[] = [];
+    
+    // Preload next 2 images ahead of current slide
+    const nextIndex = (derivedIndex + 1) % slides.length;
+    const nextNextIndex = (derivedIndex + 2) % slides.length;
+    
+    [nextIndex, nextNextIndex].forEach((idx) => {
+      const slide = slides[idx];
+      if (slide && typeof slide.src !== "string") {
+        const img = new window.Image();
+        img.src = slide.src.src;
+        preloadImages.push(img);
+      }
+    });
+    
+    // Cleanup function
+    return () => {
+      preloadImages.forEach(img => {
+        img.src = "";
+      });
+    };
+  }, [derivedIndex, slides]);
+
   // Auto-rotation with progress tracking
   useEffect(() => {
     if (slides.length <= 1) return undefined;
@@ -157,19 +185,6 @@ function HeroGallery({ images, labels }: HeroGalleryProps) {
     };
   }, [slides.length]);
 
-  // Preload next image for smooth transitions
-  useEffect(() => {
-    if (slides.length <= 1) return;
-    
-    const nextIndex = (derivedIndex + 1) % slides.length;
-    const nextSlide = slides[nextIndex];
-    
-    if (nextSlide && typeof nextSlide.src !== "string") {
-      const img = new window.Image();
-      img.src = nextSlide.src.src;
-    }
-  }, [derivedIndex, slides]);
-
   const activeSlide = slides[derivedIndex];
 
   return (
@@ -181,15 +196,12 @@ function HeroGallery({ images, labels }: HeroGalleryProps) {
             const isNext = slides.length > 1 && index === (derivedIndex + 1) % slides.length;
             const isPrevious = slides.length > 1 && index === (derivedIndex - 1 + slides.length) % slides.length;
             
-            // Only render active, next (for preload), and previous (for smooth exit)
+            // Only render active, next (preloaded for instant swap), and previous (for smooth exit)
             const shouldRender = isActive || isNext || isPrevious;
             if (!shouldRender) return null;
 
-            // Determine priority and loading strategy
-            const isFirstThree = index < 3;
-            const loadingPriority = index === 0 ? "eager" : isFirstThree ? "lazy" : "lazy";
+            // First image gets priority loading for fastest LCP
             const hasPriority = index === 0;
-            const fetchPrio = index === 0 ? "high" : index === 1 ? "low" : undefined;
 
             return (
               <div
@@ -204,8 +216,6 @@ function HeroGallery({ images, labels }: HeroGalleryProps) {
                   alt={slide.alt}
                   fill
                   priority={hasPriority}
-                  fetchPriority={fetchPrio}
-                  loading={loadingPriority}
                   placeholder={typeof slide.src === "string" ? "empty" : "blur"}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1100px"
                   className="h-full w-full object-cover"
