@@ -29,11 +29,6 @@ export default function HoursLocationSection() {
             </li>
           ))}
         </ul>
-
-        <div className="mt-6 rounded-2xl bg-brotart-600 px-5 py-4 text-white">
-          <p className="text-sm uppercase tracking-[0.4em] text-white/70">{hours.tipLabel}</p>
-          <p className="mt-2 text-lg font-semibold">{hours.tipText}</p>
-        </div>
       </div>
 
       <div className="flex-1 space-y-4">
