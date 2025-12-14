@@ -59,6 +59,13 @@ export const baseContent: SiteContent = {
     },
     whatsappLabel: "News & Angebote via WhatsApp",
   },
+  floatingCta: {
+    label: "Jetzt bestellen",
+    phoneDisplay: "07371 1296664",
+    ariaLabel: "Direkt anrufen und bestellen unter 07371 1296664",
+    showPriceBadge: false,
+    priceBadge: "ab 2,50€",
+  },
   specialties: {
     eyebrow: "Balkan Klassiker",
     title: "Börek, Mantije, Pizza & Frühstück in Riedlingen",

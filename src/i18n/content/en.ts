@@ -321,6 +321,13 @@ const values: ValueCard[] = [
       },
       whatsappLabel: "News & offers via WhatsApp",
     },
+    floatingCta: {
+      label: "Order now",
+      phoneDisplay: "07371 1296664",
+      ariaLabel: "Call now and order at 07371 1296664",
+      showPriceBadge: false,
+      priceBadge: "from €2.50",
+    },
     specialties: {
       eyebrow: "Balkan classics",
       title: "Börek, mantije, pizza & breakfast in Riedlingen",

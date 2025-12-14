@@ -7,6 +7,7 @@ import ReviewsSection from "@/components/sections/reviews-section";
 import HoursLocationSection from "@/components/sections/hours-location-section";
 import ContactSection from "@/components/sections/contact-section";
 import SiteFooter from "@/components/site-footer";
+import FloatingCTA from "@/components/floating-cta";
 import ScrollBackground, { type SectionBackgroundConfig } from "@/components/scroll-background";
 
 const SECTION_BACKDROPS: SectionBackgroundConfig[] = [
@@ -151,6 +152,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
       <ScrollBackground sections={SECTION_BACKDROPS} />
+      <FloatingCTA />
       <main id="main" className="relative z-10 text-stone-900">
         <SiteHeader />
         <div className="relative isolate">

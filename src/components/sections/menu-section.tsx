@@ -101,11 +101,11 @@ export default function MenuSection() {
             </div>
             <a
               href={`tel:${menu.orderPhone}`}
-              className={`inline-flex items-center gap-1.5 text-xs font-semibold text-brotart-600 hover:text-brotart-700 transition-colors ${
+              className={`group inline-flex items-center gap-1.5 text-xs font-semibold text-brotart-600 hover:text-brotart-700 hover:scale-105 active:scale-95 transition-all ${
                 shouldWiggle ? "animate-wiggle" : ""
               }`}
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 transition-transform group-hover:animate-bounce-subtle" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
               </svg>
               {menu.orderNowLabel}
@@ -121,30 +121,43 @@ export default function MenuSection() {
                 </h3>
 
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {items.map((item) => (
-                    <article
-                      key={item.name}
-                      className="group relative rounded-xl border border-stone-200 bg-white p-3 sm:p-4 transition-all hover:border-brotart-300 hover:shadow-md hover:shadow-brotart-100/50"
-                    >
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="flex-1 min-w-0 my-auto">
-                          <p className="text-sm sm:text-base font-semibold text-stone-900 leading-tight">{item.name}</p>
-                          {item.description && (
-                            <p className="mt-0.5 text-xs sm:text-sm text-stone-600 leading-snug">{item.description}</p>
-                          )}
-                          {item.note && <p className="mt-1 text-xs text-stone-500 italic">{item.note}</p>}
-                          {activeCategory.allergensVisible && item.allergens && item.allergens.length > 0 && (
-                            <p className="mt-1 text-[10px] uppercase tracking-wider text-stone-400">
-                              {item.allergens.join(", ")}
-                            </p>
-                          )}
+                  {items.map((item, index) => {
+                    // Mark popular items (e.g., first 2-3 items in each section)
+                    const isPopular = index < 2;
+                    
+                    return (
+                      <article
+                        key={item.name}
+                        className={`group relative rounded-xl border border-stone-200 bg-white p-3 sm:p-4 transition-all hover:border-brotart-300 hover:shadow-md hover:shadow-brotart-100/50 ${
+                          isPopular ? "hover:shadow-brotart-200/60" : ""
+                        }`}
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="flex-1 min-w-0 my-auto">
+                            <p className="text-sm sm:text-base font-semibold text-stone-900 leading-tight">{item.name}</p>
+                            {item.description && (
+                              <p className="mt-0.5 text-xs sm:text-sm text-stone-600 leading-snug">{item.description}</p>
+                            )}
+                            {item.note && <p className="mt-1 text-xs text-stone-500 italic">{item.note}</p>}
+                            {activeCategory.allergensVisible && item.allergens && item.allergens.length > 0 && (
+                              <p className="mt-1 text-[10px] uppercase tracking-wider text-stone-400">
+                                {item.allergens.join(", ")}
+                              </p>
+                            )}
+                          </div>
+                          <span 
+                            className={`flex-shrink-0 inline-flex items-center justify-center rounded-full bg-gradient-to-br from-brotart-50 to-brotart-100 px-2.5 py-1 text-xs sm:text-sm font-bold text-brotart-700 transition-all my-auto ${
+                              isPopular 
+                                ? "group-hover:scale-110 group-hover:from-brotart-100 group-hover:to-brotart-200 animate-glow-pulse" 
+                                : "group-hover:scale-110 group-hover:bg-brotart-100"
+                            }`}
+                          >
+                            {item.price}
+                          </span>
                         </div>
-                        <span className="flex-shrink-0 inline-flex items-center justify-center rounded-full bg-brotart-50 px-2.5 py-1 text-xs sm:text-sm font-bold text-brotart-700 group-hover:bg-brotart-100 transition-colors my-auto">
-                          {item.price}
-                        </span>
-                      </div>
-                    </article>
-                  ))}
+                      </article>
+                    );
+                  })}
                 </div>
               </div>
             ))}

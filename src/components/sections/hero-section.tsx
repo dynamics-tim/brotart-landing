@@ -1,12 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "@/i18n/i18n-provider";
 import type { HeroGalleryImage } from "@/content/hero-gallery";
 
 const AUTO_ROTATE_INTERVAL = 5000;
-const MANUAL_PAUSE_DURATION = 8000;
 
 export default function HeroSection() {
   const { content } = useI18n();
@@ -58,19 +57,28 @@ export default function HeroSection() {
         >
           <a
             href={`tel:${contactInfo.phone}`}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-brotart-600 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-brotart-300/50 transition-all hover:bg-brotart-700 hover:shadow-brotart-400/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500 sm:text-lg"
+            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-brotart-600 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-brotart-300/50 transition-all hover:scale-105 hover:bg-brotart-700 hover:shadow-brotart-400/60 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500 sm:text-lg"
           >
-            <span aria-hidden="true" className="text-xl leading-none">
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 animate-shine" />
+            
+            {/* Pulsing dot indicator */}
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+            </span>
+            
+            <span aria-hidden="true" className="relative text-xl leading-none transition-transform group-hover:scale-110">
               {"\u260E"}
             </span>
-            <span>{hero.ctas.callNow}</span>
+            <span className="relative">{hero.ctas.callNow}</span>
           </a>
           <a
             href="#speisekarte"
             onClick={handleMenuClick}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-brotart-200 bg-white px-6 py-4 text-base font-semibold text-brotart-600 shadow-md transition-all hover:border-brotart-300 hover:bg-brotart-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500 sm:text-lg"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl border-2 border-brotart-200 bg-white px-6 py-4 text-base font-semibold text-brotart-600 shadow-md transition-all hover:scale-105 hover:border-brotart-300 hover:bg-brotart-50 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500 sm:text-lg"
           >
-            <span aria-hidden="true" className="text-xl leading-none">
+            <span aria-hidden="true" className="text-xl leading-none transition-transform group-hover:animate-bounce-subtle">
               {"\u25BC"}
             </span>
             <span>{hero.ctas.viewMenu}</span>

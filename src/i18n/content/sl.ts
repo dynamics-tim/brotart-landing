@@ -322,6 +322,13 @@ const values: ValueCard[] = [
       },
       whatsappLabel: "Novice in ponudbe prek WhatsApp",
     },
+    floatingCta: {
+      label: "Naroci zdaj",
+      phoneDisplay: "07371 1296664",
+      ariaLabel: "Pokliči zdaj in naroči na 07371 1296664",
+      showPriceBadge: false,
+      priceBadge: "od 2,50€",
+    },
     specialties: {
       eyebrow: "Balkanske klasike",
       title: "Börek, mantije, pizza & zajtrk v Riedlingenu",

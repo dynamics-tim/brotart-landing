@@ -65,6 +65,13 @@ export type SiteContent = {
     };
     whatsappLabel: string;
   };
+  floatingCta: {
+    label: string;
+    phoneDisplay: string;
+    ariaLabel: string;
+    showPriceBadge: boolean;
+    priceBadge: string;
+  };
   specialties: {
     eyebrow: string;
     title: string;
