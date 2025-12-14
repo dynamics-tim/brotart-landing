@@ -37,7 +37,7 @@ export default function LanguageSwitcher({ variant = "desktop" }: LanguageSwitch
 
   const labelId = useMemo(() => `language-switcher-${variant}`, [variant]);
   const current = localeOptions.find((opt) => opt.value === locale) ?? localeOptions[0];
-  const currentLabel = SHORT_LABEL[current.value as Locale] ?? current.label;
+  // const currentLabel = SHORT_LABEL[current.value as Locale] ?? current.label;
 
   useEffect(() => {
     if (isOpen && buttonRef.current) {
