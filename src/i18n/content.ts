@@ -62,9 +62,6 @@ export type SiteContent = {
     galleryLabels: {
       aria: string;
       fallback: string;
-      previous: string;
-      next: string;
-      dot: string;
     };
     whatsappLabel: string;
   };

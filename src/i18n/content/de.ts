@@ -56,9 +56,6 @@ export const baseContent: SiteContent = {
     galleryLabels: {
       aria: "Hero Galerie",
       fallback: "Galerie folgt in Kürze",
-      previous: "Vorheriges Bild",
-      next: "Nächstes Bild",
-      dot: "Bild anzeigen",
     },
     whatsappLabel: "News & Angebote via WhatsApp",
   },

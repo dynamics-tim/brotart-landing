@@ -319,9 +319,6 @@ const values: ValueCard[] = [
       galleryLabels: {
         aria: "Galerija hero",
         fallback: "Galerija sledi kmalu",
-        previous: "Prejšnja slika",
-        next: "Naslednja slika",
-        dot: "Prikaži sliko",
       },
       whatsappLabel: "Novice in ponudbe prek WhatsApp",
     },

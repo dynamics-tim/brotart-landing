@@ -118,94 +118,89 @@ type HeroGalleryProps = {
   labels: {
     aria: string;
     fallback: string;
-    previous: string;
-    next: string;
-    dot: string;
   };
 };
 
 function HeroGallery({ images, labels }: HeroGalleryProps) {
   const slides = useMemo(() => images.filter(Boolean), [images]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [parallaxOffset, setParallaxOffset] = useState(0);
-  const galleryRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
   const derivedIndex = slides.length ? activeIndex % slides.length : 0;
 
+  // Auto-rotation with progress tracking
   useEffect(() => {
-    if (slides.length <= 1 || isPaused) return undefined;
+    if (slides.length <= 1) return undefined;
 
-    const id = window.setInterval(() => {
+    const progressInterval = window.setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) return 0;
+        return prev + (100 / (AUTO_ROTATE_INTERVAL / 50));
+      });
+    }, 50);
+
+    const rotationInterval = window.setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
+      setProgress(0);
     }, AUTO_ROTATE_INTERVAL);
 
-    return () => window.clearInterval(id);
-  }, [slides.length, isPaused]);
-
-  useEffect(() => {
-    if (!isPaused) return undefined;
-    const timeout = window.setTimeout(() => setIsPaused(false), MANUAL_PAUSE_DURATION);
-    return () => window.clearTimeout(timeout);
-  }, [isPaused]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!galleryRef.current) return;
-      const rect = galleryRef.current.getBoundingClientRect();
-      const scrollProgress = Math.max(0, Math.min(1, 1 - rect.top / window.innerHeight));
-      setParallaxOffset(scrollProgress * 30);
+    return () => {
+      window.clearInterval(progressInterval);
+      window.clearInterval(rotationInterval);
     };
+  }, [slides.length]);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const goToSlide = (index: number) => {
-    if (!slides.length) return;
-    const nextIndex = (index + slides.length) % slides.length;
-    setActiveIndex(nextIndex);
-    if (slides.length > 1) {
-      setIsPaused(true);
+  // Preload next image for smooth transitions
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    
+    const nextIndex = (derivedIndex + 1) % slides.length;
+    const nextSlide = slides[nextIndex];
+    
+    if (nextSlide && typeof nextSlide.src !== "string") {
+      const img = new window.Image();
+      img.src = nextSlide.src.src;
     }
-  };
+  }, [derivedIndex, slides]);
 
   const activeSlide = slides[derivedIndex];
 
   return (
-    <div className="space-y-4 rounded-[28px] border border-stone-100/80 bg-gradient-to-b from-white/85 via-white to-white/90 p-4 shadow-inner shadow-brotart-50/40">
-      <div
-        ref={galleryRef}
-        className="relative overflow-hidden rounded-2xl bg-stone-950/5 shadow-lg"
-        aria-label={labels.aria}
-        style={{ transform: `translateY(${parallaxOffset}px)` }}
-      >
-        <div className="relative aspect-[4/3] w-full">
+    <div className="rounded-2xl border border-stone-100/80 bg-gradient-to-br from-white/95 via-white/90 to-brotart-50/20 p-3 shadow-lg shadow-brotart-100/30 sm:rounded-3xl sm:p-4">
+      <div className="relative overflow-hidden rounded-xl bg-stone-950/5 shadow-md sm:rounded-2xl" aria-label={labels.aria}>
+        <div className="relative aspect-[16/10] w-full sm:aspect-[4/3]">
           {slides.map((slide, index) => {
-            const shouldRender =
-              index === derivedIndex || (slides.length > 1 && index === (derivedIndex + 1) % slides.length);
+            const isActive = index === derivedIndex;
+            const isNext = slides.length > 1 && index === (derivedIndex + 1) % slides.length;
+            const isPrevious = slides.length > 1 && index === (derivedIndex - 1 + slides.length) % slides.length;
+            
+            // Only render active, next (for preload), and previous (for smooth exit)
+            const shouldRender = isActive || isNext || isPrevious;
             if (!shouldRender) return null;
+
+            // Determine priority and loading strategy
+            const isFirstThree = index < 3;
+            const loadingPriority = index === 0 ? "eager" : isFirstThree ? "lazy" : "lazy";
+            const hasPriority = index === 0;
+            const fetchPrio = index === 0 ? "high" : index === 1 ? "low" : undefined;
 
             return (
               <div
                 key={`${typeof slide.src === "string" ? slide.src : slide.src.src}-${index}`}
-                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                  index === derivedIndex ? "opacity-100" : "opacity-0"
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  isActive ? "opacity-100" : "opacity-0"
                 }`}
-                aria-hidden={index !== derivedIndex}
+                aria-hidden={!isActive}
               >
                 <Image
                   src={slide.src}
                   alt={slide.alt}
                   fill
-                  priority={index === 0}
-                  fetchPriority={index === 0 ? "high" : undefined}
-                  loading={index === 0 ? "eager" : "lazy"}
+                  priority={hasPriority}
+                  fetchPriority={fetchPrio}
+                  loading={loadingPriority}
                   placeholder={typeof slide.src === "string" ? "empty" : "blur"}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1100px"
-                  className={`h-full w-full object-cover transition-transform duration-[5000ms] ease-linear ${
-                    index === derivedIndex ? "scale-105" : "scale-100"
-                  }`}
+                  className="h-full w-full object-cover"
                 />
               </div>
             );
@@ -217,60 +212,31 @@ function HeroGallery({ images, labels }: HeroGalleryProps) {
             </div>
           )}
 
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/45 via-stone-950/0" />
+          {/* Subtle gradient overlay for depth */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/30 via-transparent to-transparent" />
+
+          {/* Progress indicator */}
           {slides.length > 1 && (
-            <>
-              <div className="absolute inset-y-0 left-0 flex items-center px-1 sm:px-3">
-                <button
-                  type="button"
-                  onClick={() => goToSlide(derivedIndex - 1)}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brotart-200 bg-brotart-200/20 text-stone-900 transition hover:-translate-x-0.5 hover:bg-brotart-100/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
-                >
-                  <span className="sr-only">{labels.previous}</span>
-                  <span aria-hidden="true" className="text-lg leading-none">
-                    {"<"}
-                  </span>
-                </button>
-              </div>
-              <div className="absolute inset-y-0 right-0 flex items-center px-1 sm:px-3">
-                <button
-                  type="button"
-                  onClick={() => goToSlide(derivedIndex + 1)}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brotart-200 bg-brotart-100/20 text-stone-900 transition hover:translate-x-0.5 hover:bg-brotart-100/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
-                >
-                  <span className="sr-only">{labels.next}</span>
-                  <span aria-hidden="true" className="text-lg leading-none">
-                    {">"}
-                  </span>
-                </button>
-              </div>
-            </>
+            <div className="absolute inset-x-0 bottom-0 h-1 bg-stone-900/20 backdrop-blur-sm">
+              <div
+                className="h-full bg-gradient-to-r from-brotart-400 to-brotart-600 transition-all duration-100 ease-linear"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          )}
+
+          {/* Slide counter badge */}
+          {slides.length > 1 && (
+            <div className="absolute right-3 top-3 rounded-full bg-stone-900/60 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm sm:px-3.5 sm:py-2 sm:text-sm">
+              {derivedIndex + 1} / {slides.length}
+            </div>
           )}
         </div>
-        {activeSlide && (
-          <span className="sr-only" aria-live="polite">
-            {activeSlide.alt}
-          </span>
-        )}
 
-        {slides.length > 1 && (
-          <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2">
-            {slides.map((slide, index) => {
-              const isActive = index === derivedIndex;
-              return (
-                <button
-                  key={`dot-${slide.src}-${index}`}
-                  type="button"
-                  onClick={() => goToSlide(index)}
-                  className={`h-2.5 rounded-full transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                    isActive ? "w-8 bg-white" : "w-2.5 bg-white/50 hover:bg-white/80"
-                  }`}
-                  aria-label={`${labels.dot} ${index + 1}`}
-                  aria-current={isActive ? "true" : undefined}
-                />
-              );
-            })}
-          </div>
+        {activeSlide && (
+          <span className="sr-only" aria-live="polite" aria-atomic="true">
+            {activeSlide.alt}. Bild {derivedIndex + 1} von {slides.length}
+          </span>
         )}
       </div>
     </div>

@@ -318,9 +318,6 @@ const values: ValueCard[] = [
       galleryLabels: {
         aria: "Hero gallery",
         fallback: "Gallery coming soon",
-        previous: "Previous image",
-        next: "Next image",
-        dot: "Show image",
       },
       whatsappLabel: "News & offers via WhatsApp",
     },
