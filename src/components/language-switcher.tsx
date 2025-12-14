@@ -67,7 +67,6 @@ export default function LanguageSwitcher({ variant = "desktop" }: LanguageSwitch
           >
             {FLAG_ICON[current.value as Locale]}
           </span>
-          <span className="text-sm tracking-wide">{currentLabel}</span>
         </span>
         <span aria-hidden="true" className="text-xs text-stone-500">
           {isOpen ? "▴" : "▾"}
@@ -96,7 +95,6 @@ export default function LanguageSwitcher({ variant = "desktop" }: LanguageSwitch
               <span aria-hidden="true" className="text-lg leading-none">
                 {FLAG_ICON[option.value as Locale]}
               </span>
-              <span className="tracking-wide">{SHORT_LABEL[option.value as Locale] ?? option.label}</span>
             </button>
           ))}
         </div>
