@@ -6,6 +6,7 @@ import type { Locale } from "@/i18n/locales";
 
 type LanguageSwitcherProps = {
   variant?: "desktop" | "mobile";
+  placement?: "header" | "drawer";
 };
 
 const FLAG_ICON: Record<Locale, string> = {
@@ -20,7 +21,7 @@ const SHORT_LABEL: Record<Locale, string> = {
   sl: "SL",
 };
 
-export default function LanguageSwitcher({ variant = "desktop" }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ variant = "desktop", placement = "header" }: LanguageSwitcherProps) {
   const { locale, setLocale, localeOptions, content } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
@@ -78,7 +79,7 @@ export default function LanguageSwitcher({ variant = "desktop" }: LanguageSwitch
           ref={listRef}
           role="listbox"
           aria-labelledby={labelId}
-          className={`absolute ${variant === "mobile" ? "bottom-full mb-2" : "top-full mt-1"} right-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg shadow-stone-200/70 z-50`}
+          className={`absolute ${placement === "drawer" ? "bottom-full mb-2" : "top-full mt-1"} right-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg shadow-stone-200/70 z-50`}
           style={{ width: dropdownWidth ? `${dropdownWidth}px` : undefined }}
         >
           {localeOptions.map((option) => (

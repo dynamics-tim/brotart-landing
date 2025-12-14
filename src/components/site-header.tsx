@@ -96,11 +96,11 @@ export default function SiteHeader() {
         }`}
       >
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-          <div className="flex items-center justify-between gap-3 py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-2 py-3 sm:py-4">
             <Link
               href="#start"
               onClick={handleLogoClick}
-              className="group flex items-center gap-2 sm:gap-3 transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500 rounded-full"
+              className="group flex items-center gap-2 sm:gap-3 transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500 rounded-full flex-shrink-0"
               aria-label={nav.logoAriaLabel}
             >
               <div className="flex h-9 w-auto sm:h-10 items-center justify-center rounded-full bg-gradient-to-br from-brotart-600 to-brotart-400 px-2.5 sm:px-3 text-xs sm:text-sm font-black text-white shadow-lg shadow-brotart-300/50 transition-shadow group-hover:shadow-brotart-400/70 font-[var(--font-orbitron)] tracking-wider italic">
@@ -112,7 +112,7 @@ export default function SiteHeader() {
               </div>
             </Link>
 
-            <div className="lg:hidden flex items-center justify-center gap-1.5 flex-1 px-2">
+            <div className="lg:hidden flex items-center justify-center gap-1.5 flex-1 min-w-0 px-1">
               {nav.links.map((link) => {
                 const isActive = link.href === activeHref;
                 return (
@@ -122,7 +122,7 @@ export default function SiteHeader() {
                       const anchor = event as unknown as MouseEvent<HTMLAnchorElement>;
                       handleNavClick(anchor, link.href);
                     }}
-                    className="group p-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500 rounded"
+                    className="group p-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500 rounded flex-shrink-0"
                     aria-label={`${nav.jumpToLabel} ${link.label} springen`}
                     aria-current={isActive ? "page" : undefined}
                   >
@@ -158,23 +158,26 @@ export default function SiteHeader() {
                   );
                 })}
               </nav>
-              <LanguageSwitcher variant="desktop" />
+              <LanguageSwitcher variant="desktop" placement="header" />
             </div>
 
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition-colors hover:bg-stone-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500"
-              aria-label={isMenuOpen ? nav.closeLabel : nav.openLabel}
-              aria-expanded={isMenuOpen}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+            <div className="lg:hidden flex items-center gap-1.5 flex-shrink-0">
+              <LanguageSwitcher variant="mobile" placement="header" />
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition-colors hover:bg-stone-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brotart-500 flex-shrink-0"
+                aria-label={isMenuOpen ? nav.closeLabel : nav.openLabel}
+                aria-expanded={isMenuOpen}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  {isMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -247,7 +250,7 @@ export default function SiteHeader() {
 
           <div className="p-4 border-t border-stone-200 bg-stone-50">
             <div className="flex items-center gap-3">
-              <LanguageSwitcher variant="mobile" />
+              <LanguageSwitcher variant="mobile" placement="drawer" />
               <a
                 href={`tel:${contactInfo.phone}`}
                 className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-brotart-600 px-4 py-3 text-base font-semibold text-white shadow-lg shadow-brotart-400/30 transition-all hover:bg-brotart-500 hover:shadow-brotart-400/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500"
