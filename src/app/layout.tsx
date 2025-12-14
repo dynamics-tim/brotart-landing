@@ -32,11 +32,11 @@ const heroOgImage = `${baseUrl}/images/hero-borek.jpg`;
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Balkan Bäckerei-Pizza-Grill (Brotart) - Börek, Mantije & Pizza in Riedlingen",
+    default: "Balkan Bäckerei-Pizza-Grill - Börek, Mantije & Pizza Riedlingen",
     template: "%s | Balkan Bäckerei-Pizza-Grill Riedlingen",
   },
   description:
-    "Balkan Bäckerei-Pizza-Grill-(Brotart) in Riedlingen: Börek, Mantije, Pizza, Frühstück und Snacks zum Mitnehmen - täglich von 05:00 bis 22:00 Uhr in der Neuen Unlinger Str. 19/1, 88499 Riedlingen. Jetzt anrufen: 07371 1296664.",
+    "Balkan Bäckerei in Riedlingen: Börek, Mantije, Pizza & Frühstück zum Mitnehmen. Täglich 05:00-22:00 Uhr. Tel: 07371 1296664.",
   keywords: [
     "Balkan Bäckerei Riedlingen",
     "Börek Neue Unlinger Str 19/1",

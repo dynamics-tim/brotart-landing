@@ -22,17 +22,12 @@ type I18nContextValue = {
 const I18nContext = createContext<I18nContextValue | null>(null);
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    // Lazy initialization: read from localStorage on mount
+    if (typeof window === "undefined") return DEFAULT_LOCALE;
     const stored = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    if (stored && isLocale(stored)) {
-      // We hydrate with a client preference if present; safe to defer to next paint.
-
-      setLocaleState(stored);
-    }
-  }, []);
+    return stored && isLocale(stored) ? stored : DEFAULT_LOCALE;
+  });
 
   useEffect(() => {
     if (typeof document !== "undefined") {
