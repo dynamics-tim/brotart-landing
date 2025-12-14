@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 export const revalidate = false;
 
-const baseUrl = "https://brotart.de";
+const baseUrl = "https://brotart-riedlingen.de";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
