@@ -319,6 +319,7 @@ const values: ValueCard[] = [
         aria: "Hero gallery",
         fallback: "Gallery coming soon",
       },
+      instagramLabel: "Follow us on Instagram",
       whatsappLabel: "News & offers via WhatsApp",
     },
     floatingCta: {

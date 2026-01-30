@@ -63,6 +63,7 @@ export type SiteContent = {
       aria: string;
       fallback: string;
     };
+    instagramLabel: string;
     whatsappLabel: string;
   };
   floatingCta: {

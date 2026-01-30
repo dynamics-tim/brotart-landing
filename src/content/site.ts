@@ -145,7 +145,11 @@ export type SocialLink = {
   handle: string;
 };
 
-export const SOCIAL_LINKS: SocialLink[] = [{ label: "Google Maps", href: CONTACT_INFO.mapsLink, handle: "Bewertungen" }];
+export const SOCIAL_LINKS: SocialLink[] = [
+  { label: "Instagram", href: "https://www.instagram.com/brotart_baeckerei", handle: "@brotart_baeckerei" },
+  { label: "WhatsApp", href: "https://whatsapp.com/channel/0029VbBa9yiIN9igZCneGa1W", handle: "News & Angebote" },
+  { label: "Google Maps", href: CONTACT_INFO.mapsLink, handle: "Bewertungen" },
+];
 
 export const GOOGLE_MAPS_EMBED =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.9327990446327!2d9.482023191558474!3d48.15010077615481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a33a082553fc3%3A0x9e93d68f8046cbc0!2sBalkan%20B%C3%A4ckerei-Pizza-Grill-(Brotart)%20-%20MANTIJE%20-%20BUREK!5e0!3m2!1sde!2sde!4v1765094047223!5m2!1sde!2sde";

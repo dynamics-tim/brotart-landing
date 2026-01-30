@@ -57,6 +57,7 @@ export const baseContent: SiteContent = {
       aria: "Hero Galerie",
       fallback: "Galerie folgt in Kürze",
     },
+    instagramLabel: "Folgt uns auf Instagram",
     whatsappLabel: "News & Angebote via WhatsApp",
   },
   floatingCta: {
@@ -120,7 +121,7 @@ export const baseContent: SiteContent = {
   },
   reviews: {
     eyebrow: "Bewertungen",
-    heading: "Was unsere Gaeste sagen",
+    heading: "Was unsere Gäste sagen",
     description:
       "Stimmen aus Riedlingen, Neufra und Umgebung: echte Erfahrungsberichte zu Börek, Frühstück, Pizza und Takeaway der Balkan Bäckerei-Pizza-Grill-(Brotart).",
     buttonLabel: "Alle Rezensionen auf Google lesen",
