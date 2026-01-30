@@ -25,9 +25,9 @@ export function createEnglishContent(): DeepPartial<SiteContent> {
   ];
 
     const heroBadges: HeroBadge[] = [
-    { label: "New since 2024", detail: "Family-run" },
-    { label: "Open daily", detail: "05:00 - 22:00" },
-    { label: "Oven-fresh", detail: "Börek · Pizza · Bread" },
+    { label: "New since 2024", detail: "Family-run", icon: "👨‍👩‍👧‍👦" },
+    { label: "Open daily", detail: "05:00 - 22:00", icon: "🕐" },
+    { label: "Oven-fresh", detail: "Börek · Pizza · Bread", icon: "🔥" },
   ];
 
   const specialties: Specialty[] = [

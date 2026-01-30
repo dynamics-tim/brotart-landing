@@ -63,10 +63,6 @@ export default function HeroSection() {
             <div className="absolute inset-0 animate-shine" />
             
             {/* Pulsing dot indicator */}
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
-            </span>
             
             <span aria-hidden="true" className="relative text-xl leading-none transition-transform group-hover:scale-110">
               {"\u260E"}
@@ -78,10 +74,10 @@ export default function HeroSection() {
             onClick={handleMenuClick}
             className="group inline-flex items-center justify-center gap-2 rounded-xl border-2 border-brotart-200 bg-white px-6 py-4 text-base font-semibold text-brotart-600 shadow-md transition-all hover:scale-105 hover:border-brotart-300 hover:bg-brotart-50 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brotart-500 sm:text-lg"
           >
-            <span aria-hidden="true" className="text-xl leading-none transition-transform group-hover:animate-bounce-subtle">
-              {"\u25BC"}
+            <span aria-hidden="true" className="text-xl leading-none transition-transform group-hover:scale-125 animate-arrow-bounce">
+              {"\u2B07\uFE0F"}
             </span>
-            <span>{hero.ctas.viewMenu}</span>
+            <span className="transition-transform group-hover:scale-110 duration-200">{hero.ctas.viewMenu}</span>
           </a>
         </div>
 
@@ -89,22 +85,7 @@ export default function HeroSection() {
           <HeroGallery images={galleryImages} labels={hero.galleryLabels} />
         </div>
 
-        <div className="opacity-0 animate-fade-in-up flex flex-wrap items-center gap-3" style={{ animationDelay: "400ms" }}>
-          {badges.map((badge) => (
-            <div
-              key={badge.label}
-              className="rounded-full border border-stone-200 bg-white px-4 py-2 text-xs shadow-sm sm:text-sm"
-            >
-              <span className="font-medium text-stone-950">{badge.label}</span>
-              <span className="mx-2 text-stone-300" aria-hidden="true">
-                {"\u00B7"}
-              </span>
-              <span className="text-stone-500">{badge.detail}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="opacity-0 animate-fade-in-up flex flex-col sm:flex-row gap-3 w-full sm:w-auto" style={{ animationDelay: "500ms" }}>
+        <div className="opacity-0 animate-fade-in-up flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center" style={{ animationDelay: "500ms" }}>
           <a
             href="https://www.instagram.com/brotart_baeckerei"
             target="_blank"
@@ -128,6 +109,23 @@ export default function HeroSection() {
             <span>{hero.whatsappLabel}</span>
           </a>
         </div>
+
+        <div className="opacity-0 animate-fade-in-up flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "400ms" }}>
+          {badges.map((badge) => (
+            <div
+              key={badge.label}
+              className="rounded-full border border-stone-200 bg-white px-4 py-2 text-xs shadow-sm sm:text-sm flex items-center gap-2"
+            >
+              {badge.icon && <span className="text-sm sm:text-base">{badge.icon}</span>}
+              <span className="font-medium text-stone-950">{badge.label}</span>
+              <span className="mx-2 text-stone-300" aria-hidden="true">
+                {"\u00B7"}
+              </span>
+              <span className="text-stone-500">{badge.detail}</span>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

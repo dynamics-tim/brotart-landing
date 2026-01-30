@@ -25,9 +25,9 @@ export function createSlovenianContent(): DeepPartial<SiteContent> {
   ];
 
     const heroBadges: HeroBadge[] = [
-    { label: "Novo 2024", detail: "Družinsko vodeno" },
-    { label: "Odprto vsak dan", detail: "05:00 - 22:00" },
-    { label: "Sveže iz peči", detail: "Börek · Pizza · Kruh" },
+    { label: "Novo 2024", detail: "Družinsko vodeno", icon: "👨‍👩‍👧‍👦" },
+    { label: "Odprto vsak dan", detail: "05:00 - 22:00", icon: "🕐" },
+    { label: "Sveže iz peči", detail: "Börek · Pizza · Kruh", icon: "🔥" },
   ];
 
   const specialties: Specialty[] = [

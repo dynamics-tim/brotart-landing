@@ -157,12 +157,13 @@ export const GOOGLE_MAPS_EMBED =
 export type HeroBadge = {
   label: string;
   detail: string;
+  icon?: string;
 };
 
 export const HERO_BADGES: HeroBadge[] = [
-  { label: "Neu seit 2024", detail: "Familiengeführt" },
-  { label: "Täglich offen", detail: "05:00 - 22:00 Uhr" },
-  { label: "Ofenfrisch", detail: "Börek · Pizza · Brot" },
+  { label: "Neu seit 2024", detail: "Familiengeführt", icon: "👨‍👩‍👧‍👦" },
+  { label: "Täglich offen", detail: "05:00 - 22:00 Uhr", icon: "🕐" },
+  { label: "Ofenfrisch", detail: "Börek · Pizza · Brot", icon: "🔥" },
 ];
 
 export type HeroContent = {
