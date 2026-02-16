@@ -320,7 +320,7 @@ const values: ValueCard[] = [
         fallback: "Gallery coming soon",
       },
       instagramLabel: "Follow us on Instagram",
-      whatsappLabel: "News & offers via WhatsApp",
+      facebookLabel: "Visit us on Facebook",
     },
     floatingCta: {
       label: "Order now",
@@ -430,7 +430,7 @@ const values: ValueCard[] = [
       eyebrow: "Contact & orders",
       heading: "We look forward to your visit or pre-order.",
       description:
-        "Call us, send a WhatsApp or drop by spontaneously – we always have something oven-fresh and pack it for takeaway.",
+        "Call us or drop by spontaneously – we always have something oven-fresh and pack it for takeaway.",
       highlights: [
         {
           label: "Phone",
@@ -548,7 +548,7 @@ const values: ValueCard[] = [
             paragraphs: [
               "Phone: We see your phone number when you call; it is used only to handle the request (Art. 6(1)(b/f) GDPR).",
               "Email: Content and metadata are processed by our email provider; please avoid sending sensitive data via email.",
-              "WhatsApp: Links to wa.me or our WhatsApp channel lead to a Meta service (WhatsApp Ireland/LLC, USA). Using it processes your phone number, IP, device and usage data under WhatsApp's policy. Legal basis: your voluntary use/consent.",
+              "Facebook: Links to our Facebook page lead to a Meta service (Meta Platforms Ireland Ltd./Meta Platforms Inc., USA). Using it processes your IP address, device and usage data under Meta's privacy policy. Legal basis: your voluntary use/consent.",
             ],
           },
           {

@@ -64,7 +64,7 @@ export type SiteContent = {
       fallback: string;
     };
     instagramLabel: string;
-    whatsappLabel: string;
+    facebookLabel: string;
   };
   floatingCta: {
     label: string;

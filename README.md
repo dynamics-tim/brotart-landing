@@ -48,7 +48,7 @@ Noetig sind lediglich die standardmaessigen GitHub-Pages-Permissions (`contents:
 - `npm run build` stellt sicher, dass der statische Export inklusive JSON-Parsing funktioniert.
 - Manuelle Sichtpruefung in Desktop- und mobilen Breakpoints (Navigation, Section-Scroll, Karten-Embed).
 - Accessibility-Check: Skip-Link, Fokus-Styling, Heading-Hierarchie.
-- Funktionslinks pruefen: `tel:`, `mailto:`, WhatsApp, Google-Maps-Link.
+- Funktionslinks pruefen: `tel:`, `mailto:`, Facebook, Google-Maps-Link.
 - Nach Export Sicherstellen, dass `out/sitemap.xml` und `out/robots.txt` vorhanden sind.
 
 ## Naechste Schritte (optional)

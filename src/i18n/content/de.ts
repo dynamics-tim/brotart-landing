@@ -58,7 +58,7 @@ export const baseContent: SiteContent = {
       fallback: "Galerie folgt in Kürze",
     },
     instagramLabel: "Folgt uns auf Instagram",
-    whatsappLabel: "News & Angebote via WhatsApp",
+    facebookLabel: "Besucht uns auf Facebook",
   },
   floatingCta: {
     label: "Jetzt bestellen",
@@ -162,7 +162,7 @@ export const baseContent: SiteContent = {
     eyebrow: "Kontakt & Bestellung",
     heading: "Wir freuen uns auf Ihren Besuch oder Ihre Vorbestellung.",
     description:
-      "Rufen Sie an, schreiben Sie eine WhatsApp oder kommen Sie spontan vorbei – wir halten immer etwas Ofenfrisches bereit und packen es für Takeaway ein.",
+      "Rufen Sie an oder kommen Sie spontan vorbei – wir halten immer etwas Ofenfrisches bereit und packen es für Takeaway ein.",
     highlights: CONTACT_HIGHLIGHTS,
     socialHeading: "Social & Presse",
     socialLinks: SOCIAL_LINKS,
@@ -262,7 +262,7 @@ export const baseContent: SiteContent = {
           paragraphs: [
             "Telefon: Bei Anruf sehen wir Ihre Rufnummer; sie wird nur zur Bearbeitung der Anfrage genutzt (Art. 6 Abs. 1 lit. b/f DSGVO).",
             "E-Mail: Inhalte und Metadaten werden von unserem E-Mail-Provider verarbeitet; bitte keine sensiblen Daten per E-Mail senden.",
-            "WhatsApp: Links zu wa.me bzw. unserem WhatsApp-Channel führen zu einem Dienst von Meta (WhatsApp Ireland/LLC, USA). Bei Nutzung verarbeitet WhatsApp Ihre Telefonnummer, IP, Geräte- und Nutzungsdaten nach deren Datenschutzrichtlinie. Rechtsgrundlage: Ihre freiwillige Nutzung/Einwilligung.",
+            "Facebook: Links zu unserer Facebook-Seite führen zu einem Dienst von Meta Platforms Ireland Ltd. (4 Grand Canal Square, Dublin 2, Irland) / Meta Platforms Inc. (USA). Bei Nutzung verarbeitet Meta Ihre IP-Adresse, Geräte- und Nutzungsdaten nach deren Datenschutzrichtlinie. Rechtsgrundlage: Ihre freiwillige Nutzung/Einwilligung.",
           ],
         },
         {

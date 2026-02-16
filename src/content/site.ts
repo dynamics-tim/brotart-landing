@@ -90,7 +90,7 @@ export type ContactInfo = {
   taxId: string;
   displayPhone: string;
   email: string;
-  whatsapp: string;
+  facebook: string;
   mapsLink: string;
 };
 
@@ -105,7 +105,7 @@ export const CONTACT_INFO: ContactInfo = {
   taxId: "79446/11617",
   displayPhone: "07371 1296664",
   email: "baeckereibrotart@gmail.com",
-  whatsapp: "https://wa.me/4973711296664",
+  facebook: "https://www.facebook.com/profile.php?id=61587802967269",
   mapsLink: "https://maps.app.goo.gl/wvBW7zB8kgAzDZZc9",
 };
 
@@ -147,7 +147,7 @@ export type SocialLink = {
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: "Instagram", href: "https://www.instagram.com/brotart_baeckerei", handle: "@brotart_baeckerei" },
-  { label: "WhatsApp", href: "https://whatsapp.com/channel/0029VbBa9yiIN9igZCneGa1W", handle: "News & Angebote" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61587802967269", handle: "News & Angebote" },
   { label: "Google Maps", href: CONTACT_INFO.mapsLink, handle: "Bewertungen" },
 ];
 

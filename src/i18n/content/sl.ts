@@ -321,7 +321,7 @@ const values: ValueCard[] = [
         fallback: "Galerija sledi kmalu",
       },
       instagramLabel: "Sledite nam na Instagramu",
-      whatsappLabel: "Novice in ponudbe prek WhatsApp",
+      facebookLabel: "Obiščite nas na Facebooku",
     },
     floatingCta: {
       label: "Naroci zdaj",
@@ -431,7 +431,7 @@ const values: ValueCard[] = [
       eyebrow: "Kontakt & narocila",
       heading: "Veselimo se vašega obiska ali narocila.",
       description:
-        "Poklicite, pošljite WhatsApp ali pridite spontano – vedno imamo kaj sveže iz peci in zapakiramo za s sabo.",
+        "Poklicite ali pridite spontano – vedno imamo kaj sveže iz peci in zapakiramo za s sabo.",
       highlights: [
         {
           label: "Telefon",
@@ -549,7 +549,7 @@ const values: ValueCard[] = [
             paragraphs: [
               "Telefon: Ko poklicete, vidimo vašo številko; uporabljamo jo le za obravnavo zahteve (Art. 6(1)(b/f) GDPR).",
               "E-mail: Vsebino in metapodatke obdeluje naš ponudnik e-pošte; prosimo, ne pošiljajte obcutljivih podatkov po e-pošti.",
-              "WhatsApp: Povezave na wa.me oziroma naš kanal vodijo do storitve Meta (WhatsApp Ireland/LLC, ZDA). Uporaba obdeluje vašo telefonsko številko, IP, podatke o napravi in uporabi v skladu s politiko WhatsApp. Pravna podlaga: vaša prostovoljna uporaba/soglasje.",
+              "Facebook: Povezave na našo Facebook stran vodijo do storitve Meta (Meta Platforms Ireland Ltd./Meta Platforms Inc., ZDA). Uporaba obdeluje vaš IP-naslov, podatke o napravi in uporabi v skladu s politiko zasebnosti Meta. Pravna podlaga: vaša prostovoljna uporaba/soglasje.",
             ],
           },
           {
